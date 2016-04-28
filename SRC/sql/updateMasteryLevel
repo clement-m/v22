@@ -1,0 +1,9 @@
+IN pi INT 11
+IN masteryLevel INT 3
+
+IF((SELECT `masteryLevel`
+    FROM `player`
+    WHERE `idPlayer` = pi) <> masteryLevel)
+THEN
+	UPDATE `player` SET `masteryLevel` = masteryLevel WHERE `idPlayer` = pi;
+END IF

@@ -1,0 +1,9 @@
+BEGIN
+	DELETE FROM `match`;
+	DELETE FROM `matchplayers`;
+	DELETE FROM `player`;
+	DELETE FROM `god`;
+	DELETE FROM `rank`;
+	DELETE FROM `league`;
+	DELETE FROM `godsscores`;
+END

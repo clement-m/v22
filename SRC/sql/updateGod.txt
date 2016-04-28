@@ -1,0 +1,18 @@
+IN gi INT 5
+IN gn VARCHAR 25
+
+BEGIN
+DECLARE nbView INT(11);
+	IF((SELECT COUNT(*)
+   		FROM `god`
+   		WHERE `idGod` = gi) = 0)
+	THEN
+		INSERT INTO `god` VALUES (null,gi,gn,1);
+	ELSE
+		SET nbView = (SELECT `nbViewed` + 1
+    	FROM `god`
+    	WHERE `idGod` = gi);
+
+    	UPDATE `god` SET `nbViewed` = nbView WHERE `idGod` = gi;
+	END IF;
+END

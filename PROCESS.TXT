@@ -1,0 +1,89 @@
+USER => SMITE-PANTHEON
+SMITE-PANTHEON => index.php
+index.php => TWIG
+TWIG => index.html.twig
+index.html.twig => master.js
+master.js => JS envent (ENTER/BUTTON)
+EVENT => JS-getconnection(playerName)
+    JS => connexion.php (player)
+        connexion.php => JSON {session:"";response:"Approved"}
+        JSON => JS-getconnection()
+
+    JS-getconnection() => getStatus(player,session)
+
+        JS-getStatus(p,s) => JSON{statusId:"3";matchId:"41561511"}
+
+        JSON => JS-getStatus
+
+        JS-getStatus() => JS-createMatch()
+
+            JS-createMatch() => PHP createMatch
+
+                (1)PHP createMatch => BDD CALL createMatch(m)
+                (2)PHP createMatch => "matchReady" RETURN
+
+            JS-getPlayer() => PHP getPlayer
+
+                PHP getPlayer => API getPlayer()
+
+                PHP getPlayer => BDD CALL updatePlayer()
+
+                PHP getPlayer => BDD CALL updateGod()
+
+                PHP getPlayer => TWIG player.html.twig
+
+                TWIG => JS-getPlayer()
+
+            JS-getPlayer => TWIG(Player)
+        END
+    END
+END
+
+EVENT => JS-HAPPENED SOMETHING ?
+
+    (1)NOTREADY
+    JS => PHP RANK
+
+            PHP RANK => API getRank()
+
+            PHP RANK => BDD CALL updateRank()
+
+            PHP RANK => JSON rank
+
+            JSON => JS
+
+        JS => refreshRank()
+
+        JS => PHP LEAGUE
+
+                PHP LEAGUE => API getLEAGUE()
+
+                PHP LEAGUE => BDD CALL updateLEAGUE()
+
+                PHP LEAGUE => JSON LEAGUE
+
+                JSON => JS
+
+        JS => refreshLeague()
+
+        JS => PHP KDA
+
+                PHP KDA => API getKDA()
+
+                PHP KDA => BDD CALL updateKDA()
+
+                PHP KDA => JSON KDA
+
+                JSON => JS
+
+        JS => refreshKda()
+
+        JS => setMatchReady()
+    (2)READY
+
+    JS => getMatch()
+
+    JS => refreshMatch()
+
+    JS => refresh ViewMatch()
+END

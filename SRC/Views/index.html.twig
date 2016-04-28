@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Help to find counter in smite, find live all match players kda score elo..." />
+    <meta name="keywords" content="smite, live, match, kda, league, joust, conquest, arena, siege, score, all players" />
+
+    <title>Smite Pantheon</title>
+
+    <link type="image/png" rel="icon" href="favicon.png" />
+    <link type="text/css" media="screen" rel="stylesheet" href="src/css/style.css" />
+    <link type="text/css" media="screen" rel="stylesheet" href="src/css/jquery.css" />
+    <link type="text/css" media="screen" rel="stylesheet" href="lib/css/bootstrap.min.css" />
+    <link type="text/css" media="screen" rel="stylesheet" href="lib/css/bootstrap-theme.min.css" />
+
+    <script type="text/javascript" src="lib/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="src/js/master.js"></script>
+    <script type="text/javascript" src="src/js/ajaxQuery.js"></script>
+    <script type="text/javascript" src="src/js/interface.js"></script>
+</head>
+<body>
+    <input id="status" type="hidden" value="0" onchange="alert('tatata');" />
+    <div id="wrapper" class="container well">
+        <header class="panel-heading">
+            <img src="src/IMG/smite.png" class="img-responsive" width="20%" alt="Smite Pantheon" />
+            <h2>Know scores and counter your ennemies in smite matches</h2>
+        </header>
+        <div class="panel-body">
+            <div class="panel">
+                <div class="panel-heading"><h3>Enter your name to find a player in live match</h3></div>
+                <div class="panel-body">
+                    <div class="input-group">
+                        <input value="" id="startInput" class="form-control" name="player" placeholder="Search player in a live match" type="text" tabindex="1" />
+                        <div class="input-group-btn">
+                            <button id="startBtn" class="btn btn-default" type="button">SEARCH</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-heading">
+                    <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="gameMod">SEARCH PLAYER IN A LIVE MATCH</h1>
+                </div>
+                <img class="img-responsive" id="loader" src="src/IMG/GIFLOAD/loading.gif" alt="loading" />
+                <div class="panel-body">
+                    <div id="mod"></div>
+                    <table class="table">
+                        <thead>
+                            <th>Player Name</th>
+                            <th>God Name</th>
+                            <th>Mastery Level</th>
+                            <th>Average KDA</th>
+                            <th>Conquest</th>
+                            <th>Joust</th>
+                            <th>Duel</th>
+                        </thead>
+                        <tbody id="team1"></tbody>
+                        <tbody id="team2"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer class="panel-footer">
+            <a href="http://www.hirezstudios.com/"><img src="src/IMG/hr2.png" /></a>
+            <div class="pull-right" id="copyright">Copyright &#169;  smite-pantheon.com - beta 0.9.5</div>
+            <audio id="loadedaudio" src="loading.wav" autoload="auto"></audio>
+        </footer>
+    </div>
+</body>
+</html>

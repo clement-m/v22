@@ -1,0 +1,71 @@
+getPlayer
+BEGIN
+    IF((SELECT COUNT(*)
+        FROM `player`
+        WHERE `idPlayer`= pi ) > 0)
+    THEN
+        IF((SELECT `masteryLevel`
+            FROM `player`
+            WHERE `idPlayer` = pi) <> masteryLevel)
+        THEN
+            UPDATE `player` SET `masteryLevel` = masteryLevel WHERE `idPlayer` = pi;
+        END IF;
+
+        SELECT *
+        FROM `matchplayers`,`god`,`player`
+        WHERE `matchId` = matchid
+        AND `matchplayers`.`matchId` = m
+        AND `matchplayers`.`playerId` = `player`.`idPlayer`
+        AND `god`.`idGod` = `matchplayers`.`godId`;
+    ELSE
+        INSERT INTO `player` VALUES (pi, pn, masteryLevel, 0);
+        INSERT INTO `matchplayers` VALUES(pi, matchid, gi, taskForce);
+
+        SELECT *
+        FROM `matchplayers`,`god`,`player`
+        WHERE `matchId` = matchid
+        AND `matchplayers`.`matchId` = m
+        AND `matchplayers`.`playerId` = `player`.`idPlayer`
+        AND `god`.`idGod` = `matchplayers`.`godId`;
+    END IF;
+END
+
+
+
+
+
+
+
+
+
+getMasteryLevelToUpdate()
+
+-on prend les joueurs qui n'ont pas de rank on renvoie leurs id,noms
+
+SELECT `player`.*
+FROM `matchplayers`,`player`
+LEFT JOIN `rank` ON `matchplayers`.`playerId` = `rank`.`playerId`
+WHERE `matchplayers`.`matchId` = m
+AND `matchplayers`.`playerId` = `player`.`idPlayer`
+
+getGodScoreToUpdate()
+
+-on prend les joueurs qui n'ont pas de rank on renvoie leurs id,noms
+
+SELECT `player`.*
+FROM `matchplayers`,`player`
+LEFT JOIN `godsscores` ON `matchplayers`.`playerId` = `godsscores`.`playerId`
+WHERE `matchplayers`.`matchId` = m
+AND `matchplayers`.`playerId` = `player`.`idPlayer`
+
+getLeagueToUpdate()
+
+-on prend les joueurs qui n'ont pas de rank on renvoie leurs id,noms
+
+SELECT `player`.*
+FROM `matchplayers`,`player`
+LEFT JOIN `rank` ON `matchplayers`.`playerId` = `rank`.`playerId`
+WHERE `matchplayers`.`matchId` = m
+AND `matchplayers`.`playerId` = `player`.`idPlayer`
+
+

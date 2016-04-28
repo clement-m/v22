@@ -1,0 +1,8 @@
+IN gi INT 5
+
+IF(SELECT count(*)
+   FROM `god`
+   WHERE `idGod` = gi = 0)
+THEN
+	INSERT INTO `god` VALUES (gi, "test");
+END IF
