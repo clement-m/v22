@@ -2,7 +2,7 @@ function createMatch(m) {
     $.ajax({ url: "Ajax/createMatch.php", type: "POST", data: "matchid="+m });
 }
 
-function showPlayer(taskForce,GodName) {
+function showPlayer(taskForce, GodName, playerName, Account_Level) {
     $.ajax({
         url: "Ajax/showPlayer.php", type: "POST", data: "taskForce="+taskForce+"&GodName="+GodName,
         success: function(html) {
@@ -18,7 +18,7 @@ function showPlayer(taskForce,GodName) {
     });
 }
 
-function showRank(playerId,godId,m,s,taskForce,GodName) {
+function showRank(playerId, godId, m, s, taskForce, GodName) {
     $.ajax({
         url: "Ajax/showRank.php", type: "POST", data: "playerId="+playerId+"&godId="+godId+"&m="+m+"&s="+s,
         success: function(html) {

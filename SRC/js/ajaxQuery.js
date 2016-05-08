@@ -8,7 +8,10 @@ function getConnection() {
             var response = r.ret_msg;
             var session = r.session_id;
             var timestamp = r.timestamp;
-            if(response == "Approved") getStatus($('input[name="player"]').val(),session);
+            if(response == "Approved"){
+                getStatus($('input[name="player"]').val(),session);
+                $('#funcConnexion').text('OK');
+            }
         }
     });
 }
@@ -26,8 +29,11 @@ function getStatus(p,s) {
             var matchId = r.Match;
             var playerMsg = r.personal_status_message;
             displayStatus(statusString);
+            $('#funcStatus').text(statusString);
+
             $('#match').empty();
             if(statusId == 3) {
+                clearBoard();
                 $.when(createMatch(matchId)).then(function(){
                     showMatch(matchId,s);
                 });
@@ -37,50 +43,155 @@ function getStatus(p,s) {
 }
 
 function showMatch(m,s) {
-    var players;
-    var Account_Level;
-    var GodName;
-    var mastery_Level;
-    var Match;
-    var Queue;
-    var SkinId;
-    var Tier;
-    var playerCreated;
-    var playerName;
-    var ret_msg;
-    var tierLosses;
-    var tierWins;
-    var playerId;
-    var godId;
-    var taskForce;
+    var rankAssists;
+    var rankDeaths;
+    var rankKills;
+    var rankLosses;
+    var rankMinionKills;
+    var rankRank; // toshow
+    var rankWins;
+    var rankWorshippers; // toshow
+    var rankgodName;
+    var rankgi;
+    var rankpi;
+    var rankret_msg;
 
-    $.ajax({
-        url: "Ajax/getPlayers.php",
-        type: "POST",
-        data: "matchid="+m+"&session="+s,
-        success: function(json) {
-            var players = JSON.parse(json);
-            players.forEach(function(player) {
-                Account_Level = player.Account_Level;
-                GodName = player.GodName;
-                mastery_Level = player.mastery_Level;
-                Match = player.Match;
-                Queue = player.Queue;
-                SkinId = player.SkinId;
-                Tier = player.Tier;
-                playerCreated = player.playerCreated;
-                playerName = player.playerName;
-                ret_msg = player.ret_msg;
-                tierLosses = player.tierLosses;
-                tierWins = player.tierWins;
-                playerId = player.playerId;
-                godId = player.GodId;
-                taskForce = player.taskForce;
+    var kdaAssists;
+    var kdaDeaths;
+    var kdaKills;
+    var kdaLosses;
+    var kdaGold;
+    var kdaWins;
+    var kdagodName;
+    var kdagi;
+    var kdapi;
+    var kdaret_msg;
+    var kdalastPlayed;
+    var kdamatches;
+    var kdaminutes;
+    var kdaQueueName;
+    var kdanbMatch;
+    var kdaavgKills;
+    var kdaavgDeaths;
+    var kdaavgAssists;
+    var kdaPMI;
 
-                playerId = parseInt(playerId);
-                $.when(
-                    showMatch(taskForce,GodName,playerId,godId,m,s)
-                ).then(function() {
+    var leagueAvatar_URL;
+    var leagueCreated_Datetime;
+    var leagueplayerId;
+    var leagueLast_Login_Datetime;
+    var leagueLeaves;
+    var leagueLevel;
+    var leagueLosses;
+    var leagueMasteryLevel;
+    var leagueName;
+    var leagueRank_Stat_Conquest;
+    var leagueRank_Stat_Duel;
+    var leagueRank_Stat_Joust;
+    var leagueRankedConquest;
+    var leagueConqLeaves;
+    var leagueConqLosses;
+    var leagueConqName;
+    var leagueConqPoints;
+    var leagueConqPrevRank;
+    var leagueConqRank;
+    var leagueConqRank_Stat_Conq;
+    var leagueConqRank_Stat_Duel;
+    var leagueConqRank_Stat_Joust;
+    var leagueConqSeason;
+    var leagueConqTier;
+    var leagueConqTrend;
+    var leagueConqWins;
+    var leagueConqpi;
+    var leagueConqret_msg;
+    var leagueDuelLeaves;
+    var leagueDuelLosses;
+    var leagueDuelName;
+    var leagueDuelPoints;
+    var leagueDuelPrevRank;
+    var leagueDuelRank;
+    var leagueDuelRank_Stat_Conq;
+    var leagueDuelRank_Stat_Duel;
+    var leagueDuelRank_Stat_Joust;
+    var leagueDuelSeason;
+    var leagueDuelTier;
+    var leagueDuelTrend;
+    var leagueDuelWins;
+    var leagueDuelpi;
+    var leagueDuelret_msg;
+    var leagueJoustLeaves;
+    var leagueJoustLosses;
+    var leagueJoustName ;
+    var leagueJoustPoints;
+    var leagueJoustPrevRank;
+    var leagueJoustRank;
+    var leagueJoustRank_Stat_Conq;
+    var leagueJoustRank_Stat_Duel;
+    var leagueJoustRank_Stat_Joust;
+    var leagueJoustSeason;
+    var leagueJoustTier;
+    var leagueJoustTrend;
+    var leagueJoustWins;
+    var leagueJoustpi;
+    var leagueJoustret_msg;
+
+    $.when(
+        $.ajax({
+            url: "Ajax/getPlayers.php",
+            type: "POST",
+            data: "matchid="+m+"&session="+s,
+            success: function(json) {
+                var players = JSON.parse(json);
+                players.forEach(function(player) {
+                    var Account_Level = player.Account_Level;
+                    var GodName = player.GodName;
+                    var mastery_Level = player.mastery_Level;
+                    var Match = player.Match;
+                    var Queue = player.Queue;
+                    var SkinId = player.SkinId;
+                    var Tier = player.Tier;
+                    var playerCreated = player.playerCreated;
+                    var playerName = player.playerName;
+                    var ret_msg = player.ret_msg;
+                    var tierLosses = player.tierLosses;
+                    var tierWins = player.tierWins;
+                    var playerId = player.playerId;
+                    var godId = player.GodId;
+                    var taskForce = player.taskForce;
+
+                    playerId = parseInt(playerId);
+
+                    showMatchProcedure(taskForce, GodName, playerId, playerName, godId, m, s, Account_Level),
+                    $('#funcShowDataStored').text('OK');
+                });
+            }
+        })
+    ).then(function() {
+        $.ajax({
+            url: "Ajax/getPlayers.php",
+            type: "POST",
+            data: "matchid="+m+"&session="+s,
+            success: function(json) {
+                var players = JSON.parse(json);
+                players.forEach(function(player) {
+                    var Account_Level = player.Account_Level;
+                    var GodName = player.GodName;
+                    var mastery_Level = player.mastery_Level;
+                    var Match = player.Match;
+                    var Queue = player.Queue;
+                    var SkinId = player.SkinId;
+                    var Tier = player.Tier;
+                    var playerCreated = player.playerCreated;
+                    var playerName = player.playerName;
+                    var ret_msg = player.ret_msg;
+                    var tierLosses = player.tierLosses;
+                    var tierWins = player.tierWins;
+                    var playerId = player.playerId;
+                    var godId = player.GodId;
+                    var taskForce = player.taskForce;
+
+                    var playerId = parseInt(playerId);
+
                     $.ajax({
                         url: "API/getRank.php",
                         type: "POST",
@@ -88,23 +199,24 @@ function showMatch(m,s) {
                         success: function (json2) {
                             var rank = JSON.parse(json2);
                             rank.forEach(function (arank) {
-                                var Assists = arank.Assists;
-                                var Deaths = arank.Deaths;
-                                var Kills = arank.Kills;
-                                var Losses = arank.Losses;
-                                var MinionKills = arank.MinionKills;
-                                var Rank = arank.Rank; // toshow
-                                var Wins = arank.Wins;
-                                var Worshippers = arank.Worshippers; // toshow
-                                var godName = arank.god;
-                                var gi = parseInt(arank.god_id);
-                                var pi = arank.player_id;
-                                var ret_msg = arank.ret_msg;
-                                if (gi == godId) {
+                                rankAssists = arank.Assists;
+                                rankDeaths = arank.Deaths;
+                                rankKills = arank.Kills;
+                                rankLosses = arank.Losses;
+                                rankMinionKills = arank.MinionKills;
+                                rankRank = arank.Rank; // toshow
+                                rankWins = arank.Wins;
+                                rankWorshippers = arank.Worshippers; // toshow
+                                rankgodName = arank.god;
+                                rankgi = parseInt(arank.god_id);
+                                rankpi = arank.player_id;
+                                rankret_msg = arank.ret_msg;
+                                if (rankgi == godId) {
                                     $('#'+ taskForce  + GodName + ' .rank').empty();
-                                    $('#'+ taskForce  + GodName + ' .rank').append('<img src="src/IMG/masteryLvl/m' + Rank + '.jpg" alt="mastery Level" />');
+                                    $('#'+ taskForce  + GodName + ' .rank').append('<img src="src/IMG/masteryLvl/m' + rankRank + '.jpg" alt="mastery Level" />');
                                 }
                             });
+                            $('#funcAPIGetRank').text('OK');
                         }
                     }),
                     $.ajax({
@@ -114,31 +226,32 @@ function showMatch(m,s) {
                         success: function (json2) {
                             var kda = JSON.parse(json2);
                             kda.forEach(function (akda) {
-                                var Assists = akda.Assists;
-                                var Deaths = akda.Deaths;
-                                var Kills = akda.Kills;
-                                var Losses = akda.Losses;
-                                var Gold = akda.Gold;
-                                var Wins = akda.Wins;
-                                var godName = akda.God;
-                                var gi = akda.GodId;
-                                var pi = akda.player_id;
-                                var ret_msg = akda.ret_msg;
-                                var lastPlayed = akda.LastPlayed;
-                                var matches = akda.Matches;
-                                var minutes = akda.Minutes;
-                                var QueueName = akda.Queue;
-                                var nbMatch = Losses + Wins;
-                                var avgKills = Math.round(Kills / nbMatch, 2);
-                                var avgDeaths = Math.round(Deaths / nbMatch, 2);
-                                var avgAssists = Math.round(Assists / nbMatch, 2);
-                                var PMI = Math.round((avgKills + avgAssists) / avgDeaths, 2);
+                                kdaAssists = akda.Assists;
+                                kdaDeaths = akda.Deaths;
+                                kdaKills = akda.Kills;
+                                kdaLosses = akda.Losses;
+                                kdaGold = akda.Gold;
+                                kdaWins = akda.Wins;
+                                kdagodName = akda.God;
+                                kdagi = akda.GodId;
+                                kdapi = akda.player_id;
+                                kdaret_msg = akda.ret_msg;
+                                kdalastPlayed = akda.LastPlayed;
+                                kdamatches = akda.Matches;
+                                kdaminutes = akda.Minutes;
+                                kdaQueueName = akda.Queue;
+                                kdanbMatch = kdaLosses + kdaWins;
+                                kdaavgKills = Math.round(kdaKills / kdanbMatch, 2);
+                                kdaavgDeaths = Math.round(kdaDeaths / kdanbMatch, 2);
+                                kdaavgAssists = Math.round(kdaAssists / kdanbMatch, 2);
+                                kdaPMI = Math.round((kdaavgKills + kdaavgAssists) / kdaavgDeaths, 2);
 
-                                if (gi == godId) {
+                                if (kdagi == godId) {
                                     $('#'+ taskForce  + GodName + ' .kda').empty();
-                                    $('#'+ taskForce  + GodName + ' .kda').append(avgKills + "/" + avgDeaths + "/" + avgAssists + " pmi:" + PMI);
+                                    $('#'+ taskForce  + GodName + ' .kda').append(kdaavgKills + "/" + kdaavgDeaths + "/" + kdaavgAssists + " pmi:" + kdaPMI);
                                 }
                             });
+                            $('#funcAPIGetKda').text('OK');
                         }
                     }),
                     $.ajax({
@@ -148,73 +261,74 @@ function showMatch(m,s) {
                         success: function (json) {
                             var league = JSON.parse(json);
                             league.forEach(function (aleague) {
-                                var Avatar_URL = aleague.Avatar_URL;
-                                var Created_Datetime = aleague.Created_Datetime;
-                                var playerId = aleague.Id;
-                                var Last_Login_Datetime = aleague.Last_Login_Datetime;
-                                var Leaves = aleague.Leaves;
-                                var Level = aleague.Level;
-                                var Losses = aleague.Losses;
-                                var MasteryLevel = aleague.MasteryLevel;
-                                var Name = aleague.Name;
-                                var Rank_Stat_Conquest = aleague.Rank_Stat_Conquest;
-                                var Rank_Stat_Duel = aleague.Rank_Stat_Duel;
-                                var Rank_Stat_Joust = aleague.Rank_Stat_Joust;
-                                var RankedConquest = aleague.RankedConquest;
-                                var ConqLeaves = aleague.RankedConquest.Leaves;
-                                var ConqLosses = aleague.RankedConquest.Losses;
-                                var ConqName = aleague.RankedConquest.Name;
-                                var ConqPoints = aleague.RankedConquest.Points;
-                                var ConqPrevRank = aleague.RankedConquest.PrevRank;
-                                var ConqRank = aleague.RankedConquest.Rank;
-                                var ConqRank_Stat_Conq = aleague.RankedConquest.Rank_Stat_Conquest;
-                                var ConqRank_Stat_Duel = aleague.RankedConquest.Rank_Stat_Duel;
-                                var ConqRank_Stat_Joust = aleague.RankedConquest.Rank_Stat_Joust;
-                                var ConqSeason = aleague.RankedConquest.Season;
-                                var ConqTier = aleague.RankedConquest.Tier;
-                                var ConqTrend = aleague.RankedConquest.Trend;
-                                var ConqWins = aleague.RankedConquest.Wins;
-                                var Conqpi = aleague.RankedConquest.player_id;
-                                var Conqret_msg = aleague.RankedConquest.ret_msg;
-                                var DuelLeaves = aleague.RankedDuel.Leaves;
-                                var DuelLosses = aleague.RankedDuel.Losses;
-                                var DuelName = aleague.RankedDuel.Name;
-                                var DuelPoints = aleague.RankedDuel.Points;
-                                var DuelPrevRank = aleague.RankedDuel.PrevRank;
-                                var DuelRank = aleague.RankedDuel.Rank;
-                                var DuelRank_Stat_Conq = aleague.RankedDuel.Rank_Stat_Conquest;
-                                var DuelRank_Stat_Duel = aleague.RankedDuel.Rank_Stat_Duel;
-                                var DuelRank_Stat_Joust = aleague.RankedDuel.Rank_Stat_Joust;
-                                var DuelSeason = aleague.RankedDuel.Season;
-                                var DuelTier = aleague.RankedDuel.Tier;
-                                var DuelTrend = aleague.RankedDuel.Trend;
-                                var DuelWins = aleague.RankedDuel.Wins;
-                                var Duelpi = aleague.RankedDuel.player_id;
-                                var Duelret_msg = aleague.RankedDuel.ret_msg;
-                                var JoustLeaves = aleague.RankedJoust.Leaves;
-                                var JoustLosses = aleague.RankedJoust.Losses;
-                                var JoustName = aleague.RankedJoust.Name;
-                                var JoustPoints = aleague.RankedJoust.Points;
-                                var JoustPrevRank = aleague.RankedJoust.PrevRank;
-                                var JoustRank = aleague.RankedJoust.Rank;
-                                var JoustRank_Stat_Conq = aleague.RankedJoust.Rank_Stat_Conquest;
-                                var JoustRank_Stat_Duel = aleague.RankedJoust.Rank_Stat_Duel;
-                                var JoustRank_Stat_Joust = aleague.RankedJoust.Rank_Stat_Joust;
-                                var JoustSeason = aleague.RankedJoust.Season;
-                                var JoustTier = aleague.RankedJoust.Tier;
-                                var JoustTrend = aleague.RankedJoust.Trend;
-                                var JoustWins = aleague.RankedJoust.Wins;
-                                var Joustpi = aleague.RankedJoust.player_id;
-                                var Joustret_msg = aleague.RankedJoust.ret_msg;
-                                LeagueAppend(GodName, taskForce, "conquest", leagueCode(ConqTier));
-                                LeagueAppend(GodName, taskForce, "joust", leagueCode(JoustTier));
-                                LeagueAppend(GodName, taskForce, "duel", leagueCode(DuelTier));
+                                leagueAvatar_URL = aleague.Avatar_URL;
+                                leagueCreated_Datetime = aleague.Created_Datetime;
+                                leagueplayerId = aleague.Id;
+                                leagueLast_Login_Datetime = aleague.Last_Login_Datetime;
+                                leagueLeaves = aleague.Leaves;
+                                leagueLevel = aleague.Level;
+                                leagueLosses = aleague.Losses;
+                                leagueMasteryLevel = aleague.MasteryLevel;
+                                leagueName = aleague.Name;
+                                leagueRank_Stat_Conquest = aleague.Rank_Stat_Conquest;
+                                leagueRank_Stat_Duel = aleague.Rank_Stat_Duel;
+                                leagueRank_Stat_Joust = aleague.Rank_Stat_Joust;
+                                leagueRankedConquest = aleague.RankedConquest;
+                                leagueConqLeaves = aleague.RankedConquest.Leaves;
+                                leagueConqLosses = aleague.RankedConquest.Losses;
+                                leagueConqName = aleague.RankedConquest.Name;
+                                leagueConqPoints = aleague.RankedConquest.Points;
+                                leagueConqPrevRank = aleague.RankedConquest.PrevRank;
+                                leagueConqRank = aleague.RankedConquest.Rank;
+                                leagueConqRank_Stat_Conq = aleague.RankedConquest.Rank_Stat_Conquest;
+                                leagueConqRank_Stat_Duel = aleague.RankedConquest.Rank_Stat_Duel;
+                                leagueConqRank_Stat_Joust = aleague.RankedConquest.Rank_Stat_Joust;
+                                leagueConqSeason = aleague.RankedConquest.Season;
+                                leagueConqTier = aleague.RankedConquest.Tier;
+                                leagueConqTrend = aleague.RankedConquest.Trend;
+                                leagueConqWins = aleague.RankedConquest.Wins;
+                                leagueConqpi = aleague.RankedConquest.player_id;
+                                leagueConqret_msg = aleague.RankedConquest.ret_msg;
+                                leagueDuelLeaves = aleague.RankedDuel.Leaves;
+                                leagueDuelLosses = aleague.RankedDuel.Losses;
+                                leagueDuelName = aleague.RankedDuel.Name;
+                                leagueDuelPoints = aleague.RankedDuel.Points;
+                                leagueDuelPrevRank = aleague.RankedDuel.PrevRank;
+                                leagueDuelRank = aleague.RankedDuel.Rank;
+                                leagueDuelRank_Stat_Conq = aleague.RankedDuel.Rank_Stat_Conquest;
+                                leagueDuelRank_Stat_Duel = aleague.RankedDuel.Rank_Stat_Duel;
+                                leagueDuelRank_Stat_Joust = aleague.RankedDuel.Rank_Stat_Joust;
+                                leagueDuelSeason = aleague.RankedDuel.Season;
+                                leagueDuelTier = aleague.RankedDuel.Tier;
+                                leagueDuelTrend = aleague.RankedDuel.Trend;
+                                leagueDuelWins = aleague.RankedDuel.Wins;
+                                leagueDuelpi = aleague.RankedDuel.player_id;
+                                leagueDuelret_msg = aleague.RankedDuel.ret_msg;
+                                leagueJoustLeaves = aleague.RankedJoust.Leaves;
+                                leagueJoustLosses = aleague.RankedJoust.Losses;
+                                leagueJoustName = aleague.RankedJoust.Name;
+                                leagueJoustPoints = aleague.RankedJoust.Points;
+                                leagueJoustPrevRank = aleague.RankedJoust.PrevRank;
+                                leagueJoustRank = aleague.RankedJoust.Rank;
+                                leagueJoustRank_Stat_Conq = aleague.RankedJoust.Rank_Stat_Conquest;
+                                leagueJoustRank_Stat_Duel = aleague.RankedJoust.Rank_Stat_Duel;
+                                leagueJoustRank_Stat_Joust = aleague.RankedJoust.Rank_Stat_Joust;
+                                leagueJoustSeason = aleague.RankedJoust.Season;
+                                leagueJoustTier = aleague.RankedJoust.Tier;
+                                leagueJoustTrend = aleague.RankedJoust.Trend;
+                                leagueJoustWins = aleague.RankedJoust.Wins;
+                                leagueJoustpi = aleague.RankedJoust.player_id;
+                                leagueJoustret_msg = aleague.RankedJoust.ret_msg;
+                                LeagueAppend(GodName, taskForce, "conquest", leagueCode(leagueConqTier));
+                                LeagueAppend(GodName, taskForce, "joust", leagueCode(leagueJoustTier));
+                                LeagueAppend(GodName, taskForce, "duel", leagueCode(leagueDuelTier));
                             });
+                            $('#funcAPIGetLeague').text('OK');
                         }
                     })
                 });
-            });
-        }
+            }
+        })
     });
 }
 

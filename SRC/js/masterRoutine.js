@@ -22,36 +22,7 @@ function getPlayers(m,s) {
                 var godId = player.GodId;
                 var taskForce = player.taskForce;
                 playerId = parseInt(playerId);
-                $.when(
-                    $.ajax({
-                        url: "Ajax/showPlayer.php",
-                        type: "POST",
-                        data: "playerName="+p+"&GodName="+g+"&masteryLevel="+a,
-                        success: function(html) { $('#match').append(html); }
-                    }),
-                    $.ajax({
-                        url: "Ajax/showRank.php",
-                        type: "POST",
-                        data: "playerId="+playerId+"&godId="+godId+"&m="+m+"&s="+s,
-                        success: function(html) { $('#'+GodName+' .rank').text(html); }
-                    }),
-                    $.ajax({
-                        url: "Ajax/showGodScore.php",
-                        type: "POST",
-                        data: "playerId="+playerId+"&godId="+godId+"&m="+m+"&s="+s,
-                        success: function (html) { $('#'+GodName+' .kda').text(html); }
-                    }),
-                    $.ajax({
-                        url: "Ajax/showLeague.php",
-                        type: "POST",
-                        data: "playerId=" + playerId + "&=s" + s,
-                        success: function (html) {
-                            $('#'+GodName+' .conquest').text(html);
-                            $('#'+GodName+' .joust').text(html);
-                            $('#'+GodName+' .duel').text(html);
-                        }
-                    })
-                ).then(function() {
+                $.when(showMatch(taskForce,GodName,playerId,playerName,godId,m,s)).then(function() {
                     if($('#'+GodName+' .rank').text() == "RANK NOT UPDATED") {
                         $.ajax({
                             url: "API/getRank.php",

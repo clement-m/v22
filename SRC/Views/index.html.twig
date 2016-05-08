@@ -19,8 +19,35 @@
     <script type="text/javascript" src="src/js/interface.js"></script>
     <script type="text/javascript" src="src/js/pureAjax.js"></script>
     <script type="text/javascript" src="src/js/procedures.js"></script>
+    <script type="text/javascript" src="src/js/functions.js"></script>
 </head>
 <body>
+
+    <div class="well">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>connection</td>
+                    <td>Status</td>
+                    <td>Show Data Stored</td>
+                    <td>API Get Rank</td>
+                    <td>API Get KDA</td>
+                    <td>API Get League</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="funcConnexion"></td>
+                    <td id="funcStatus"></td>
+                    <td id="funcShowDataStored"></td>
+                    <td id="funcAPIGetRank"></td>
+                    <td id="funcAPIGetKda"></td>
+                    <td id="funcAPIGetLeague"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <input id="status" type="hidden" value="0" onchange="alert('tatata');" />
     <div id="wrapper" class="container well">
         <header class="panel-heading">
