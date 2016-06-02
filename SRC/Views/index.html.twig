@@ -14,15 +14,14 @@
     <link type="text/css" media="screen" rel="stylesheet" href="lib/css/bootstrap-theme.min.css" />
 
     <script type="text/javascript" src="lib/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="src/js/htmlChange.js"></script>
     <script type="text/javascript" src="src/js/master.js"></script>
     <script type="text/javascript" src="src/js/ajaxQuery.js"></script>
-    <script type="text/javascript" src="src/js/interface.js"></script>
     <script type="text/javascript" src="src/js/pureAjax.js"></script>
     <script type="text/javascript" src="src/js/procedures.js"></script>
     <script type="text/javascript" src="src/js/functions.js"></script>
 </head>
 <body>
-
     <div class="well">
         <table class="table">
             <thead>
@@ -33,6 +32,9 @@
                     <td>API Get Rank</td>
                     <td>API Get KDA</td>
                     <td>API Get League</td>
+                    <td>API Rec Rank</td>
+                    <td>API Rec KDA</td>
+                    <td>API Rec League</td>
                 </tr>
             </thead>
             <tbody>
@@ -43,12 +45,14 @@
                     <td id="funcAPIGetRank"></td>
                     <td id="funcAPIGetKda"></td>
                     <td id="funcAPIGetLeague"></td>
+                    <td id="funcAPIRecLeague"></td>
+                    <td id="funcAPIRecLeague"></td>
+                    <td id="funcAPIRecLeague"></td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <input id="status" type="hidden" value="0" onchange="alert('tatata');" />
     <div id="wrapper" class="container well">
         <header class="panel-heading">
             <img src="src/IMG/smite.png" class="img-responsive" width="20%" alt="Smite Pantheon" />
@@ -89,6 +93,7 @@
                 </div>
             </div>
         </div>
+
         <footer class="panel-footer">
             <a href="http://www.hirezstudios.com/"><img src="src/IMG/hr2.png" /></a>
             <div class="pull-right" id="copyright">Copyright &#169;  smite-pantheon.com - beta 0.9.5</div>
