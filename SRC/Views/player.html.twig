@@ -1,9 +1,25 @@
-<tr id="{{ data.taskForce }}{{ data.godName }}">
-    <td class="player"></td>
-    <td class="god"><img class="godImage" src="src/IMG/gods_icons/{{ data.godName }}.jpg" alt="loading" /></td>
-    <td class="rank"><img class="masteryLevel" src="src/IMG/masteryLvl/m{{ data.Account_Level }}.jpg" alt="loading" /></td>
-    <td class="kda"><img class="loading" src="src/IMG/GIFLOAD/loading.gif" alt="loading" /></td>
-    <td class="conquest leagueWrapper"><img class="loading" src="src/IMG/GIFLOAD/loading.gif" alt="loading" /></td>
-    <td class="joust leagueWrapper"><img class="loading" src="src/IMG/GIFLOAD/loading.gif" alt="loading" /></td>
-    <td class="duel leagueWrapper"><img class="loading" src="src/IMG/GIFLOAD/loading.gif" alt="loading" /></td>
-</tr>
+{% if data.playerName == "" %}
+    <tr id="{{ data.taskForce }}{{ data.godName }}">
+        <td class="player">Player hidden</td>
+        <td class="god"><img class="godImage" src="src/IMG/gods_icons/{{ data.godName }}.jpg" alt="{{ data.godName }}" /></td>
+        <td class="accountlevel">{{ data.Account_Level }}</td>
+        <td class="rank">{{ data.mastery_Level }}</td>
+        <td class="godrank">Player hidden</td>
+        <td class="kda">{{ data.kda }}</td>
+        <td class="conquest leagueWrapper">Player hidden</td>
+        <td class="joust leagueWrapper">Player hidden</td>
+        <td class="duel leagueWrapper">Player hidden</td>
+    </tr>
+{% else %}
+    <tr id="{{ data.taskForce }}{{ data.godName }}">
+        <td class="player">{{ data.playerName }}</td>
+        <td class="god"><img class="godImage" src="src/IMG/gods_icons/{{ data.godName }}.jpg" alt="{{ data.godName }}" /></td>
+        <td class="account">{{ data.Account_Level }}</td>
+        <td class="rank">{{ data.mastery_Level }}</td>
+        <td class="godrank"><img class="loading" src="src/IMG/GIFLOAD/loading.gif" alt="loading" /></td>
+        <td class="kda">{{ data.kda }}</td>
+        <td class="conquest leagueWrapper"><img class="loading" src="src/IMG/GIFLOAD/loading.gif" alt="loading" /></td>
+        <td class="joust leagueWrapper"><img class="loading" src="src/IMG/GIFLOAD/loading.gif" alt="loading" /></td>
+        <td class="duel leagueWrapper"><img class="loading" src="src/IMG/GIFLOAD/loading.gif" alt="loading" /></td>
+    </tr>
+{% endif %}

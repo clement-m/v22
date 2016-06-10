@@ -64,6 +64,12 @@ class API {
         return $json;
     }
 
+    /**
+     * Récupère les ranks
+     * @param $p
+     * @param $s
+     * @return mixed
+     */
     public static function getRank($p,$s) {
         date_default_timezone_set('Africa/Lome');
         $timestamp = date('YmdHis');
@@ -78,6 +84,13 @@ class API {
         return $res;
     }
 
+    /**
+     * Récupère les kda
+     * @param $p
+     * @param $q
+     * @param $s
+     * @return mixed
+     */
     public static function getKDA($p,$q,$s) {
         date_default_timezone_set('Africa/Lome');
         $t = date('YmdHis');
@@ -92,6 +105,12 @@ class API {
         return $res;
     }
 
+    /**
+     * Récupère les 3 leagues
+     * @param $p
+     * @param $s
+     * @return mixed
+     */
     public static function getLeague($p, $s)
     {
         date_default_timezone_set('Africa/Lome');

@@ -1,3 +1,4 @@
+// Create match
 function createMatch(m) {
     $.ajax({ url: "Ajax/createMatch.php", type: "POST", data: "matchid="+m });
 }
@@ -8,14 +9,11 @@ function recRank(pi,gi,R) {
 }
 
 /*
-/* appel la routine de mise à jours des nouveaux dieux
+ * appel la routine de mise à jours des nouveaux dieux
  */
-function showMatchProcedure(Account_Level,taskForce,gn,pi,pn,gi) {
+function showMatchProcedure(s, q, ml, al, tf, gn, pi, pn, gi) {
     $.ajax({
-        url: "Match/showMatchProcedure.php", type: "POST", data: "pn="+pn+"&Account_Level="+Account_Level+"&taskForce="+taskForce+"&gi=" + gi + "&gn=" + gn + "&pi=" + pi,
-        success: function (html) {
-            console.log(html);
-            $('#team'+taskForce).append(html);
-        }
+        url: "Match/showMatchProcedure.php", type: "POST", data: "s="+s+"&q="+q+"&ml="+ml+"&pn="+pn+"&al="+al+"&tf="+tf+"&gi=" + gi + "&gn=" + gn + "&pi=" + pi,
+        success: function (html) { $('#team'+tf).append(html); }
     });
 }
