@@ -1,5 +1,19 @@
 <?php
 
+// function showMatch
+function showMatch($t){
+  // include TWIG
+  require_once '../lib/twig/lib/Twig/Autoloader.php';
+  Twig_Autoloader::register();
+//$twig = new Twig_Environment($loader, array('cache' => 'cache'));
+  $loader = new Twig_Loader_Filesystem('../src/Views');
+  $twig = new Twig_Environment($loader, array('debug' => true));
+  $twig->addExtension(new Twig_Extension_Debug());
+  $template = $twig->loadTemplate('player.html.twig');
+
+  echo $template->render(array('data' => $t));
+}
+
 // function update god
 function updateGod($gi,$gn) {
   include('../LIB/smLib/co.php');
@@ -26,6 +40,33 @@ function getRank($pi,$gi) {
   }
 }
 
+function getAPIRank($pi,$s,$gi) {
+  $res = 0;
+  include_once('../LIB/smLib/API.php');
+  $API = new API();
+
+  $rank = $API->getRank($pi, $s);
+  foreach($rank as $aRank) {
+    $rAssists = $aRank->Assists;
+    $rDeaths = $aRank->Deaths;
+    $rKills = $aRank->Kills;
+    $rLosses = $aRank->Losses;
+    $rMinionKills = $aRank->MinionKills;
+    $rRank = $aRank->Rank;
+    $rWins = $aRank->Wins;
+    $rWorshippers = $aRank->Worshippers;
+    $rgod = $aRank->god;
+    $rgod_id = $aRank->god_id;
+    $rplayer_id = $aRank->player_id;
+    $rret_msg = $aRank->ret_msg;
+
+    if($rgod_id == $gi) {
+      $res = $rRank;
+    }
+  }
+  return $res;
+}
+
 // function getKda
 function getKda($pi,$gi) {
   include('../LIB/smLib/co.php');
@@ -40,6 +81,46 @@ function getKda($pi,$gi) {
       else
         return true;
   }
+}
+
+// function API GETKDA
+function getAPIKda($pi, $q, $s) {
+  $res = 0;
+
+  include_once('../LIB/smLib/API.php');
+  $API = new API();
+  $r = $API->getKDA($pi, $q, $s);
+
+  foreach($r as $akda) {
+    $Assists = $akda->Assists;
+    $Deaths = $akda->Deaths;
+    $Kills = $akda->Kills;
+    $Losses = $akda->Losses;
+    $Gold = $akda->Gold;
+    $Wins = $akda->Wins;
+    $godName = $akda->God;
+    $gi = $akda->GodId;
+    $pi = $akda->player_id;
+    $ret_msg = $akda->ret_msg;
+    $lastPlayed = $akda->LastPlayed;
+    $matches = $akda->Matches;
+    $minutes = $akda->Minutes;
+    $QueueName = $akda->Queue;
+    $nbMatch = $Losses + $Wins;
+    $avgKills = round($Kills / $nbMatch, 2);
+    $avgDeaths = round($Deaths / $nbMatch, 2);
+    $avgAssists = round($Assists / $nbMatch, 2);
+    if($avgKills == 0 && $avgAssists == 0) $PMI = 0 - round($avgDeaths, 2);
+    else if($avgDeaths == 0) $PMI = round(($avgKills + $avgAssists), 2);
+    else if($avgKills == 0 && $avgAssists == 0 && $avgDeaths == 0) $PMI = 0;
+    else $PMI = round(($avgKills + $avgAssists) / $avgDeaths, 2);
+
+    if ($gi == $_POST['gi']) {
+
+      $res = $avgKills . "/" . $avgDeaths . "/" . $avgAssists . " pmi:" . $PMI;
+    }
+  }
+  return $res;
 }
 
 // function getLeague
