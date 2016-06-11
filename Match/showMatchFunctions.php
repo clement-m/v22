@@ -14,6 +14,18 @@ function showMatch($t){
   echo $template->render(array('data' => $t));
 }
 
+// function update player
+function updatePlayer($pi,$pn) {
+  if($pn != null) {
+    include('../LIB/smLib/co.php');
+    $req2 = $pdo->prepare("Call updatePlayer(:pi,:pn);");
+    $req2->bindParam('pi', $pi, PDO::PARAM_INT);
+    $req2->bindParam('pn', $pn, PDO::PARAM_STR);
+    $req2->execute();
+    if(!$req2) { var_dump($pdo->errorInfo()); }
+  }
+}
+
 // function update god
 function updateGod($gi,$gn) {
   include('../LIB/smLib/co.php');
@@ -60,11 +72,24 @@ function getAPIRank($pi,$s,$gi) {
     $rplayer_id = $aRank->player_id;
     $rret_msg = $aRank->ret_msg;
 
+    //recRank($rplayer_id,$rgod_id,$rRank);
+
     if($rgod_id == $gi) {
       $res = $rRank;
     }
   }
   return $res;
+}
+
+// recRank
+function recRank($pi,$gi,$rank) {
+  include('../LIB/smLib/co.php');
+  $req2 = $pdo->prepare("Call recRank(:pi,:gi,:r);");
+  $req2->bindParam('pi', $pi, PDO::PARAM_INT);
+  $req2->bindParam('gi', $gi, PDO::PARAM_INT);
+  $req2->bindParam('r', $rank, PDO::PARAM_INT);
+  $req2->execute();
+  if(!$req2) { var_dump($pdo->errorInfo()); }
 }
 
 // function getKda

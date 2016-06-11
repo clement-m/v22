@@ -1,3 +1,24 @@
+// Create match
+function createMatch(m) {
+    $.ajax({ url: "Ajax/createMatch.php", type: "POST", data: "matchid="+m });
+}
+
+// AJAX REC
+function recRank(pi,gi,R) {
+    $.ajax({ url: "Ajax/recRank.php", type: "POST", data: "pi="+pi+"&gi="+gi+"&R="+R });
+}
+
+/*
+ * appel la routine de mise à jours des nouveaux dieux
+ */
+function showMatchProcedure(s, q, ml, al, tf, gn, pi, pn, gi) {
+    $.ajax({
+        url: "Match/showMatchProcedure.php", type: "POST", data: "s="+s+"&q="+q+"&ml="+ml+"&pn="+pn+"&al="+al+"&tf="+tf+"&gi=" + gi + "&gn=" + gn + "&pi=" + pi,
+        success: function (html) { $('#team'+tf).append(html); }
+    });
+}
+
+// getConnection
 function getConnection() {
     $.ajax({
         url: "AJAX/connection.php",
@@ -15,6 +36,7 @@ function getConnection() {
     });
 }
 
+// getStatus
 function getStatus(p,s) {
     $.ajax({
         url: "AJAX/getStatus.php",
@@ -26,7 +48,7 @@ function getStatus(p,s) {
             var statusString = r.status_string;
             var ret_msg = r.ret_msg; // null
             var matchId = r.Match;
-            var playerMsg = r.personal_status_message;
+            var playerMsg = r.personal_status_message; // truc a faire avec
             displayStatus(statusString);
 
             $('#funcStatus').text(statusString);
@@ -34,14 +56,14 @@ function getStatus(p,s) {
             emptyTableMatch();
             if(statusId == 3) {
                 clearBoard();
-                $.when(createMatch(matchId)).then(function(){
-                    showMatch(matchId,s);
-                });
+                createMatch(matchId);
+                showMatch(matchId,s);
             }
         }
     });
 }
 
+// showMatch
 function showMatch(m,s) {
     $.ajax({
         url: "AJAX/getPlayers.php",
