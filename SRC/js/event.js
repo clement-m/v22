@@ -7,4 +7,6 @@ $(document).ready(function() {
     $('#startInput').focus();
     $('#startInput').keypress(function (e) { if (e.which == 13) start(e); });
     $('#startBtn').click(function(e) { start(e); });
+    $('#team1').bind("DOMSubtreeModified", function() { changeTeam1Event(); });
 });
+

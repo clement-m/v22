@@ -29,6 +29,61 @@ function displayStatus(t) {
     $('#gameMod').text(t);
 }
 
+function setMod(Q) {
+    console.log(Q);
+    if(Q == "448") {
+        $('#mod').text('normal joust');
+    }
+    if(Q == "435") {
+        $('#mod').text('arena');
+    }
+    if(Q == "445") {
+        $('#mod').text('assault');
+    }
+    if(Q == "426") {
+        $('#mod').text('normal conquest');
+    }
+    if(Q == "466") {
+        $('#mod').text('clash');
+    }
+    if(Q == "450") {
+        $('#mod').text('ranked joust');
+    }
+    if(Q == "459") {
+        $('#mod').text('siege');
+    }
+}
+
+function changeTeam1Event() {
+    var mod = $('#mod').text();
+    var len = $('#team1').children().length;
+
+    if( ((mod == 'normal joust' || mod == 'ranked joust') && len == 3) ||
+        (mod == 'siege' && len == 4) ||
+        ((mod == 'clash' || mod == 'arena' || mod == 'assault' || mod ==  "normal conquest") && len == 5)
+    ) {
+        $('#team1').unbind("DOMSubtreeModified");
+
+        $('#team1 tr').each(function(k,v) {
+            var playerName = $(v).children('.player').text();
+            if(playerName != 'Player profile hidden') {
+                $(v).children('.godrank').empty();
+                $(v).children('.godrank').append('On crée un nouvel utilisateur');
+
+                var godName = $(v).children('.god').children().attr('alt');
+                callAPIGetRank(playerName,godName,v);
+
+            }
+            else addHiddenPlayerInMatch(v);
+        });
+        /*
+        $('#team1').bind("DOMSubtreeModified", function(event) {
+            changeTeam1Event();
+        });
+        */
+    }
+}
+
 // vide le match
 function emptyTableMatch() {
     $('#match').empty();
@@ -36,6 +91,16 @@ function emptyTableMatch() {
 
 // say ok
 function putconnectionok(ok) { $('#funcConnexion').text(ok); }
+
+// ajoute un utilisateur caché avec les valeurs à "joueur caché"
+function addHiddenPlayerInMatch(v) {
+    $(v).children('.godrank').empty();
+    $(v).children('.godrank').append('Player profile hidden');
+    $(v).children('.kda').empty();
+    $(v).children('.kda').append('Player profile hidden');
+    $(v).children('.leagueWrapper').empty();
+    $(v).children('.leagueWrapper').append('Player profile hidden');
+}
 
 /*
  * renvoie le text du code league correspondant

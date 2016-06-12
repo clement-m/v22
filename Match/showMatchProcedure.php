@@ -8,10 +8,10 @@ $templateParams['mastery_Level'] = $_POST['ml'];
 
 include('../Match/showMatchFunctions.php');
 
+updatePlayer($_POST['pi'],$_POST['pn']);
+updateGod($_POST['gi'],$_POST['gn']);
 
-
-//updatePlayer($_POST['pi'],$_POST['pn']);
-//updateGod($_POST['gi'],$_POST['gn']);
+showMatch($templateParams);
 
 //$result = array();
 //$rank = getRank($_POST['pi'],$_POST['gi']);
@@ -23,5 +23,3 @@ include('../Match/showMatchFunctions.php');
   //$templateParams['kda'] = getAPIKda($_POST['pi'],$_POST['q'],$_POST['s']);
 //}
 //else echo "else";
-
-showMatch($templateParams);

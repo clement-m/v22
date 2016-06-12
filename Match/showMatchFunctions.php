@@ -1,5 +1,15 @@
 <?php
 
+function createMatchPlayer($pi,$gi,$m) {
+  include('../LIB/smLib/co.php');
+  $req2 = $pdo->prepare("Call createMatchPlayer(:pi,:gi,:m);");
+  $req2->bindParam('pi', $pi, PDO::PARAM_INT);
+  $req2->bindParam('gi', $gi, PDO::PARAM_INT);
+  $req2->bindParam('m', $m, PDO::PARAM_INT);
+  $req2->execute();
+  if(!$req2) { var_dump($pdo->errorInfo()); }
+}
+
 // function showMatch
 function showMatch($t){
   // include TWIG
@@ -52,14 +62,8 @@ function getRank($pi,$gi) {
   }
 }
 
-function getAPIRank($pi,$s,$gi) {
-  $res = 0;
-  include_once('../LIB/smLib/API.php');
-  $API = new API();
-
-  $rank = $API->getRank($pi, $s);
-  foreach($rank as $aRank) {
-    $rAssists = $aRank->Assists;
+/*
+ *  $rAssists = $aRank->Assists;
     $rDeaths = $aRank->Deaths;
     $rKills = $aRank->Kills;
     $rLosses = $aRank->Losses;
@@ -71,12 +75,18 @@ function getAPIRank($pi,$s,$gi) {
     $rgod_id = $aRank->god_id;
     $rplayer_id = $aRank->player_id;
     $rret_msg = $aRank->ret_msg;
+ */
+function getAPIRank($pi,$gi) {
+  $res = 0;
+  include_once('../LIB/smLib/API.php');
+  $API = new API();
+  session_start();
+  $rank = $API->getRank($pi, $_SESSION['session']);
+  foreach($rank as $aRank) {
+    $rRank = $aRank->Rank;
+    $rgod_id = $aRank->god_id;
 
-    //recRank($rplayer_id,$rgod_id,$rRank);
-
-    if($rgod_id == $gi) {
-      $res = $rRank;
-    }
+    if($rgod_id == $gi) { $res = $rRank; }
   }
   return $res;
 }

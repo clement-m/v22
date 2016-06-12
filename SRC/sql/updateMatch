@@ -1,4 +1,0 @@
-IN m INT 11
-IN queue INT 3
-
-UPDATE `match` SET `queueId` = queue WHERE `idMatch` = m

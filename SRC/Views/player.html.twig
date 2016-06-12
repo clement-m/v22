@@ -1,11 +1,5 @@
 <tr id="{{ data.taskForce }}{{ data.godName }}">
-    <td class="player">
-        {% if data.playerName == null %}
-            Player profile hidden
-        {% else %}
-            {{ data.playerName }}
-        {% endif %}
-    </td>
+    <td class="player">{% if data.playerName == null %}Player profile hidden{% else %}{{ data.playerName }}{% endif %}</td>
     <td class="god"><img class="godImage" src="src/IMG/gods_icons/{{ data.godName }}.jpg" alt="{{ data.godName }}" /></td>
     <td class="account">{{ data.Account_Level }}</td>
     <td class="rank">{{ data.mastery_Level }}</td>

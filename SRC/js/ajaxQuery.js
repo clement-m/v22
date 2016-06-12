@@ -3,17 +3,12 @@ function createMatch(m) {
     $.ajax({ url: "Ajax/createMatch.php", type: "POST", data: "matchid="+m });
 }
 
-// AJAX REC
-function recRank(pi,gi,R) {
-    $.ajax({ url: "Ajax/recRank.php", type: "POST", data: "pi="+pi+"&gi="+gi+"&R="+R });
-}
-
 /*
  * appel la routine de mise à jours des nouveaux dieux
  */
-function showMatchProcedure(s, q, ml, al, tf, gn, pi, pn, gi) {
+function showMatchProcedure(m, s, q, ml, al, tf, gn, pi, pn, gi) {
     $.ajax({
-        url: "Match/showMatchProcedure.php", type: "POST", data: "s="+s+"&q="+q+"&ml="+ml+"&pn="+pn+"&al="+al+"&tf="+tf+"&gi=" + gi + "&gn=" + gn + "&pi=" + pi,
+        url: "Match/showMatchProcedure.php", type: "POST", data: "m="+m+"&s="+s+"&q="+q+"&ml="+ml+"&pn="+pn+"&al="+al+"&tf="+tf+"&gi=" + gi + "&gn=" + gn + "&pi=" + pi,
         success: function (html) { $('#team'+tf).append(html); }
     });
 }
@@ -88,9 +83,23 @@ function showMatch(m,s) {
                 var godId = player.GodId;
                 var taskForce = player.taskForce;
 
+                setMod(Queue);
+
                 playerId = parseInt(playerId);
-                showMatchProcedure(s,Queue,mastery_Level, Account_Level, taskForce, GodName, playerId, playerName, godId);
+                showMatchProcedure(m,s,Queue,mastery_Level, Account_Level, taskForce, GodName, playerId, playerName, godId);
             });
+        }
+    });
+}
+
+function callAPIGetRank(pn,gn,v) {
+    $.ajax({
+        url: "AJAX/getRank.php",
+        type: "POST",
+        data: "pn="+pn+"&gn="+gn,
+        success: function(rank) {
+            $(v).children('.godrank').empty();
+            $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />');
         }
     });
 }

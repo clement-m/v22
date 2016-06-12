@@ -21,6 +21,7 @@
 
 <!-- BODY -->
 <body>
+    <div id="ready"></div>
     <div id="wrapper" class="container well">
         <!-- HEADER -->
         <header class="panel-heading">
@@ -45,9 +46,9 @@
                 <div class="panel-heading">
                     <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="gameMod">SEARCH PLAYER IN A LIVE MATCH</h1>
                 </div>
-                <img class="img-responsive" id="loader" src="src/IMG/GIFLOAD/loading.gif" alt="loading" />
                 <div class="panel-body">
                     <div id="mod"></div>
+                    <input type="hidden" id="refreshDOMMatchId"/>
                     <table class="table">
                         <thead>
                             <th>Player Name</th>

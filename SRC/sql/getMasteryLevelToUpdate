@@ -1,7 +1,0 @@
-IN m INT 11
-
-SELECT `player`.*
-FROM `matchplayers`,`player`
-LEFT JOIN `rank` ON `matchplayers`.`playerId` = `rank`.`playerId`
-WHERE `matchplayers`.`matchId` = m
-AND `matchplayers`.`playerId` = `player`.`idPlayer`
