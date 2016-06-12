@@ -91,7 +91,7 @@ function showMatch(m,s) {
 
 function showRankByApi(pn,gn,v) {
     $.ajax({
-        url: "AJAX/getRank.php",
+        url: "AJAX/getRankByApi.php",
         type: "POST",
         data: "pn="+pn+"&gn="+gn,
         success: function(rank) {
@@ -99,4 +99,21 @@ function showRankByApi(pn,gn,v) {
             $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />');
         }
     });
+}
+
+function showRankByBDD(pn,gn,v) {
+    $.ajax({
+        url: "AJAX/getRankByBdd.php",
+        type: "POST",
+        data: "pn="+pn+"&gn="+gn,
+        success: function(rank) {
+            console.log(rank);
+            if(rank == "") {
+                showRankByApi(pn,gn,v);
+            } else {
+                $(v).children('.godrank').empty();
+                $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />');
+            }
+        }
+});
 }

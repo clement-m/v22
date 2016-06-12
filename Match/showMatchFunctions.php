@@ -46,18 +46,16 @@ function updateGod($gi,$gn) {
 
 // function getRank
 function getRank($pi,$gi) {
+  $res = 0;
   include('../LIB/smLib/co.php');
   $q = $pdo->prepare("CALL getRank(:pi,:gi);");
   $q->bindParam('pi', $pi, PDO::PARAM_INT);
   $q->bindParam('gi', $gi, PDO::PARAM_INT);
   $q->execute();
   while ($row = $q->fetch()) {
-    if(isset($row[0]))
-      if($row[0] == "0")
-        return false;
-      else
-        return true;
+    $res = $row;
   }
+  return $res;
 }
 
 /*

@@ -66,13 +66,7 @@ function changeTeam1Event() {
 
         $('#team1 tr').each(function(k,v) {
             var playerName = $(v).children('.player').text();
-            if(playerName != 'Player profile hidden') {
-                $(v).children('.godrank').empty();
-                $(v).children('.godrank').append('On crée un nouvel utilisateur');
-
-                var godName = $(v).children('.god').children().attr('alt');
-                showRankByApi(playerName,godName,v);
-            }
+            if(playerName != 'Player profile hidden') showRankByBDD(playerName,$(v).children('.god').children().attr('alt'),v);
             else addHiddenPlayerInMatch(v);
         });
 
