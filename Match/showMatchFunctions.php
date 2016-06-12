@@ -129,12 +129,12 @@ function getKda($pi,$gi) {
 }
 
 // function API GETKDA
-function getAPIKda($pi, $q, $s) {
+function getAPIKda($pi, $gi, $q) {
   $res = 0;
 
   include_once('../LIB/smLib/API.php');
   $API = new API();
-  $r = $API->getKDA($pi, $q, $s);
+  $r = $API->getKDA($pi, $q);
 
   foreach($r as $akda) {
     $Assists = $akda->Assists;
@@ -144,7 +144,7 @@ function getAPIKda($pi, $q, $s) {
     $Gold = $akda->Gold;
     $Wins = $akda->Wins;
     $godName = $akda->God;
-    $gi = $akda->GodId;
+    $rgi = $akda->GodId;
     $pi = $akda->player_id;
     $ret_msg = $akda->ret_msg;
     $lastPlayed = $akda->LastPlayed;
@@ -160,8 +160,7 @@ function getAPIKda($pi, $q, $s) {
     else if($avgKills == 0 && $avgAssists == 0 && $avgDeaths == 0) $PMI = 0;
     else $PMI = round(($avgKills + $avgAssists) / $avgDeaths, 2);
 
-    if ($gi == $_POST['gi']) {
-
+    if ($rgi == $gi) {
       $res = $avgKills . "/" . $avgDeaths . "/" . $avgAssists . " pmi:" . $PMI;
     }
   }

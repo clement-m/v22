@@ -5,6 +5,8 @@ $godName = $_POST['gn'];
 $playerId = "";
 $godId = "";
 
+$res = null;
+
 include_once('../LIB/smLib/co.php');
 $q = $pdo->prepare("CALL getIdPlayerByName(:pn);");
 $q->bindParam('pn', $playerName, PDO::PARAM_STR);
@@ -16,6 +18,10 @@ $q->bindParam('gn', $godName, PDO::PARAM_STR);
 $q->execute();
 while ($row = $q->fetch()) { $godId = $row['idGod']; }
 
-include('../Match/showMatchFunctions.php');
-$rank = getAPIKda($playerId, $godId);
-echo $rank;
+$q = $pdo->prepare("CALL getKdaByBdd(:pi,:gi);");
+$q->bindParam('pi', $playerId, PDO::PARAM_INT);
+$q->bindParam('gi', $godId, PDO::PARAM_INT);
+$q->execute();
+while ($row = $q->fetch()) {
+  var_dump($row);
+}

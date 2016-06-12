@@ -91,11 +91,12 @@ class API {
      * @param $s
      * @return mixed
      */
-    public static function getKDA($p,$q,$s) {
+    public static function getKDA($p,$q) {
         date_default_timezone_set('Africa/Lome');
         $t = date('YmdHis');
         $url='http://api.smitegame.com/smiteapi.svc/getqueuestatsJson/1410/'.md5('1410getqueuestats8F70BFD30A3648D7B5BCC66DDB888CA7'.$t)."/";
-        $url.=$s.'/'.$t.'/'.$p.'/'.$q;
+        session_start();
+        $url.=$_SESSION['session'].'/'.$t.'/'.$p.'/'.$q;
         $c = curl_init();
         curl_setopt($c, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.2 (KHTML, like Gecko) Chrome/22.0.1216.0 Safari/537.2" );
         $content = curl_exec($c);

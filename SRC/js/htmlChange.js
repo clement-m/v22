@@ -52,6 +52,7 @@ function setMod(Q) {
     if(Q == "459") {
         $('#mod').text('siege');
     }
+    $('#mod').attr('data-idMod',Q);
 }
 
 function changeTeam1Event() {

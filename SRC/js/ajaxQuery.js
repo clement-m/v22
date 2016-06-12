@@ -89,6 +89,7 @@ function showMatch(m,s) {
     });
 }
 
+// show rank with API
 function showRankByApi(pn,gn,v) {
     $.ajax({
         url: "AJAX/getRankByApi.php",
@@ -96,24 +97,62 @@ function showRankByApi(pn,gn,v) {
         data: "pn="+pn+"&gn="+gn,
         success: function(rank) {
             $(v).children('.godrank').empty();
-            $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />');
+            $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />API');
         }
     });
 }
 
+// show rank with BDD
 function showRankByBDD(pn,gn,v) {
     $.ajax({
         url: "AJAX/getRankByBdd.php",
         type: "POST",
         data: "pn="+pn+"&gn="+gn,
         success: function(rank) {
-            console.log(rank);
             if(rank == "") {
                 showRankByApi(pn,gn,v);
             } else {
                 $(v).children('.godrank').empty();
-                $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />');
+                $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />BDD');
+
+                showKdaByBdd(pn,gn,v);
             }
         }
-});
+    });
+}
+
+// show kda by BDD
+function showKdaByBdd(pn,gn,v){
+    $.ajax({
+        url: "AJAX/getKdaByBdd.php",
+        type: "POST",
+        data: "pn="+pn+"&gn="+gn,
+        success: function(kda) {
+            console.log(kda);
+            if(kda == "") {
+                var q = $('#mod').attr('data-idMod');
+                showKdaByApi(pn,gn,q,v);
+            } else {
+                $(v).children('.kda').empty();
+                $(v).children('.kda').append('ya rien en BDD on va devoir apiser apres et faire tout au final ?');
+            }
+        }
+    });
+}
+
+// show kda by API
+function showKdaByApi(pn,gn,q,v) {
+    $.ajax({
+        url: "AJAX/getKdaByAPI.php",
+        type: "POST",
+        data: "pn="+pn+"&gn="+gn+"&q="+q,
+        success: function(kda) {
+            if(kda == "") {
+                console.log('error pas de kda api fait un truc pour pas chier');
+            } else {
+                $(v).children('.kda').empty();
+                $(v).children('.kda').append(kda'+ API');
+            }
+        }
+    });
 }

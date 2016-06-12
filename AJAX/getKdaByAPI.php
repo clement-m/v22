@@ -2,8 +2,11 @@
 
 $playerName = $_POST['pn'];
 $godName = $_POST['gn'];
+$queue = $_POST['q'];
 $playerId = "";
 $godId = "";
+
+$res = null;
 
 include_once('../LIB/smLib/co.php');
 $q = $pdo->prepare("CALL getIdPlayerByName(:pn);");
@@ -17,5 +20,5 @@ $q->execute();
 while ($row = $q->fetch()) { $godId = $row['idGod']; }
 
 include('../Match/showMatchFunctions.php');
-$rank = getAPIKda($playerId, $godId);
+$rank = getAPIKda($playerId, $godId, $queue);
 echo $rank;
