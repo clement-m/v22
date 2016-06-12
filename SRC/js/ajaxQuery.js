@@ -23,10 +23,7 @@ function getConnection() {
             var response = r.ret_msg;
             var session = r.session_id;
             var timestamp = r.timestamp;
-            if(response == "Approved"){
-                getStatus($('input[name="player"]').val(),session);
-                putconnectionok('OK');
-            }
+            if(response == "Approved") { getStatus($('input[name="player"]').val(),session); }
         }
     });
 }
@@ -92,7 +89,7 @@ function showMatch(m,s) {
     });
 }
 
-function callAPIGetRank(pn,gn,v) {
+function showRankByApi(pn,gn,v) {
     $.ajax({
         url: "AJAX/getRank.php",
         type: "POST",

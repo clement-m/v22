@@ -21,7 +21,7 @@
 
 <!-- BODY -->
 <body>
-    <div id="ready"></div>
+    <input id="allAPICalled" type="hidden" />
     <div id="wrapper" class="container well">
         <!-- HEADER -->
         <header class="panel-heading">
@@ -35,20 +35,19 @@
                 <div class="panel-heading"><h3>Enter your name to find a player in live match</h3></div>
                 <div class="panel-body">
                     <div class="input-group">
-                        <input value="" id="startInput" class="form-control" name="player" placeholder="Search player in a live match" type="text" tabindex="1" />
+                        <input id="startInput" class="form-control" name="player" placeholder="Search player in a live match" type="text" tabindex="1" />
                         <div class="input-group-btn">
                             <button id="startBtn" class="btn btn-default" type="button">SEARCH</button>
                         </div>
                     </div>
+                    <div id="playerStatus"></div>
                 </div>
             </div>
             <div class="panel">
                 <div class="panel-heading">
-                    <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="gameMod">SEARCH PLAYER IN A LIVE MATCH</h1>
+                    <div id="mod"></div>
                 </div>
                 <div class="panel-body">
-                    <div id="mod"></div>
-                    <input type="hidden" id="refreshDOMMatchId"/>
                     <table class="table">
                         <thead>
                             <th>Player Name</th>

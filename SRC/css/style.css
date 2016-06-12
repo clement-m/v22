@@ -7,6 +7,18 @@ body{
     height: 80px;
 }
 
+#playerStatus {
+    padding-left: 36px;
+    margin-top: 18px;
+    font-size: 17px;
+}
+
+#mod {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 /* Player */
 #team1 {
     border-top: #0000FF solid;

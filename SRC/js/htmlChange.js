@@ -26,7 +26,7 @@ function LeagueAppend(GodName, taskForce, league, L) {
 function displayStatus(t) {
     if(t == "Unknown") t = 'Player profile is hidden';
     else if(t == null) t = 'Player\'s status is changing retry';
-    $('#gameMod').text(t);
+    $('#playerStatus').text(t);
 }
 
 function setMod(Q) {
@@ -71,11 +71,11 @@ function changeTeam1Event() {
                 $(v).children('.godrank').append('On crée un nouvel utilisateur');
 
                 var godName = $(v).children('.god').children().attr('alt');
-                callAPIGetRank(playerName,godName,v);
-
+                showRankByApi(playerName,godName,v);
             }
             else addHiddenPlayerInMatch(v);
         });
+
         /*
         $('#team1').bind("DOMSubtreeModified", function(event) {
             changeTeam1Event();
@@ -85,12 +85,7 @@ function changeTeam1Event() {
 }
 
 // vide le match
-function emptyTableMatch() {
-    $('#match').empty();
-}
-
-// say ok
-function putconnectionok(ok) { $('#funcConnexion').text(ok); }
+function emptyTableMatch() { $('#match').empty(); }
 
 // ajoute un utilisateur caché avec les valeurs à "joueur caché"
 function addHiddenPlayerInMatch(v) {
