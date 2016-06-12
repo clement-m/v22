@@ -12,15 +12,13 @@ function createMatchPlayer($pi,$gi,$m) {
 
 // function showMatch
 function showMatch($t){
-  // include TWIG
   require_once '../lib/twig/lib/Twig/Autoloader.php';
   Twig_Autoloader::register();
-//$twig = new Twig_Environment($loader, array('cache' => 'cache'));
+  //$twig = new Twig_Environment($loader, array('cache' => 'cache'));
   $loader = new Twig_Loader_Filesystem('../src/Views');
   $twig = new Twig_Environment($loader, array('debug' => true));
   $twig->addExtension(new Twig_Extension_Debug());
   $template = $twig->loadTemplate('player.html.twig');
-
   echo $template->render(array('data' => $t));
 }
 
@@ -78,28 +76,42 @@ function getRank($pi,$gi) {
  */
 function getAPIRank($pi,$gi) {
   $res = 0;
+
+  session_start();
   include_once('../LIB/smLib/API.php');
   $API = new API();
-  session_start();
   $rank = $API->getRank($pi, $_SESSION['session']);
+
+  include('../LIB/smLib/co.php');
+  $req2 = $pdo->prepare("Call recRank(:pi,:gi,:r);");
+
   foreach($rank as $aRank) {
+    $rAssists = $aRank->Assists;
+    $rDeaths = $aRank->Deaths;
+    $rKills = $aRank->Kills;
+    $rLosses = $aRank->Losses;
+    $rMinionKills = $aRank->MinionKills;
     $rRank = $aRank->Rank;
+    $rWins = $aRank->Wins;
+    $rWorshippers = $aRank->Worshippers;
+    $rgod = $aRank->god;
     $rgod_id = $aRank->god_id;
+    $rplayer_id = $aRank->player_id;
+    $rret_msg = $aRank->ret_msg;
+
+    $ppi = intval($rplayer_id);
+    $ggi = intval($rgod_id);
+    $rr = intval($rRank);
+
+    $req2->bindParam('pi', $ppi, PDO::PARAM_INT);
+    $req2->bindParam('gi', $ggi, PDO::PARAM_INT);
+    $req2->bindParam('r', $rr, PDO::PARAM_INT);
+    $req2->execute();
+    if(!$req2) { var_dump($pdo->errorInfo()); }
 
     if($rgod_id == $gi) { $res = $rRank; }
   }
   return $res;
-}
-
-// recRank
-function recRank($pi,$gi,$rank) {
-  include('../LIB/smLib/co.php');
-  $req2 = $pdo->prepare("Call recRank(:pi,:gi,:r);");
-  $req2->bindParam('pi', $pi, PDO::PARAM_INT);
-  $req2->bindParam('gi', $gi, PDO::PARAM_INT);
-  $req2->bindParam('r', $rank, PDO::PARAM_INT);
-  $req2->execute();
-  if(!$req2) { var_dump($pdo->errorInfo()); }
 }
 
 // function getKda
