@@ -42,16 +42,15 @@ function setMod(Q) {
         case "440": $text = 'Ranked: Duel'; break;
         case "450": $text = 'Ranked: Joust'; break;
         case "451": $text = 'Ranked: Conquest'; break;
-        default: $text = Q; console.log(Q); break;
     }
     $('#mod').text($text);
 }
 
-function changeTeam1Event() {
+function changeTeamEvent($team) {
     var mod = $('#mod').text();
-    var len = $('#team1').children().length;
+    var len = $('#team'+$team).children().length;
 
-    var height = $('#team1').height();
+    var height = $('#team'+$team).height();
 
     var Players1Height = 90;
     var Players2Height = 190;
@@ -64,9 +63,9 @@ function changeTeam1Event() {
     || (mod == 'Normal: Siege' && height > Players4Height)
     || ((mod == 'Normal: MOTD' || mod == 'Ranked: Conquest' || mod == 'Normal: Clash' || mod == 'Normal: Arena' || mod == 'Normal: Assault' || mod ==  "Normal: Conquest") && height > Players5Height)
     ) {
-        $('#team1').unbind("DOMSubtreeModified");
+        $('#team'+$team).unbind("DOMSubtreeModified");
 
-        $('#team1 tr').each(function(k,v) {
+        $('#team'+$team+' tr').each(function(k,v) {
             var playerName = $(v).children('.player').text();
             if(playerName != 'Player profile hidden') showRankByBDD(playerName,$(v).children('.god').children().attr('alt'),v);
             else addHiddenPlayerInMatch(v);

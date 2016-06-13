@@ -156,7 +156,6 @@ function showLeagueByBdd(pn,v) {
         type: "POST",
         data: "pn="+pn,
         success: function(league) {
-            console.log(league);
             league = JSON.parse(league);
 
             $(v).children('.conquest').empty();
