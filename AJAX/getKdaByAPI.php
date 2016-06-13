@@ -1,5 +1,7 @@
 <?php
 
+// getKdaByAPI.php
+
 $playerName = $_POST['pn'];
 $godName = $_POST['gn'];
 $queue = $_POST['q'];
@@ -20,5 +22,5 @@ $q->execute();
 while ($row = $q->fetch()) { $godId = $row['idGod']; }
 
 include('../Match/showMatchFunctions.php');
-$rank = getAPIKda($playerId, $godId, $queue);
-echo $rank;
+$kda = getAPIKda($playerId, $godId, $queue);
+echo $kda;

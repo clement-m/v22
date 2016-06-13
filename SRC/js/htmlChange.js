@@ -32,26 +32,36 @@ function displayStatus(t) {
 function setMod(Q) {
     console.log(Q);
     if(Q == "448") {
-        $('#mod').text('normal joust');
+        $('#mod').text('Normal: Joust');
     }
     if(Q == "435") {
-        $('#mod').text('arena');
+        $('#mod').text('Normal: Arena');
     }
     if(Q == "445") {
-        $('#mod').text('assault');
+        $('#mod').text('Normal: Assault');
     }
     if(Q == "426") {
-        $('#mod').text('normal conquest');
+        $('#mod').text('Normal: Conquest');
     }
     if(Q == "466") {
-        $('#mod').text('clash');
+        $('#mod').text('Normal: Clash');
     }
     if(Q == "450") {
-        $('#mod').text('ranked joust');
+        $('#mod').text('ranked Joust');
     }
     if(Q == "459") {
-        $('#mod').text('siege');
+        $('#mod').text('Normal: Siege');
     }
+    if(Q == "451") {
+        $('#mod').text('Ranked: Conquest');
+    }
+    if(Q == "440") {
+        $('#mod').text('Ranked: Duel');
+    }
+    if(Q == "434") {
+        $('#mod').text('Normal: MOTD');
+    }
+
     $('#mod').attr('data-idMod',Q);
 }
 
@@ -59,9 +69,10 @@ function changeTeam1Event() {
     var mod = $('#mod').text();
     var len = $('#team1').children().length;
 
-    if( ((mod == 'normal joust' || mod == 'ranked joust') && len == 3) ||
-        (mod == 'siege' && len == 4) ||
-        ((mod == 'clash' || mod == 'arena' || mod == 'assault' || mod ==  "normal conquest") && len == 5)
+    if((mod == 'Ranked: Duel' && len == 2)
+    || ((mod == 'Normal: Joust' || mod == 'Ranked: Joust') && len == 3)
+    || (mod == 'Normal: Siege' && len == 4)
+    || ((mod == 'Normal: MOTD' || mod == 'Ranked: Conquest' || mod == 'Normal: Clash' || mod == 'Normal: Arena' || mod == 'Normal: Assault' || mod ==  "Normal Conquest") && len == 5)
     ) {
         $('#team1').unbind("DOMSubtreeModified");
 

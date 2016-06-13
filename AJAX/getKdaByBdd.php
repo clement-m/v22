@@ -2,6 +2,7 @@
 
 $playerName = $_POST['pn'];
 $godName = $_POST['gn'];
+$queue = $_POST['q'];
 $playerId = "";
 $godId = "";
 
@@ -18,10 +19,11 @@ $q->bindParam('gn', $godName, PDO::PARAM_STR);
 $q->execute();
 while ($row = $q->fetch()) { $godId = $row['idGod']; }
 
-$q = $pdo->prepare("CALL getKdaByBdd(:pi,:gi);");
+$q = $pdo->prepare("CALL getKdaByBdd(:pi,:gi,:q);");
 $q->bindParam('pi', $playerId, PDO::PARAM_INT);
 $q->bindParam('gi', $godId, PDO::PARAM_INT);
+$q->bindParam('q', $queue, PDO::PARAM_INT);
 $q->execute();
 while ($row = $q->fetch()) {
-  var_dump($row);
+  echo json_encode($row);
 }

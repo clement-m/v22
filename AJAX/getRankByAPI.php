@@ -17,5 +17,5 @@ $q->execute();
 while ($row = $q->fetch()) { $godId = $row['idGod']; }
 
 include('../Match/showMatchFunctions.php');
-$rank = getAPIKda($playerId, $godId);
+$rank = getAPIRank($playerId, $godId);
 echo $rank;

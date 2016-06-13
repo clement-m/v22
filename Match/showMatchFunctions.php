@@ -136,6 +136,9 @@ function getAPIKda($pi, $gi, $q) {
   $API = new API();
   $r = $API->getKDA($pi, $q);
 
+  include('../LIB/smLib/co.php');
+  $req2 = $pdo->prepare("Call recKda(:pi,:gi,:q,:k,:d,:a,:w,:nb);");
+
   foreach($r as $akda) {
     $Assists = $akda->Assists;
     $Deaths = $akda->Deaths;
@@ -145,7 +148,7 @@ function getAPIKda($pi, $gi, $q) {
     $Wins = $akda->Wins;
     $godName = $akda->God;
     $rgi = $akda->GodId;
-    $pi = $akda->player_id;
+    //$pi = $akda->player_id;
     $ret_msg = $akda->ret_msg;
     $lastPlayed = $akda->LastPlayed;
     $matches = $akda->Matches;
@@ -160,7 +163,27 @@ function getAPIKda($pi, $gi, $q) {
     else if($avgKills == 0 && $avgAssists == 0 && $avgDeaths == 0) $PMI = 0;
     else $PMI = round(($avgKills + $avgAssists) / $avgDeaths, 2);
 
-    if ($rgi == $gi) {
+    $ppi = intval($pi);
+    $ggi = intval($gi);
+    $qi = queueNameToId($QueueName);
+    $kk = intval($Kills);
+    $dd = intval($Deaths);
+    $aa = intval($Assists);
+    $ww = intval($Wins);
+    $nbnb = intval($nbMatch);
+
+    $req2->bindParam('pi', $ppi, PDO::PARAM_INT);
+    $req2->bindParam('gi', $ggi, PDO::PARAM_INT);
+    $req2->bindParam('q', $qi, PDO::PARAM_INT);
+    $req2->bindParam('k', $kk, PDO::PARAM_INT);
+    $req2->bindParam('d', $dd, PDO::PARAM_INT);
+    $req2->bindParam('a', $aa, PDO::PARAM_INT);
+    $req2->bindParam('w', $ww, PDO::PARAM_INT);
+    $req2->bindParam('nb', $nbnb, PDO::PARAM_INT);
+    $req2->execute();
+    if(!$req2) { var_dump($pdo->errorInfo()); }
+
+    if ($rgi == $gi && $qi == intval($q)) {
       $res = $avgKills . "/" . $avgDeaths . "/" . $avgAssists . " pmi:" . $PMI;
     }
   }
@@ -180,4 +203,40 @@ function getLeague($pi) {
       else
         return "THERE IS LEAGUE SHOW IT";
   }
+}
+
+function queueNameToId($Q) {
+  // DOIT RETOURNER L4ID PAS LE PUTAIN DE NOM
+  if($Q == "Normal: Joust") {
+    $Q = 448;
+  }
+  if($Q == "Normal: Arena") {
+    $Q = 435;
+  }
+  if($Q == "Normal: Assault") {
+    $Q = 445;
+  }
+  if($Q == "Normal Conquest") {
+    $Q = 426;
+  }
+  if($Q == "Normal: clash") {
+    $Q = 466;
+  }
+  if($Q == "450") {
+    $Q = 'ranked joust'; // not ok
+  }
+  if($Q == "Normal: Siege") {
+    $Q = 459; // not ok
+  }
+  if($Q == "Ranked : Conquest") {
+    $Q = 451; // ok
+  }
+  if($Q == "Ranked : Joust") {
+    $Q = 440; // ok
+  }
+  if($Q == "Normal: MOTD") {
+    $Q = 434;
+  }
+
+  return $Q;
 }

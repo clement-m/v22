@@ -110,6 +110,7 @@ function showRankByBDD(pn,gn,v) {
         data: "pn="+pn+"&gn="+gn,
         success: function(rank) {
             if(rank == "") {
+                showKdaByApi(pn,gn,v);
                 showRankByApi(pn,gn,v);
             } else {
                 $(v).children('.godrank').empty();
@@ -123,36 +124,50 @@ function showRankByBDD(pn,gn,v) {
 
 // show kda by BDD
 function showKdaByBdd(pn,gn,v){
+    var q = $('#mod').attr('data-idMod');
     $.ajax({
         url: "AJAX/getKdaByBdd.php",
         type: "POST",
-        data: "pn="+pn+"&gn="+gn,
+        data: "pn="+pn+"&gn="+gn+"&q="+q,
         success: function(kda) {
             console.log(kda);
+
             if(kda == "") {
-                var q = $('#mod').attr('data-idMod');
-                showKdaByApi(pn,gn,q,v);
+                showKdaByApi(pn,gn,v);
             } else {
+                var kda = JSON.parse(kda);
+
+                var k = parseInt(kda['kills']);
+                var d = parseInt(kda['deaths']);
+                var a = parseInt(kda['assists']);
+                var nb = parseInt(kda['nbMatch']);
+
+                var avgKill = k / nb;
+                var avgDeath = d / nb;
+                var avgAssist = a / nb;
+                var PMI;
+
+                if(avgDeath == 0 && avgAssist == 0) PMI = 0 - Math.round(avgDeath, 2);
+                else if(avgDeath == 0) PMI = Math.round((avgKill + avgAssist), 2);
+                else if(avgKill == 0 && avgAssist == 0 && avgDeath == 0) PMI = 0;
+                else PMI = Math.round((avgKill + avgAssist) / avgDeath, 2);
+
                 $(v).children('.kda').empty();
-                $(v).children('.kda').append('ya rien en BDD on va devoir apiser apres et faire tout au final ?');
+                $(v).children('.kda').append(avgKill + '/' + avgDeath + '/' + avgAssist + ' pmi:' + PMI + ' BDD');
             }
         }
     });
 }
 
 // show kda by API
-function showKdaByApi(pn,gn,q,v) {
+function showKdaByApi(pn,gn,v) {
+    var q = $('#mod').attr('data-idMod');
     $.ajax({
         url: "AJAX/getKdaByAPI.php",
         type: "POST",
         data: "pn="+pn+"&gn="+gn+"&q="+q,
         success: function(kda) {
-            if(kda == "") {
-                console.log('error pas de kda api fait un truc pour pas chier');
-            } else {
-                $(v).children('.kda').empty();
-                $(v).children('.kda').append(kda'+ API');
-            }
+            $(v).children('.kda').append(kda + ' API');
         }
     });
 }
