@@ -60,7 +60,7 @@ function showMatch(m,s) {
     $.ajax({
         url: "AJAX/getPlayers.php",
         type: "POST",
-        data: "matchid="+m+"&session="+s,
+        data: "matchid="+m,
         success: function(json) {
             var players = JSON.parse(json);
             players.forEach(function(player) {
@@ -89,18 +89,6 @@ function showMatch(m,s) {
     });
 }
 
-// show rank with API
-function showRankByApi(pn,gn,v) {
-    $.ajax({
-        url: "AJAX/getRankByApi.php",
-        type: "POST",
-        data: "pn="+pn+"&gn="+gn,
-        success: function(rank) {
-            $(v).children('.godrank').empty();
-            $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />API');
-        }
-    });
-}
 
 // show rank with BDD
 function showRankByBDD(pn,gn,v) {
@@ -117,42 +105,8 @@ function showRankByBDD(pn,gn,v) {
                 $(v).children('.godrank').empty();
                 $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />BDD');
 
-
                 showKdaByBdd(pn,gn,v);
-                // showLeagueByBdd(pn,gn,v);
-            }
-        }
-    });
-}
-
-function showLeagueByApi(pn,v) {
-    $.ajax({
-        url: "AJAX/getLeagueByAPI.php",
-        type: "POST",
-        data: "pn="+pn,
-        success: function(league) {
-            league = JSON.parse(league);
-            console.log(league);
-
-            $(v).children('.conquest').empty();
-            if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name);
-            else {
-                $(v).children('.conquest').append(league.conquest.name);
-                $(v).children('.conquest').append('<img src="src/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" />');
-            }
-
-            $(v).children('.joust').empty();
-            if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name);
-            else {
-                $(v).children('.joust').append(league.joust.name);
-                $(v).children('.joust').append('<img src="src/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" />');
-            }
-
-            $(v).children('.duel').empty();
-            if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name);
-            else {
-                $(v).children('.duel').append(league.duel.name);
-                $(v).children('.duel').append('<img src="src/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" />');
+                showLeagueByBdd(pn,v);
             }
         }
     });
@@ -166,14 +120,10 @@ function showKdaByBdd(pn,gn,v){
         type: "POST",
         data: "pn="+pn+"&gn="+gn+"&q="+q,
         success: function(kda) {
-            console.log(kda);
-
             if(kda == "") {
-                showLeagueByApi(pn,v);
                 showKdaByApi(pn,gn,v);
+                showLeagueByApi(pn,v);
             } else {
-                showLeagueByApi(pn,v); // replace by BDD
-
                 var kda = JSON.parse(kda);
 
                 var k = parseInt(kda['kills']);
@@ -193,7 +143,55 @@ function showKdaByBdd(pn,gn,v){
 
                 $(v).children('.kda').empty();
                 $(v).children('.kda').append(avgKill + '/' + avgDeath + '/' + avgAssist + ' pmi:' + PMI + ' BDD');
+
+                //showLeagueByApi(pn,v); // replace by BDD
             }
+        }
+    });
+}
+
+function showLeagueByBdd(pn,v) {
+    $.ajax({
+        url: "AJAX/getLeagueByBdd.php",
+        type: "POST",
+        data: "pn="+pn,
+        success: function(league) {
+            console.log(league);
+            league = JSON.parse(league);
+
+            $(v).children('.conquest').empty();
+            if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name + ' BDD');
+            else {
+                $(v).children('.conquest').append(league.conquest.name);
+                $(v).children('.conquest').append('<img src="src/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" /> BDD');
+            }
+
+            $(v).children('.joust').empty();
+            if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name + ' BDD');
+            else {
+                $(v).children('.joust').append(league.joust.name);
+                $(v).children('.joust').append('<img src="src/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" /> BDD');
+            }
+
+            $(v).children('.duel').empty();
+            if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name + ' BDD');
+            else {
+                $(v).children('.duel').append(league.duel.name);
+                $(v).children('.duel').append('<img src="src/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" /> BDD');
+            }
+        }
+    });
+}
+
+// show rank with API
+function showRankByApi(pn,gn,v) {
+    $.ajax({
+        url: "AJAX/getRankByApi.php",
+        type: "POST",
+        data: "pn="+pn+"&gn="+gn,
+        success: function(rank) {
+            $(v).children('.godrank').empty();
+            $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />API');
         }
     });
 }
@@ -210,3 +208,36 @@ function showKdaByApi(pn,gn,v) {
         }
     });
 }
+
+function showLeagueByApi(pn,v) {
+    $.ajax({
+        url: "AJAX/getLeagueByAPI.php",
+        type: "POST",
+        data: "pn="+pn,
+        success: function(league) {
+            league = JSON.parse(league);
+
+            $(v).children('.conquest').empty();
+            if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name + ' API');
+            else {
+                $(v).children('.conquest').append(league.conquest.name);
+                $(v).children('.conquest').append('<img src="src/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" /> API');
+            }
+
+            $(v).children('.joust').empty();
+            if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name + ' API');
+            else {
+                $(v).children('.joust').append(league.joust.name);
+                $(v).children('.joust').append('<img src="src/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" /> API');
+            }
+
+            $(v).children('.duel').empty();
+            if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name + ' API');
+            else {
+                $(v).children('.duel').append(league.duel.name);
+                $(v).children('.duel').append('<img src="src/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" /> API');
+            }
+        }
+    });
+}
+

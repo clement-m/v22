@@ -1,12 +1,14 @@
 <?php
 $p = (isset($_POST['player']))? $_POST['player'] : $_GET['player'];
 $s = (isset($_POST['session']))? $_POST['session'] : $_GET['session'];
-session_start(); // retirer session dans un GIT FUTUR PARTOUT AVEC SESSION
-$_SESSION['player'] = $p;
+
+session_start();
 $_SESSION['session'] = $s;
+$_SESSION['player'] = $p;
+
 include_once('../LIB/smLib/API.php');
 $M = new API();
-$r = $M->getPlayerStatus($p,$s);
+$r = $M->getPlayerStatus($p);
 $r = json_decode($r);
 $r = json_encode($r[0]);
 echo $r;

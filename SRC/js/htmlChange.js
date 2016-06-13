@@ -51,10 +51,18 @@ function changeTeam1Event() {
     var mod = $('#mod').text();
     var len = $('#team1').children().length;
 
-    if((mod == 'Ranked: Duel' && len == 2)
-    || ((mod == 'Normal: Joust' || mod == 'Ranked: Joust') && len == 3)
-    || (mod == 'Normal: Siege' && len == 4)
-    || ((mod == 'Normal: MOTD' || mod == 'Ranked: Conquest' || mod == 'Normal: Clash' || mod == 'Normal: Arena' || mod == 'Normal: Assault' || mod ==  "Normal Conquest") && len == 5)
+    var height = $('#team1').height();
+
+    var Players1Height = 90;
+    var Players2Height = 190;
+    var Players3Height = 290;
+    var Players4Height = 390;
+    var Players5Height = 480;
+
+    if((mod == 'Ranked: Duel' && height > Players2Height)
+    || ((mod == 'Normal: Joust' || mod == 'Ranked: Joust') && height > Players3Height)
+    || (mod == 'Normal: Siege' && height > Players4Height)
+    || ((mod == 'Normal: MOTD' || mod == 'Ranked: Conquest' || mod == 'Normal: Clash' || mod == 'Normal: Arena' || mod == 'Normal: Assault' || mod ==  "Normal: Conquest") && height > Players5Height)
     ) {
         $('#team1').unbind("DOMSubtreeModified");
 

@@ -29,11 +29,11 @@ class API {
      * @param $s
      * @return string
      */
-    public static function getPlayerStatus($p,$s) {
+    public static function getPlayerStatus($p) {
         date_default_timezone_set('Africa/Lome');
         $timestamp = date('YmdHis');
         $url = 'http://api.smitegame.com/smiteapi.svc/getplayerstatusJson/1410/'.md5('1410getplayerstatus8F70BFD30A3648D7B5BCC66DDB888CA7'.$timestamp)."/";
-        $url .= $s.'/';
+        $url .= $_SESSION['session'].'/';
         $url .= $timestamp . '/' . $p;
         $c = curl_init();
         curl_setopt($c, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.2 (KHTML, like Gecko) Chrome/22.0.1216.0 Safari/537.2" );
@@ -49,11 +49,12 @@ class API {
      * @param $s
      * @return string
      */
-    public static function getMatchPlayer($m,$s) {
+    public static function getMatchPlayer($m) {
         date_default_timezone_set('Africa/Lome');
         $timestamp = date('YmdHis');
         $url = 'http://api.smitegame.com/smiteapi.svc/getmatchplayerdetailsJson/1410/'.md5('1410getmatchplayerdetails8F70BFD30A3648D7B5BCC66DDB888CA7'.$timestamp)."/";
-        $url .= $s.'/';
+        session_start();
+        $url .= $_SESSION['session'].'/';
         $url .= $timestamp;
         $url .= '/' . $m;
         $c = curl_init();
@@ -70,11 +71,11 @@ class API {
      * @param $s
      * @return mixed
      */
-    public static function getRank($p,$s) {
+    public static function getRank($p) {
         date_default_timezone_set('Africa/Lome');
         $timestamp = date('YmdHis');
         $url='http://api.smitegame.com/smiteapi.svc/getgodranksJson/1410/'.md5('1410getgodranks8F70BFD30A3648D7B5BCC66DDB888CA7'.$timestamp)."/";
-        $url.=$s.'/'.$timestamp.'/'.$p;
+        $url.=$_SESSION['session'].'/'.$timestamp.'/'.$p;
         $c=curl_init();
         curl_setopt($c, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.2 (KHTML, like Gecko) Chrome/22.0.1216.0 Safari/537.2" );
         $content = curl_exec($c);

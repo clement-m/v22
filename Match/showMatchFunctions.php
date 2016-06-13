@@ -200,6 +200,14 @@ function getApiLeague($pi) {
   $JoustTier = $league->RankedJoust->Tier;
   $DuelTier = $league->RankedDuel->Tier;
 
+  include('../LIB/smLib/co.php');
+  $q = $pdo->prepare("CALL recLeague(:pi,:c,:j,:d);");
+  $q->bindParam('pi', $pi, PDO::PARAM_INT);
+  $q->bindParam('c', $ConqTier, PDO::PARAM_INT);
+  $q->bindParam('j', $JoustTier, PDO::PARAM_INT);
+  $q->bindParam('d', $DuelTier, PDO::PARAM_INT);
+  $q->execute();
+
   $Lconq = leagueCode($ConqTier);
   $Ljoust = leagueCode($JoustTier);
   $Lduel = leagueCode($DuelTier);
@@ -332,22 +340,22 @@ function queueNameToId($Q) {
   if($Q == "Normal: Assault") {
     $Q = 445;
   }
-  if($Q == "Normal Conquest") {
+  if($Q == "Normal: Conquest") {
     $Q = 426;
   }
   if($Q == "Normal: clash") {
     $Q = 466;
   }
   if($Q == "450") {
-    $Q = 'ranked joust'; // not ok
+    $Q = 'Ranked: Joust'; // not ok
   }
   if($Q == "Normal: Siege") {
     $Q = 459; // not ok
   }
-  if($Q == "Ranked : Conquest") {
+  if($Q == "Ranked: Conquest") {
     $Q = 451; // ok
   }
-  if($Q == "Ranked : Joust") {
+  if($Q == "Ranked: Joust") {
     $Q = 440; // ok
   }
   if($Q == "Normal: MOTD") {

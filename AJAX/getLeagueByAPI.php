@@ -13,6 +13,8 @@ $q->execute();
 while ($row = $q->fetch()) { $playerId = $row['playerId']; }
 
 include('../Match/showMatchFunctions.php');
-$kda = getAPILeague($playerId);
-$kda = json_encode($kda);
-echo $kda;
+$league = getAPILeague($playerId);
+
+$league = json_encode($league);
+
+echo $league;
