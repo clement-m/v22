@@ -190,8 +190,124 @@ function getAPIKda($pi, $gi, $q) {
   return $res;
 }
 
+function getApiLeague($pi) {
+  include_once('../LIB/smLib/API.php');
+  $API = new API();
+  $r = $API->getLeague($pi);
+  $league = $r[0];
+
+  $ConqTier = $league->RankedConquest->Tier;
+  $JoustTier = $league->RankedJoust->Tier;
+  $DuelTier = $league->RankedDuel->Tier;
+
+  $Lconq = leagueCode($ConqTier);
+  $Ljoust = leagueCode($JoustTier);
+  $Lduel = leagueCode($DuelTier);
+
+  //var_dump($Lconq);
+  //var_dump($Ljoust);
+  //var_dump($Lduel);
+
+  $res['conquest'] = $Lconq;
+  $res['joust'] = $Ljoust;
+  $res['duel'] = $Lduel;
+
+  return $res;
+  /*
+  $Avatar_URL = $league->Avatar_URL;
+  $Created_Datetime = $league->Created_Datetime;
+  $playerId = $league->Id;
+  $Last_Login_Datetime = $league->Last_Login_Datetime;
+  $Leaves = $league->Leaves;
+  $Level = $league->Level;
+  $Losses = $league->Losses;
+  $MasteryLevel = $league->MasteryLevel;
+  $Name = $league->Name;
+  $Rank_Stat_Conquest = $league->Rank_Stat_Conquest;
+  $Rank_Stat_Duel = $league->Rank_Stat_Duel;
+  $Rank_Stat_Joust = $league->Rank_Stat_Joust;
+  $RankedConquest = $league->RankedConquest;
+  $ConqLeaves = $league->RankedConquest->Leaves;
+  $ConqLosses = $league->RankedConquest->Losses;
+  $ConqName = $league->RankedConquest->Name;
+  $ConqPoints = $league->RankedConquest->Points;
+  $ConqPrevRank = $league->RankedConquest->PrevRank;
+  $ConqRank = $league->RankedConquest->Rank;
+  $ConqRank_Stat_Conq = $league->RankedConquest->Rank_Stat_Conquest;
+  $ConqRank_Stat_Duel = $league->RankedConquest->Rank_Stat_Duel;
+  $ConqRank_Stat_Joust = $league->RankedConquest->Rank_Stat_Joust;
+  $ConqSeason = $league->RankedConquest->Season;
+  $ConqTier = $league->RankedConquest->Tier;
+  $ConqTrend = $league->RankedConquest->Trend;
+  $ConqWins = $league->RankedConquest->Wins;
+  $Conqpi = $league->RankedConquest->player_id;
+  $Conqret_msg = $league->RankedConquest->ret_msg;
+  $DuelLeaves = $league->RankedDuel->Leaves;
+  $DuelLosses = $league->RankedDuel->Losses;
+  $DuelName = $league->RankedDuel->Name;
+  $DuelPoints = $league->RankedDuel->Points;
+  $DuelPrevRank = $league->RankedDuel->PrevRank;
+  $DuelRank = $league->RankedDuel->Rank;
+  $DuelRank_Stat_Conq = $league->RankedDuel->Rank_Stat_Conquest;
+  $DuelRank_Stat_Duel = $league->RankedDuel->Rank_Stat_Duel;
+  $DuelRank_Stat_Joust = $league->RankedDuel->Rank_Stat_Joust;
+  $DuelSeason = $league->RankedDuel->Season;
+  $DuelTrend = $league->RankedDuel->Trend;
+  $DuelWins = $league->RankedDuel->Wins;
+  $Duelpi = $league->RankedDuel->player_id;
+  $Duelret_msg = $league->RankedDuel->ret_msg;
+  $JoustLeaves = $league->RankedJoust->Leaves;
+  $JoustLosses = $league->RankedJoust->Losses;
+  $JoustName = $league->RankedJoust->Name;
+  $JoustPoints = $league->RankedJoust->Points;
+  $JoustPrevRank = $league->RankedJoust->PrevRank;
+  $JoustRank = $league->RankedJoust->Rank;
+  $JoustRank_Stat_Conq = $league->RankedJoust->Rank_Stat_Conquest;
+  $JoustRank_Stat_Duel = $league->RankedJoust->Rank_Stat_Duel;
+  $JoustRank_Stat_Joust = $league->RankedJoust->Rank_Stat_Joust;
+  $JoustSeason = $league->RankedJoust->Season;
+  $JoustTrend = $league->RankedJoust->Trend;
+  $JoustWins = $league->RankedJoust->Wins;
+  $Joustpi = $league->RankedJoust->player_id;
+  $Joustret_msg = $league->RankedJoust.ret_msg;
+  */
+
+}
+
+function leagueCode($num) {
+  $res = Array();
+  if($num == "0"){
+    $res["name"] = "unranked";
+        $res["num"] = "";
+    } else {
+    $mod = $num % 5;
+    $div = round($num / 5);
+    if($div == 5) {
+      $res["name"] = "master";
+            $res["num"] = 1;
+        }else{
+      switch ($mod) {
+        case 0: $res["num"] = 1; break;
+        case 1: $res["num"] = 5; break;
+        case 2: $res["num"] = 4; break;
+        case 3: $res["num"] = 3; break;
+        case 4: $res["num"] = 2; break;
+      }
+    }
+    if($mod == 0) $div -= 1;
+    switch ($div) {
+      case 0: $res["name"] = "bronze"; break;
+      case 1: $res["name"] = "silver"; break;
+      case 2: $res["name"] = "gold"; break;
+      case 3: $res["name"] = "platine"; break;
+      case 4: $res["name"] = "diamond"; break;
+    }
+  }
+  return $res;
+}
+
 // function getLeague
-function getLeague($pi) {
+function getBddLeague($pi) {
   include('../LIB/smLib/co.php');
   $q = $pdo->prepare("CALL getLeague(:pi);");
   $q->bindParam('pi', $pi, PDO::PARAM_INT);

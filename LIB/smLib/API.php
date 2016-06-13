@@ -112,12 +112,13 @@ class API {
      * @param $s
      * @return mixed
      */
-    public static function getLeague($p, $s)
+    public static function getLeague($p)
     {
         date_default_timezone_set('Africa/Lome');
         $timestamp = date('YmdHis');
         $url = 'http://api.smitegame.com/smiteapi.svc/getplayerJson/1410/'.md5('1410getplayer8F70BFD30A3648D7B5BCC66DDB888CA7'.$timestamp)."/";
-        $url .= $s.'/'.$timestamp.'/'.$p;
+        session_start();
+        $url .= $_SESSION['session'].'/'.$timestamp.'/'.$p;
         $c = curl_init();
         curl_setopt($c, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.2 (KHTML, like Gecko) Chrome/22.0.1216.0 Safari/537.2" );
         $content = curl_exec($c);

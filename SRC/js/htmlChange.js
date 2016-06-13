@@ -30,39 +30,21 @@ function displayStatus(t) {
 }
 
 function setMod(Q) {
-    console.log(Q);
-    if(Q == "448") {
-        $('#mod').text('Normal: Joust');
-    }
-    if(Q == "435") {
-        $('#mod').text('Normal: Arena');
-    }
-    if(Q == "445") {
-        $('#mod').text('Normal: Assault');
-    }
-    if(Q == "426") {
-        $('#mod').text('Normal: Conquest');
-    }
-    if(Q == "466") {
-        $('#mod').text('Normal: Clash');
-    }
-    if(Q == "450") {
-        $('#mod').text('ranked Joust');
-    }
-    if(Q == "459") {
-        $('#mod').text('Normal: Siege');
-    }
-    if(Q == "451") {
-        $('#mod').text('Ranked: Conquest');
-    }
-    if(Q == "440") {
-        $('#mod').text('Ranked: Duel');
-    }
-    if(Q == "434") {
-        $('#mod').text('Normal: MOTD');
-    }
-
     $('#mod').attr('data-idMod',Q);
+    switch (Q) {
+        case "435": $text = 'Normal: Arena'; break;
+        case "448": $text = 'Normal: Joust'; break;
+        case "426": $text = 'Normal: Conquest'; break;
+        case "466": $text = 'Normal: Clash'; break;
+        case "445": $text = 'Normal: Assault'; break;
+        case "459": $text = 'Normal: Siege'; break;
+        case "434": $text = 'Normal: MOTD'; break;
+        case "440": $text = 'Ranked: Duel'; break;
+        case "450": $text = 'Ranked: Joust'; break;
+        case "451": $text = 'Ranked: Conquest'; break;
+        default: $text = Q; console.log(Q); break;
+    }
+    $('#mod').text($text);
 }
 
 function changeTeam1Event() {
@@ -96,10 +78,11 @@ function emptyTableMatch() { $('#match').empty(); }
 // ajoute un utilisateur caché avec les valeurs à "joueur caché"
 function addHiddenPlayerInMatch(v) {
     $(v).children('.godrank').empty();
-    $(v).children('.godrank').append('Player profile hidden');
     $(v).children('.kda').empty();
-    $(v).children('.kda').append('Player profile hidden');
     $(v).children('.leagueWrapper').empty();
+
+    $(v).children('.godrank').append('Player profile hidden');
+    $(v).children('.kda').append('Player profile hidden');
     $(v).children('.leagueWrapper').append('Player profile hidden');
 }
 

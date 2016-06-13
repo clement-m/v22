@@ -110,13 +110,49 @@ function showRankByBDD(pn,gn,v) {
         data: "pn="+pn+"&gn="+gn,
         success: function(rank) {
             if(rank == "") {
+                showLeagueByApi(pn,v);
                 showKdaByApi(pn,gn,v);
                 showRankByApi(pn,gn,v);
             } else {
                 $(v).children('.godrank').empty();
                 $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />BDD');
 
+
                 showKdaByBdd(pn,gn,v);
+                // showLeagueByBdd(pn,gn,v);
+            }
+        }
+    });
+}
+
+function showLeagueByApi(pn,v) {
+    $.ajax({
+        url: "AJAX/getLeagueByAPI.php",
+        type: "POST",
+        data: "pn="+pn,
+        success: function(league) {
+            league = JSON.parse(league);
+            console.log(league);
+
+            $(v).children('.conquest').empty();
+            if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name);
+            else {
+                $(v).children('.conquest').append(league.conquest.name);
+                $(v).children('.conquest').append('<img src="src/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" />');
+            }
+
+            $(v).children('.joust').empty();
+            if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name);
+            else {
+                $(v).children('.joust').append(league.joust.name);
+                $(v).children('.joust').append('<img src="src/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" />');
+            }
+
+            $(v).children('.duel').empty();
+            if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name);
+            else {
+                $(v).children('.duel').append(league.duel.name);
+                $(v).children('.duel').append('<img src="src/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" />');
             }
         }
     });
@@ -133,8 +169,11 @@ function showKdaByBdd(pn,gn,v){
             console.log(kda);
 
             if(kda == "") {
+                showLeagueByApi(pn,v);
                 showKdaByApi(pn,gn,v);
             } else {
+                showLeagueByApi(pn,v); // replace by BDD
+
                 var kda = JSON.parse(kda);
 
                 var k = parseInt(kda['kills']);
