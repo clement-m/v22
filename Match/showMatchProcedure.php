@@ -1,5 +1,6 @@
 <?php
-
+$templateParams['playerId'] = $_POST['pi'];
+$templateParams['godId'] = $_POST['gi'];
 $templateParams['godName'] = $_POST['gn'];
 $templateParams['taskForce'] = $_POST['tf'];
 $templateParams['Account_Level'] = $_POST['al'];

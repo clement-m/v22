@@ -1,25 +1,15 @@
 <?php
 
-$playerId = "";
 include_once('../LIB/smLib/co.php');
-$q = $pdo->prepare("CALL getIdPlayerByName(:pn);");
-$q->bindParam('pn', $_POST['pn'], PDO::PARAM_STR);
-$q->execute();
-while ($row = $q->fetch()) { $playerId = $row['playerId']; }
-
 $q = $pdo->prepare("CALL getLeagueByBdd(:pi);");
-$q->bindParam('pi', $playerId, PDO::PARAM_INT);
+$q->bindParam('pi', $_POST['pi'], PDO::PARAM_INT);
 $q->execute();
 while ($row = $q->fetch()) { $res = $row; }
 
-$ConqTier = $res['conquest'];
-$JoustTier = $res['joust'];
-$DuelTier = $res['j1c1'];
-
 include('../Match/showMatchFunctions.php');
-$Lconq = leagueCode($ConqTier);
-$Ljoust = leagueCode($JoustTier);
-$Lduel = leagueCode($DuelTier);
+$Lconq = leagueCode($res['conquest']);
+$Ljoust = leagueCode($res['joust']);
+$Lduel = leagueCode($res['j1c1']);
 
 $res['conquest'] = $Lconq;
 $res['joust'] = $Ljoust;

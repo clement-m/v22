@@ -1,10 +1,19 @@
-// vide le tableau de match
+
+// htmlChange.js
+
+/*
+ * clearBoard
+ * vide le tableau de match
+ */
 function clearBoard() {
     $('#team1').empty();
     $('#team2').empty();
 }
 
-// affiche la league
+/*
+ * LeagueAppend
+ * affiche la league
+ */
 function LeagueAppend(GodName, taskForce, league, L) {
     $('#' + taskForce + GodName + ' .' + league).empty();
     if(L.name == "unranked")
@@ -22,15 +31,22 @@ function LeagueAppend(GodName, taskForce, league, L) {
         );
 }
 
-// affiche kelkechose cest koi cet merde ?
+/*
+ * displayStatus
+ * affiche kelkechose cest koi cet merde ?
+ */
 function displayStatus(t) {
     if(t == "Unknown") t = 'Player profile is hidden';
     else if(t == null) t = 'Player\'s status is changing retry';
     $('#playerStatus').text(t);
 }
 
+/*
+ * setMod
+ */
 function setMod(Q) {
     $('#mod').attr('data-idMod',Q);
+    $text = Q;
     switch (Q) {
         case "435": $text = 'Normal: Arena'; break;
         case "448": $text = 'Normal: Joust'; break;
@@ -39,13 +55,19 @@ function setMod(Q) {
         case "445": $text = 'Normal: Assault'; break;
         case "459": $text = 'Normal: Siege'; break;
         case "434": $text = 'Normal: MOTD'; break;
+
         case "440": $text = 'Ranked: Duel'; break;
         case "450": $text = 'Ranked: Joust'; break;
         case "451": $text = 'Ranked: Conquest'; break;
+
+        case "438": $text = 'Custom: Arena'; break;
     }
-    $('#mod').text($text);
+    if($text == Q) console.log(Q); else $('#mod').text($text);
 }
 
+/*
+ * changeTeamEvent
+ */
 function changeTeamEvent($team) {
     var mod = $('#mod').text();
     var len = $('#team'+$team).children().length;
@@ -67,22 +89,22 @@ function changeTeamEvent($team) {
 
         $('#team'+$team+' tr').each(function(k,v) {
             var playerName = $(v).children('.player').text();
-            if(playerName != 'Player profile hidden') showRankByBDD(playerName,$(v).children('.god').children().attr('alt'),v);
+            if(playerName != 'Player profile hidden') showRankByBDD(v);
             else addHiddenPlayerInMatch(v);
         });
-
-        /*
-        $('#team1').bind("DOMSubtreeModified", function(event) {
-            changeTeam1Event();
-        });
-        */
     }
 }
 
-// vide le match
+/*
+ * emptyTableMatch
+ * vide la table de match
+ */
 function emptyTableMatch() { $('#match').empty(); }
 
-// ajoute un utilisateur caché avec les valeurs à "joueur caché"
+/*
+ * addHiddenPlayerInMatch
+ * ajoute un utilisateur caché avec les valeurs à "joueur caché"
+ */
 function addHiddenPlayerInMatch(v) {
     $(v).children('.godrank').empty();
     $(v).children('.kda').empty();
@@ -91,6 +113,50 @@ function addHiddenPlayerInMatch(v) {
     $(v).children('.godrank').append('Player profile hidden');
     $(v).children('.kda').append('Player profile hidden');
     $(v).children('.leagueWrapper').append('Player profile hidden');
+}
+
+/*
+ * showRank
+ */
+function showRank(rank,v) {
+    $(v).children('.godrank').empty();
+    $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />');
+}
+
+/*
+ * showKda
+ */
+function showKda(kda,v) {
+    $(v).children('.kda').empty();
+    $(v).children('.kda').append(kda);
+}
+
+/*
+ * showLeague
+ */
+function showLeague(league,v) {
+    league = JSON.parse(league);
+
+    $(v).children('.conquest').empty();
+    if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name);
+    else {
+        $(v).children('.conquest').append(league.conquest.name);
+        $(v).children('.conquest').append('<img src="src/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" /> BDD');
+    }
+
+    $(v).children('.joust').empty();
+    if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name);
+    else {
+        $(v).children('.joust').append(league.joust.name);
+        $(v).children('.joust').append('<img src="src/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" />');
+    }
+
+    $(v).children('.duel').empty();
+    if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name);
+    else {
+        $(v).children('.duel').append(league.duel.name);
+        $(v).children('.duel').append('<img src="src/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" />');
+    }
 }
 
 /*

@@ -1,5 +1,10 @@
 <?php
 
+// showMatchFunctions.php
+
+/*
+ * createMatchPlayer
+ */
 function createMatchPlayer($pi,$gi,$m) {
   include('../LIB/smLib/co.php');
   $req2 = $pdo->prepare("Call createMatchPlayer(:pi,:gi,:m);");
@@ -10,7 +15,9 @@ function createMatchPlayer($pi,$gi,$m) {
   if(!$req2) { var_dump($pdo->errorInfo()); }
 }
 
-// function showMatch
+/*
+ * showMatch
+ */
 function showMatch($t){
   require_once '../lib/twig/lib/Twig/Autoloader.php';
   Twig_Autoloader::register();
@@ -22,7 +29,9 @@ function showMatch($t){
   echo $template->render(array('data' => $t));
 }
 
-// function update player
+/*
+ * updatePlayer
+ */
 function updatePlayer($pi,$pn) {
   if($pn != null) {
     include('../LIB/smLib/co.php');
@@ -34,7 +43,9 @@ function updatePlayer($pi,$pn) {
   }
 }
 
-// function update god
+/*
+ * updateGod
+ */
 function updateGod($gi,$gn) {
   include('../LIB/smLib/co.php');
   $req2 = $pdo->prepare("Call updateGod(:gi,:gn);");
@@ -44,7 +55,9 @@ function updateGod($gi,$gn) {
   if(!$req2) { var_dump($pdo->errorInfo()); }
 }
 
-// function getRank
+/*
+ * getRank
+ */
 function getRank($pi,$gi) {
   $res = 0;
   include('../LIB/smLib/co.php');
@@ -59,18 +72,7 @@ function getRank($pi,$gi) {
 }
 
 /*
- *  $rAssists = $aRank->Assists;
-    $rDeaths = $aRank->Deaths;
-    $rKills = $aRank->Kills;
-    $rLosses = $aRank->Losses;
-    $rMinionKills = $aRank->MinionKills;
-    $rRank = $aRank->Rank;
-    $rWins = $aRank->Wins;
-    $rWorshippers = $aRank->Worshippers;
-    $rgod = $aRank->god;
-    $rgod_id = $aRank->god_id;
-    $rplayer_id = $aRank->player_id;
-    $rret_msg = $aRank->ret_msg;
+ * getAPIRank
  */
 function getAPIRank($pi,$gi) {
   $res = 0;
@@ -84,18 +86,9 @@ function getAPIRank($pi,$gi) {
   $req2 = $pdo->prepare("Call recRank(:pi,:gi,:r);");
 
   foreach($rank as $aRank) {
-    $rAssists = $aRank->Assists;
-    $rDeaths = $aRank->Deaths;
-    $rKills = $aRank->Kills;
-    $rLosses = $aRank->Losses;
-    $rMinionKills = $aRank->MinionKills;
     $rRank = $aRank->Rank;
-    $rWins = $aRank->Wins;
-    $rWorshippers = $aRank->Worshippers;
-    $rgod = $aRank->god;
     $rgod_id = $aRank->god_id;
     $rplayer_id = $aRank->player_id;
-    $rret_msg = $aRank->ret_msg;
 
     $ppi = intval($rplayer_id);
     $ggi = intval($rgod_id);
@@ -112,23 +105,9 @@ function getAPIRank($pi,$gi) {
   return $res;
 }
 
-// function getKda
-function getKda($pi,$gi) {
-  include('../LIB/smLib/co.php');
-  $q = $pdo->prepare("CALL getGodScore(:pi,:gi);");
-  $q->bindParam('pi', $pi, PDO::PARAM_INT);
-  $q->bindParam('gi', $gi, PDO::PARAM_INT);
-  $q->execute();
-  while ($row = $q->fetch()) {
-    if(isset($row[0]))
-      if($row[0] == "0")
-        return false;
-      else
-        return true;
-  }
-}
-
-// function API GETKDA
+/*
+ * getApiKda
+ */
 function getAPIKda($pi, $gi, $q) {
   $res = 0;
 
@@ -144,15 +123,8 @@ function getAPIKda($pi, $gi, $q) {
     $Deaths = $akda->Deaths;
     $Kills = $akda->Kills;
     $Losses = $akda->Losses;
-    $Gold = $akda->Gold;
     $Wins = $akda->Wins;
-    $godName = $akda->God;
     $rgi = $akda->GodId;
-    //$pi = $akda->player_id;
-    $ret_msg = $akda->ret_msg;
-    $lastPlayed = $akda->LastPlayed;
-    $matches = $akda->Matches;
-    $minutes = $akda->Minutes;
     $QueueName = $akda->Queue;
     $nbMatch = $Losses + $Wins;
     $avgKills = round($Kills / $nbMatch, 2);
@@ -190,12 +162,15 @@ function getAPIKda($pi, $gi, $q) {
   return $res;
 }
 
+/*
+ * getApiLeague
+ */
 function getApiLeague($pi) {
   include_once('../LIB/smLib/API.php');
   $API = new API();
+
   $r = $API->getLeague($pi);
   $league = $r[0];
-
   $ConqTier = $league->RankedConquest->Tier;
   $JoustTier = $league->RankedJoust->Tier;
   $DuelTier = $league->RankedDuel->Tier;
@@ -208,80 +183,17 @@ function getApiLeague($pi) {
   $q->bindParam('d', $DuelTier, PDO::PARAM_INT);
   $q->execute();
 
-  $Lconq = leagueCode($ConqTier);
-  $Ljoust = leagueCode($JoustTier);
-  $Lduel = leagueCode($DuelTier);
-
-  //var_dump($Lconq);
-  //var_dump($Ljoust);
-  //var_dump($Lduel);
-
-  $res['conquest'] = $Lconq;
-  $res['joust'] = $Ljoust;
-  $res['duel'] = $Lduel;
+  $res['conquest'] = leagueCode($ConqTier);
+  $res['joust'] = leagueCode($JoustTier);
+  $res['duel'] = leagueCode($DuelTier);
 
   return $res;
-  /*
-  $Avatar_URL = $league->Avatar_URL;
-  $Created_Datetime = $league->Created_Datetime;
-  $playerId = $league->Id;
-  $Last_Login_Datetime = $league->Last_Login_Datetime;
-  $Leaves = $league->Leaves;
-  $Level = $league->Level;
-  $Losses = $league->Losses;
-  $MasteryLevel = $league->MasteryLevel;
-  $Name = $league->Name;
-  $Rank_Stat_Conquest = $league->Rank_Stat_Conquest;
-  $Rank_Stat_Duel = $league->Rank_Stat_Duel;
-  $Rank_Stat_Joust = $league->Rank_Stat_Joust;
-  $RankedConquest = $league->RankedConquest;
-  $ConqLeaves = $league->RankedConquest->Leaves;
-  $ConqLosses = $league->RankedConquest->Losses;
-  $ConqName = $league->RankedConquest->Name;
-  $ConqPoints = $league->RankedConquest->Points;
-  $ConqPrevRank = $league->RankedConquest->PrevRank;
-  $ConqRank = $league->RankedConquest->Rank;
-  $ConqRank_Stat_Conq = $league->RankedConquest->Rank_Stat_Conquest;
-  $ConqRank_Stat_Duel = $league->RankedConquest->Rank_Stat_Duel;
-  $ConqRank_Stat_Joust = $league->RankedConquest->Rank_Stat_Joust;
-  $ConqSeason = $league->RankedConquest->Season;
-  $ConqTier = $league->RankedConquest->Tier;
-  $ConqTrend = $league->RankedConquest->Trend;
-  $ConqWins = $league->RankedConquest->Wins;
-  $Conqpi = $league->RankedConquest->player_id;
-  $Conqret_msg = $league->RankedConquest->ret_msg;
-  $DuelLeaves = $league->RankedDuel->Leaves;
-  $DuelLosses = $league->RankedDuel->Losses;
-  $DuelName = $league->RankedDuel->Name;
-  $DuelPoints = $league->RankedDuel->Points;
-  $DuelPrevRank = $league->RankedDuel->PrevRank;
-  $DuelRank = $league->RankedDuel->Rank;
-  $DuelRank_Stat_Conq = $league->RankedDuel->Rank_Stat_Conquest;
-  $DuelRank_Stat_Duel = $league->RankedDuel->Rank_Stat_Duel;
-  $DuelRank_Stat_Joust = $league->RankedDuel->Rank_Stat_Joust;
-  $DuelSeason = $league->RankedDuel->Season;
-  $DuelTrend = $league->RankedDuel->Trend;
-  $DuelWins = $league->RankedDuel->Wins;
-  $Duelpi = $league->RankedDuel->player_id;
-  $Duelret_msg = $league->RankedDuel->ret_msg;
-  $JoustLeaves = $league->RankedJoust->Leaves;
-  $JoustLosses = $league->RankedJoust->Losses;
-  $JoustName = $league->RankedJoust->Name;
-  $JoustPoints = $league->RankedJoust->Points;
-  $JoustPrevRank = $league->RankedJoust->PrevRank;
-  $JoustRank = $league->RankedJoust->Rank;
-  $JoustRank_Stat_Conq = $league->RankedJoust->Rank_Stat_Conquest;
-  $JoustRank_Stat_Duel = $league->RankedJoust->Rank_Stat_Duel;
-  $JoustRank_Stat_Joust = $league->RankedJoust->Rank_Stat_Joust;
-  $JoustSeason = $league->RankedJoust->Season;
-  $JoustTrend = $league->RankedJoust->Trend;
-  $JoustWins = $league->RankedJoust->Wins;
-  $Joustpi = $league->RankedJoust->player_id;
-  $Joustret_msg = $league->RankedJoust.ret_msg;
-  */
-
 }
 
+/*
+ * leagueCode
+ * getLeagueCode
+ */
 function leagueCode($num) {
   $res = Array();
   if($num == "0"){
@@ -314,21 +226,9 @@ function leagueCode($num) {
   return $res;
 }
 
-// function getLeague
-function getBddLeague($pi) {
-  include('../LIB/smLib/co.php');
-  $q = $pdo->prepare("CALL getLeague(:pi);");
-  $q->bindParam('pi', $pi, PDO::PARAM_INT);
-  $q->execute();
-  while ($row = $q->fetch()) {
-    if(isset($row[0]))
-      if($row[0] == "0")
-        return "dzaddddd";
-      else
-        return "THERE IS LEAGUE SHOW IT";
-  }
-}
-
+/*
+ * queueNameToId
+ */
 function queueNameToId($Q) {
   // DOIT RETOURNER L4ID PAS LE PUTAIN DE NOM
   if($Q == "Normal: Joust") {

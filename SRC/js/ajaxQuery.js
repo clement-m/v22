@@ -1,6 +1,14 @@
-// Create match
+
+// ajaxQuery.js
+
+/*
+ * Create match
+ */
 function createMatch(m) {
-    $.ajax({ url: "Ajax/createMatch.php", type: "POST", data: "matchid="+m });
+    $.ajax({
+        url: "Ajax/createMatch.php", type: "POST",
+        data: "matchid="+m
+    });
 }
 
 /*
@@ -8,16 +16,18 @@ function createMatch(m) {
  */
 function showMatchProcedure(m, s, q, ml, al, tf, gn, pi, pn, gi) {
     $.ajax({
-        url: "Match/showMatchProcedure.php", type: "POST", data: "m="+m+"&s="+s+"&q="+q+"&ml="+ml+"&pn="+pn+"&al="+al+"&tf="+tf+"&gi=" + gi + "&gn=" + gn + "&pi=" + pi,
+        url: "Match/showMatchProcedure.php", type: "POST",
+        data: "m="+m+"&s="+s+"&q="+q+"&ml="+ml+"&pn="+pn+"&al="+al+"&tf="+tf+"&gi=" + gi + "&gn=" + gn + "&pi=" + pi,
         success: function (html) { $('#team'+tf).append(html); }
     });
 }
 
-// getConnection
+/*
+ * getConnection
+ */
 function getConnection() {
     $.ajax({
-        url: "AJAX/connection.php",
-        type: "POST",
+        url: "AJAX/connection.php", type: "POST",
         success: function(r) {
             var r = JSON.parse(r);
             var response = r.ret_msg;
@@ -28,19 +38,18 @@ function getConnection() {
     });
 }
 
-// getStatus
+/*
+ * getStatus
+ */
 function getStatus(p,s) {
     $.ajax({
-        url: "AJAX/getStatus.php",
-        type: "POST",
+        url: "AJAX/getStatus.php", type: "POST",
         data: "player="+p+"&session="+s,
         success: function(json) {
             var r = JSON.parse(json);
             var statusId = r.status;
             var statusString = r.status_string;
-            var ret_msg = r.ret_msg; // null
             var matchId = r.Match;
-            var playerMsg = r.personal_status_message; // truc a faire avec
             displayStatus(statusString);
 
             $('#funcStatus').text(statusString);
@@ -55,11 +64,12 @@ function getStatus(p,s) {
     });
 }
 
-// showMatch
+/*
+ * showMatch
+ */
 function showMatch(m,s) {
     $.ajax({
-        url: "AJAX/getPlayers.php",
-        type: "POST",
+        url: "AJAX/getPlayers.php", type: "POST",
         data: "matchid="+m,
         success: function(json) {
             var players = JSON.parse(json);
@@ -67,15 +77,8 @@ function showMatch(m,s) {
                 var Account_Level = player.Account_Level;
                 var GodName = player.GodName;
                 var mastery_Level = player.Mastery_Level;
-                var Match = player.Match;
                 var Queue = player.Queue;
-                var SkinId = player.SkinId;
-                var Tier = player.Tier;
-                var playerCreated = player.playerCreated;
                 var playerName = player.playerName;
-                var ret_msg = player.ret_msg;
-                var tierLosses = player.tierLosses;
-                var tierWins = player.tierWins;
                 var playerId = player.playerId;
                 var godId = player.GodId;
                 var taskForce = player.taskForce;
@@ -89,154 +92,102 @@ function showMatch(m,s) {
     });
 }
 
+/*
+ * show rank with BDD
+ */
+function showRankByBDD(v) {
+    var pi = $(v).children('.player').attr('data-playerId');
+    var gi = $(v).children('.god').attr('data-godId');
 
-// show rank with BDD
-function showRankByBDD(pn,gn,v) {
     $.ajax({
-        url: "AJAX/getRankByBdd.php",
-        type: "POST",
-        data: "pn="+pn+"&gn="+gn,
+        url: "AJAX/getRankByBdd.php", type: "POST",
+        data: "pi="+pi+"&gi="+gi,
         success: function(rank) {
             if(rank == "") {
-                showLeagueByApi(pn,v);
-                showKdaByApi(pn,gn,v);
-                showRankByApi(pn,gn,v);
+                showLeagueByApi(v);
+                showKdaByApi(v);
+                showRankByApi(v);
             } else {
-                $(v).children('.godrank').empty();
-                $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />BDD');
-
-                showKdaByBdd(pn,gn,v);
-                showLeagueByBdd(pn,v);
+                showRank(rank,v);
+                showKdaByBdd(v);
+                showLeagueByBdd(v);
             }
         }
     });
 }
 
-// show kda by BDD
-function showKdaByBdd(pn,gn,v){
-    var q = $('#mod').attr('data-idMod');
+/*
+ * show rank with API
+ */
+function showRankByApi(v) {
+    var pi = $(v).children('.player').attr('data-playerId');
+    var gi = $(v).children('.god').attr('data-godId');
+
     $.ajax({
-        url: "AJAX/getKdaByBdd.php",
-        type: "POST",
-        data: "pn="+pn+"&gn="+gn+"&q="+q,
+        url: "AJAX/getRankByApi.php", type: "POST",
+        data: "pi="+pi+"&gi="+gi,
+        success: function(rank) { showRank(rank,v); }
+    });
+}
+
+/*
+ * show kda by BDD
+ */
+function showKdaByBdd(v){
+    var pi = $(v).children('.player').attr('data-playerId');
+    var gi = $(v).children('.god').attr('data-godId');
+    var q = $('#mod').attr('data-idMod');
+
+    $.ajax({
+        url: "AJAX/getKdaByBdd.php", type: "POST",
+        data: "pi="+pi+"&gi="+gi+"&q="+q,
         success: function(kda) {
             if(kda == "") {
-                showKdaByApi(pn,gn,v);
-                showLeagueByApi(pn,v);
-            } else {
-                var kda = JSON.parse(kda);
-
-                var k = parseInt(kda['kills']);
-                var d = parseInt(kda['deaths']);
-                var a = parseInt(kda['assists']);
-                var nb = parseInt(kda['nbMatch']);
-
-                var avgKill = k / nb;
-                var avgDeath = d / nb;
-                var avgAssist = a / nb;
-                var PMI;
-
-                if(avgDeath == 0 && avgAssist == 0) PMI = 0 - Math.round(avgDeath, 2);
-                else if(avgDeath == 0) PMI = Math.round((avgKill + avgAssist), 2);
-                else if(avgKill == 0 && avgAssist == 0 && avgDeath == 0) PMI = 0;
-                else PMI = Math.round((avgKill + avgAssist) / avgDeath, 2);
-
-                $(v).children('.kda').empty();
-                $(v).children('.kda').append(avgKill + '/' + avgDeath + '/' + avgAssist + ' pmi:' + PMI + ' BDD');
-
-                //showLeagueByApi(pn,v); // replace by BDD
-            }
+                showKdaByApi(v);
+                showLeagueByApi(v);
+            } else showKda(kda,v);
         }
     });
 }
 
-function showLeagueByBdd(pn,v) {
-    $.ajax({
-        url: "AJAX/getLeagueByBdd.php",
-        type: "POST",
-        data: "pn="+pn,
-        success: function(league) {
-            league = JSON.parse(league);
-
-            $(v).children('.conquest').empty();
-            if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name + ' BDD');
-            else {
-                $(v).children('.conquest').append(league.conquest.name);
-                $(v).children('.conquest').append('<img src="src/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" /> BDD');
-            }
-
-            $(v).children('.joust').empty();
-            if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name + ' BDD');
-            else {
-                $(v).children('.joust').append(league.joust.name);
-                $(v).children('.joust').append('<img src="src/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" /> BDD');
-            }
-
-            $(v).children('.duel').empty();
-            if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name + ' BDD');
-            else {
-                $(v).children('.duel').append(league.duel.name);
-                $(v).children('.duel').append('<img src="src/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" /> BDD');
-            }
-        }
-    });
-}
-
-// show rank with API
-function showRankByApi(pn,gn,v) {
-    $.ajax({
-        url: "AJAX/getRankByApi.php",
-        type: "POST",
-        data: "pn="+pn+"&gn="+gn,
-        success: function(rank) {
-            $(v).children('.godrank').empty();
-            $(v).children('.godrank').append('<img class="masteryLevel" src="src/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />API');
-        }
-    });
-}
-
-// show kda by API
-function showKdaByApi(pn,gn,v) {
+/*
+ * show kda by API
+ */
+function showKdaByApi(v) {
+    var pi = $(v).children('.player').attr('data-playerId');
+    var gi = $(v).children('.god').attr('data-godId');
     var q = $('#mod').attr('data-idMod');
     $.ajax({
-        url: "AJAX/getKdaByAPI.php",
-        type: "POST",
-        data: "pn="+pn+"&gn="+gn+"&q="+q,
-        success: function(kda) {
-            $(v).children('.kda').append(kda + ' API');
-        }
+        url: "AJAX/getKdaByAPI.php", type: "POST",
+        data: "pi="+pi+"&gi="+gi+"&q="+q,
+        success: function(kda) { showKda(kda,v); }
     });
 }
 
-function showLeagueByApi(pn,v) {
+/*
+ * show League BDD
+ */
+function showLeagueByBdd(v) {
+    var pi = $(v).children('.player').attr('data-playerId');
+
     $.ajax({
-        url: "AJAX/getLeagueByAPI.php",
-        type: "POST",
-        data: "pn="+pn,
+        url: "AJAX/getLeagueByBdd.php", type: "POST",
+        data: "pi="+pi,
         success: function(league) {
-            league = JSON.parse(league);
-
-            $(v).children('.conquest').empty();
-            if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name + ' API');
-            else {
-                $(v).children('.conquest').append(league.conquest.name);
-                $(v).children('.conquest').append('<img src="src/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" /> API');
-            }
-
-            $(v).children('.joust').empty();
-            if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name + ' API');
-            else {
-                $(v).children('.joust').append(league.joust.name);
-                $(v).children('.joust').append('<img src="src/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" /> API');
-            }
-
-            $(v).children('.duel').empty();
-            if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name + ' API');
-            else {
-                $(v).children('.duel').append(league.duel.name);
-                $(v).children('.duel').append('<img src="src/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" /> API');
-            }
+            showLeague(league,v);
         }
     });
 }
 
+/*
+ * show League API
+ */
+function showLeagueByApi(v) {
+    var pi = $(v).children('.player').attr('data-playerId');
+
+    $.ajax({
+        url: "AJAX/getLeagueByAPI.php", type: "POST",
+        data: "pi="+pi,
+        success: function(league) { showLeague(league,v); }
+    });
+}
