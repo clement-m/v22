@@ -20,11 +20,6 @@ try
   $db_config['OPTIONS']);
 
   unset($db_config);
-
-  $this->match->connection($this->pdo);
-  $this->player->connection($this->pdo);
-  $this->rank->connection($this->pdo);
-  $this->kda->connection($this->pdo);
 }
 catch(PDOException $e)
 {
