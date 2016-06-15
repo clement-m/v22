@@ -6,7 +6,7 @@
  */
 function createMatch(m) {
     $.ajax({
-        url: "Ajax/createMatch.php", type: "POST",
+        url: "AJAX/createMatch.php", type: "POST",
         data: "matchid="+m
     });
 }
