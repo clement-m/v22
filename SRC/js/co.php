@@ -4,9 +4,9 @@ try
 {
   $db_config = array();
   $db_config['SGBD']  = 'mysql';
-  $db_config['HOST']  = 'smitepansnspazki.mysql.db';
-  $db_config['DB_NAME'] = 'smitepansnspazki';
-  $db_config['USER']  = 'smitepansnspazki';
+  $db_config['HOST']  = 'smitepansntest.mysql.db';
+  $db_config['DB_NAME'] = 'smitepansntest';
+  $db_config['USER']  = 'smitepansntest';
   $db_config['PASSWORD']  = 'mlkqsdSmite6';
   $db_config['OPTIONS'] = array(
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -25,8 +25,4 @@ try
   $this->player->connection($this->pdo);
   $this->rank->connection($this->pdo);
   $this->kda->connection($this->pdo);
-}
-catch(PDOException $e)
-{
-  die('Erreur : ' . $e->getMessage());
-}
+} catch(PDOException $e) {die('Erreur : ' . $e->getMessage());}
