@@ -82,7 +82,7 @@ function getAPIRank($pi,$gi) {
   $API = new API();
   $rank = $API->getRank($pi, $_SESSION['session']);
 
-  include('../LIB/smLib/co.php');
+  include_once('../LIB/smLib/co.php');
   $req2 = $pdo->prepare("Call recRank(:pi,:gi,:r);");
 
   foreach($rank as $aRank) {
