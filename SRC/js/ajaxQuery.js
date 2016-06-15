@@ -126,7 +126,9 @@ function showRankByApi(v) {
     $.ajax({
         url: "AJAX/getRankByApi.php", type: "POST",
         data: "pi="+pi+"&gi="+gi,
-        success: function(rank) { showRank(rank,v,'api'); }
+        success: function(rank) {
+            showRank(rank,v,'api');
+        }
     });
 }
 
