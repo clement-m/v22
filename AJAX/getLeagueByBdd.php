@@ -6,7 +6,7 @@ $q->bindParam('pi', $_POST['pi'], PDO::PARAM_INT);
 $q->execute();
 while ($row = $q->fetch()) { $res = $row; }
 
-include('../Match/showMatchFunctions.php');
+include_once('../Match/showMatchFunctions.php');
 $Lconq = leagueCode($res['conquest']);
 $Ljoust = leagueCode($res['joust']);
 $Lduel = leagueCode($res['j1c1']);
