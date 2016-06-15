@@ -21,9 +21,8 @@ function createMatchPlayer($pi,$gi,$m) {
 function showMatch($t){
   require_once '../LIB/twig/lib/Twig/Autoloader.php';
   Twig_Autoloader::register();
-  $twig = new Twig_Environment($loader, array('cache' => 'cache'));
   $loader = new Twig_Loader_Filesystem('../SRC/Views');
-  $twig = new Twig_Environment($loader, array('debug' => true));
+  $twig = new Twig_Environment($loader, array('debug' => true, 'cache' => 'cache'));
   $twig->addExtension(new Twig_Extension_Debug());
   $template = $twig->loadTemplate('player.html.twig');
   echo $template->render(array('data' => $t));
@@ -56,22 +55,6 @@ function updateGod($gi,$gn) {
 }
 
 /*
- * getRank
- */
-function getRank($pi,$gi) {
-  $res = 0;
-  include('../LIB/smLib/co.php');
-  $q = $pdo->prepare("CALL getRank(:pi,:gi);");
-  $q->bindParam('pi', $pi, PDO::PARAM_INT);
-  $q->bindParam('gi', $gi, PDO::PARAM_INT);
-  $q->execute();
-  while ($row = $q->fetch()) {
-    $res = $row;
-  }
-  return $res;
-}
-
-/*
  * getAPIRank
  */
 function getAPIRank($pi,$gi) {
@@ -82,7 +65,7 @@ function getAPIRank($pi,$gi) {
   $API = new API();
   $rank = $API->getRank($pi, $_SESSION['session']);
 
-  include_once('../LIB/smLib/co.php');
+  include('../LIB/smLib/co.php');
   $req2 = $pdo->prepare("Call recRank(:pi,:gi,:r);");
 
   foreach($rank as $aRank) {

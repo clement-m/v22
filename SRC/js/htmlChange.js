@@ -119,44 +119,44 @@ function addHiddenPlayerInMatch(v) {
 /*
  * showRank
  */
-function showRank(rank,v) {
+function showRank(rank,v,way) {
     $(v).children('.godrank').empty();
-    $(v).children('.godrank').append('<img class="masteryLevel" src="SRC/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />');
+    $(v).children('.godrank').append('<img class="masteryLevel" src="SRC/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" /> '+way);
 }
 
 /*
  * showKda
  */
-function showKda(kda,v) {
+function showKda(kda,v,way) {
     $(v).children('.kda').empty();
-    $(v).children('.kda').append(kda);
+    $(v).children('.kda').append(kda+' '+way);
 }
 
 /*
  * showLeague
  */
-function showLeague(league,v) {
+function showLeague(league,v,way) {
     league = JSON.parse(league);
 
     $(v).children('.conquest').empty();
-    if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name);
+    if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name+' '+way);
     else {
         $(v).children('.conquest').append(league.conquest.name);
-        $(v).children('.conquest').append('<img src="src/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" /> BDD');
+        $(v).children('.conquest').append('<img src="src/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" /> '+way);
     }
 
     $(v).children('.joust').empty();
-    if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name);
+    if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name+' '+way);
     else {
         $(v).children('.joust').append(league.joust.name);
-        $(v).children('.joust').append('<img src="src/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" />');
+        $(v).children('.joust').append('<img src="src/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" /> '+way);
     }
 
     $(v).children('.duel').empty();
-    if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name);
+    if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name+' '+way);
     else {
         $(v).children('.duel').append(league.duel.name);
-        $(v).children('.duel').append('<img src="src/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" />');
+        $(v).children('.duel').append('<img src="src/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" /> '+way);
     }
 }
 

@@ -5,6 +5,7 @@ ehthumbs.db
 
 # sm
 LIB/smLib/co.php
+cache
 .idea
 
 # Folder config file
