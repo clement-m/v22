@@ -4,7 +4,7 @@ ehthumbs.db
 
 
 # sm
-Controlers/DBCaller.php
+lib/smLib/co.php
 .idea
 
 # Folder config file
