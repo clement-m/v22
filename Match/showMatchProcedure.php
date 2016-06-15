@@ -7,7 +7,7 @@ $templateParams['Account_Level'] = $_POST['al'];
 $templateParams['playerName'] = $_POST['pn'];
 $templateParams['mastery_Level'] = $_POST['ml'];
 
-include_once('../Match/showMatchFunctions.php');
+include('../Match/showMatchFunctions.php');
 
 updatePlayer($_POST['pi'],$_POST['pn']);
 updateGod($_POST['gi'],$_POST['gn']);

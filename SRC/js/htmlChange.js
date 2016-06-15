@@ -62,7 +62,7 @@ function setMod(Q) {
 
         case "438": $text = 'Custom: Arena'; break;
     }
-    if($text == Q) console.log(Q); else $('#mod').text($text);
+    if($text == Q) $('#mod').text("mod not done for smite-pantheon");
 }
 
 /*
