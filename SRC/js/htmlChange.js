@@ -11,25 +11,10 @@ function clearBoard() {
 }
 
 /*
- * LeagueAppend
- * affiche la league
+ * emptyTableMatch
+ * vide la table de match
  */
-function LeagueAppend(GodName, taskForce, league, L) {
-    $('#' + taskForce + GodName + ' .' + league).empty();
-    if(L.name == "unranked")
-        $('#' + taskForce + GodName + ' .'+league).append(
-            '<img class="leagueImage col-md-12" src="src/IMG/ranks_icons/' + L.name + '.jpg" alt="' + L.name + ' " />' +
-            '<b class="col-md-12 leagueLibelle">unranked</b>'
-        );
-    else
-        $('#' + taskForce + GodName + ' .' + league).append(
-            '<div>' +
-            '<img class="leagueImage" src="src/IMG/ranks_icons/' + L.name + '.jpg" alt="' + L.name + ' " /> ' +
-            '<img src="src/IMG/masteryLvl/m'+L.num+'.jpg" alt="'+L.num+'" />' +
-            '</div>' +
-            '<b class="col-md-12 leagueLibelle">'+L.name+'</b>'
-        );
-}
+function emptyTableMatch() { $('#match').empty(); }
 
 /*
  * displayStatus
@@ -97,12 +82,6 @@ function changeTeamEvent($team) {
 }
 
 /*
- * emptyTableMatch
- * vide la table de match
- */
-function emptyTableMatch() { $('#match').empty(); }
-
-/*
  * addHiddenPlayerInMatch
  * ajoute un utilisateur caché avec les valeurs à "joueur caché"
  */
@@ -142,21 +121,21 @@ function showLeague(league,v,way) {
     if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name+' '+way);
     else {
         $(v).children('.conquest').append(league.conquest.name);
-        $(v).children('.conquest').append('<img src="src/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" /> '+way);
+        $(v).children('.conquest').append('<img src="SRC/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" /> '+way);
     }
 
     $(v).children('.joust').empty();
     if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name+' '+way);
     else {
         $(v).children('.joust').append(league.joust.name);
-        $(v).children('.joust').append('<img src="src/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" /> '+way);
+        $(v).children('.joust').append('<img src="SRC/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" /> '+way);
     }
 
     $(v).children('.duel').empty();
     if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name+' '+way);
     else {
         $(v).children('.duel').append(league.duel.name);
-        $(v).children('.duel').append('<img src="src/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" /> '+way);
+        $(v).children('.duel').append('<img src="SRC/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" /> '+way);
     }
 }
 
