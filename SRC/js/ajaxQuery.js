@@ -147,7 +147,10 @@ function showKdaByBdd(v){
             if(kda == "") {
                 showKdaByApi(v);
                 showLeagueByApi(v);
-            } else showKda(kda,v,'bdd');
+            } else {
+                showKda(kda,v,'bdd');
+                showLeagueByBdd(v);
+            }
         }
     });
 }
