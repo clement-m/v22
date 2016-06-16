@@ -104,13 +104,10 @@ function showRankByBDD(v) {
         data: "pi="+pi+"&gi="+gi,
         success: function(rank) {
             if(rank == "") {
-                showLeagueByApi(v);
-                showKdaByApi(v);
                 showRankByApi(v);
             } else {
                 showRank(rank,v,'bdd');
                 showKdaByBdd(v);
-                showLeagueByBdd(v);
             }
         }
     });
@@ -128,6 +125,7 @@ function showRankByApi(v) {
         data: "pi="+pi+"&gi="+gi,
         success: function(rank) {
             showRank(rank,v,'api');
+            showKdaByApi(v);
         }
     });
 }
@@ -146,7 +144,6 @@ function showKdaByBdd(v){
         success: function(kda) {
             if(kda == "") {
                 showKdaByApi(v);
-                showLeagueByApi(v);
             } else {
                 showKda(kda,v,'bdd');
                 showLeagueByBdd(v);
@@ -165,7 +162,10 @@ function showKdaByApi(v) {
     $.ajax({
         url: "AJAX/getKdaByAPI.php", type: "POST",
         data: "pi="+pi+"&gi="+gi+"&q="+q,
-        success: function(kda) { showKda(kda,v,'api'); }
+        success: function(kda) {
+            showKda(kda,v,'api');
+            showLeagueByApi(v);
+        }
     });
 }
 
