@@ -1,8 +1,9 @@
 <?php
 
 include_once('../LIB/smLib/co.php');
-$q = $pdo->prepare("CALL getLeagueByBdd(:pi);");
+$q = $pdo->prepare("CALL getLeagueByBdd(:pi,:q);");
 $q->bindParam('pi', $_POST['pi'], PDO::PARAM_INT);
+$q->bindParam('q', $_POST['q'], PDO::PARAM_INT);
 $q->execute();
 while ($row = $q->fetch()) { $res = $row; }
 
@@ -14,5 +15,6 @@ $Lduel = leagueCode($res['j1c1']);
 $res['conquest'] = $Lconq;
 $res['joust'] = $Ljoust;
 $res['duel'] = $Lduel;
+$res['nbViewed'] = $res['nbViewed'];
 
 echo json_encode($res);

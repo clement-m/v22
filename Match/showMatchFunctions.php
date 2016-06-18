@@ -169,6 +169,7 @@ function getApiLeague($pi) {
   $res['conquest'] = leagueCode($ConqTier);
   $res['joust'] = leagueCode($JoustTier);
   $res['duel'] = leagueCode($DuelTier);
+  $res['nbViewed'] = "no view";
 
   return $res;
 }

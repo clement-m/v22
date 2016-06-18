@@ -118,24 +118,24 @@ function showLeague(league,v,way) {
     league = JSON.parse(league);
 
     $(v).children('.conquest').empty();
-    if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name+' '+way);
+    if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name+' '+way+' '+league.nbViewed);
     else {
         $(v).children('.conquest').append(league.conquest.name);
-        $(v).children('.conquest').append('<img src="SRC/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" /> '+way);
+        $(v).children('.conquest').append('<img src="SRC/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" /> '+way+' '+league.nbViewed);
     }
 
     $(v).children('.joust').empty();
-    if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name+' '+way);
+    if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name+' '+way+' '+league.nbViewed);
     else {
         $(v).children('.joust').append(league.joust.name);
-        $(v).children('.joust').append('<img src="SRC/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" /> '+way);
+        $(v).children('.joust').append('<img src="SRC/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" /> '+way+' '+league.nbViewed);
     }
 
     $(v).children('.duel').empty();
-    if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name+' '+way);
+    if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name+' '+way+' '+league.nbViewed);
     else {
         $(v).children('.duel').append(league.duel.name);
-        $(v).children('.duel').append('<img src="SRC/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" /> '+way);
+        $(v).children('.duel').append('<img src="SRC/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" /> '+way+' '+league.nbViewed);
     }
 }
 

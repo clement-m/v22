@@ -178,10 +178,11 @@ function showKdaByApi(v) {
  */
 function showLeagueByBdd(v) {
     var pi = $(v).children('.player').attr('data-playerId');
+    var q = $('#mod').attr('data-idMod');
 
     $.ajax({
         url: "AJAX/getLeagueByBdd.php", type: "POST",
-        data: "pi="+pi,
+        data: "pi="+pi+"&q="+q,
         success: function(league) {
             showLeague(league,v,'bdd');
         }
@@ -197,6 +198,8 @@ function showLeagueByApi(v) {
     $.ajax({
         url: "AJAX/getLeagueByAPI.php", type: "POST",
         data: "pi="+pi,
-        success: function(league) { showLeague(league,v,'api'); }
+        success: function(league) {
+            showLeague(league,v,'api');
+        }
     });
 }
