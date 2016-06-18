@@ -7,7 +7,7 @@ ehthumbs.db
 LIB/smLib/co.php
 cache
 index.php
-twigPlayer.php
+Match/twigPlayer.php
 .idea
 
 # Folder config file
