@@ -103,10 +103,10 @@ function showRankByBDD(v) {
         url: "AJAX/getRankByBdd.php", type: "POST",
         data: "pi="+pi+"&gi="+gi,
         success: function(rank) {
-            if(theRank == '{"":""}') {
+            if(rank == '{"":""}') {
                 showRankByApi(v);
             } else {
-                showRank(theRank,v);
+                showRank(rank,v);
                 showKdaByBdd(v);
             }
         }
