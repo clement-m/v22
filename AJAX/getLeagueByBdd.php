@@ -15,6 +15,5 @@ $Lduel = leagueCode($res['j1c1']);
 $res['conquest'] = $Lconq;
 $res['joust'] = $Ljoust;
 $res['duel'] = $Lduel;
-$res['nbViewed'] = $res['nbViewed'];
 
 echo json_encode($res);

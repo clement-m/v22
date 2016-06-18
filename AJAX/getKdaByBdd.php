@@ -13,7 +13,6 @@ while ($row = $q->fetch()) {
     $avgKill = $row['kills'] / $row['nbMatch'];
     $avgDeath = $row['deaths'] / $row['nbMatch'];
     $avgAssist = $row['assists'] / $row['nbMatch'];
-    $nbViewed = $row['nbViewed'];
     $PMI;
 
     if($avgDeath == 0 && $avgAssist == 0) $PMI = 0 - round($avgDeath, 2);
@@ -21,7 +20,7 @@ while ($row = $q->fetch()) {
     else if($avgKill == 0 && $avgAssist == 0 && $avgDeath == 0) $PMI = 0;
     else $PMI = round(($avgKill + $avgAssist) / $avgDeath, 2);
 
-    echo $avgKill."/".$avgDeath."/".$avgAssist." pmi: ".$PMI . " " . $nbViewed;
+    echo $avgKill."/".$avgDeath."/".$avgAssist." pmi: ".$PMI;
   } else {
     echo "";
   }

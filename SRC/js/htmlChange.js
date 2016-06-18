@@ -98,44 +98,44 @@ function addHiddenPlayerInMatch(v) {
 /*
  * showRank
  */
-function showRank(rank,v,way) {
+function showRank(rank,v) {
     $(v).children('.godrank').empty();
-    $(v).children('.godrank').append('<img class="masteryLevel" src="SRC/IMG/masteryLvl/m'+rank.rank+'.jpg" alt="level '+rank+'" /> '+way+' '+rank.nbViewed);
+    $(v).children('.godrank').append('<img class="masteryLevel" src="SRC/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" />');
 }
 
 /*
  * showKda
  */
-function showKda(kda,v,way) {
+function showKda(kda,v) {
     $(v).children('.kda').empty();
-    $(v).children('.kda').append(kda+' '+way);
+    $(v).children('.kda').append(kda);
 }
 
 /*
  * showLeague
  */
-function showLeague(league,v,way) {
+function showLeague(league,v) {
     league = JSON.parse(league);
 
     $(v).children('.conquest').empty();
-    if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name+' '+way+' '+league.nbViewed);
+    if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name);
     else {
         $(v).children('.conquest').append(league.conquest.name);
-        $(v).children('.conquest').append('<img src="SRC/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" /> '+way+' '+league.nbViewed);
+        $(v).children('.conquest').append('<img src="SRC/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" />');
     }
 
     $(v).children('.joust').empty();
-    if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name+' '+way+' '+league.nbViewed);
+    if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name);
     else {
         $(v).children('.joust').append(league.joust.name);
-        $(v).children('.joust').append('<img src="SRC/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" /> '+way+' '+league.nbViewed);
+        $(v).children('.joust').append('<img src="SRC/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" />');
     }
 
     $(v).children('.duel').empty();
-    if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name+' '+way+' '+league.nbViewed);
+    if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name);
     else {
         $(v).children('.duel').append(league.duel.name);
-        $(v).children('.duel').append('<img src="SRC/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" /> '+way+' '+league.nbViewed);
+        $(v).children('.duel').append('<img src="SRC/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" />');
     }
 }
 

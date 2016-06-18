@@ -103,11 +103,12 @@ function showRankByBDD(v) {
         url: "AJAX/getRankByBdd.php", type: "POST",
         data: "pi="+pi+"&gi="+gi,
         success: function(rank) {
-            if(rank == '{"":""}') {
+            var theRank = JSON.parse(rank);
+            theRank = theRank.rank;
+            if(theRank == "") {
                 showRankByApi(v);
             } else {
-                rank = JSON.parse(rank);
-                showRank(rank,v,'bdd');
+                showRank(theRank,v);
                 showKdaByBdd(v);
             }
         }
@@ -125,10 +126,7 @@ function showRankByApi(v) {
         url: "AJAX/getRankByApi.php", type: "POST",
         data: "pi="+pi+"&gi="+gi,
         success: function(rank) {
-            var theRank = Object();
-            theRank.rank = rank;
-            theRank.nbViewed = "no view";
-            showRank(theRank,v,'api');
+            showRank(rank,v);
             showKdaByApi(v);
         }
     });
@@ -149,7 +147,7 @@ function showKdaByBdd(v){
             if(kda == '') {
                 showKdaByApi(v);
             } else {
-                showKda(kda,v,'bdd');
+                showKda(kda,v);
                 showLeagueByBdd(v);
             }
         }
@@ -167,7 +165,7 @@ function showKdaByApi(v) {
         url: "AJAX/getKdaByAPI.php", type: "POST",
         data: "pi="+pi+"&gi="+gi+"&q="+q,
         success: function(kda) {
-            showKda(kda,v,'api');
+            showKda(kda,v);
             showLeagueByApi(v);
         }
     });
@@ -184,7 +182,7 @@ function showLeagueByBdd(v) {
         url: "AJAX/getLeagueByBdd.php", type: "POST",
         data: "pi="+pi+"&q="+q,
         success: function(league) {
-            showLeague(league,v,'bdd');
+            showLeague(league,v);
         }
     });
 }
@@ -199,7 +197,7 @@ function showLeagueByApi(v) {
         url: "AJAX/getLeagueByAPI.php", type: "POST",
         data: "pi="+pi,
         success: function(league) {
-            showLeague(league,v,'api');
+            showLeague(league,v);
         }
     });
 }
