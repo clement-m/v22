@@ -100,7 +100,7 @@ function addHiddenPlayerInMatch(v) {
  */
 function showRank(rank,v,way) {
     $(v).children('.godrank').empty();
-    $(v).children('.godrank').append('<img class="masteryLevel" src="SRC/IMG/masteryLvl/m'+rank+'.jpg" alt="level '+rank+'" /> '+way);
+    $(v).children('.godrank').append('<img class="masteryLevel" src="SRC/IMG/masteryLvl/m'+rank.rank+'.jpg" alt="level '+rank+'" /> '+way+' '+rank.nbViewed);
 }
 
 /*

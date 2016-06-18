@@ -103,9 +103,10 @@ function showRankByBDD(v) {
         url: "AJAX/getRankByBdd.php", type: "POST",
         data: "pi="+pi+"&gi="+gi,
         success: function(rank) {
-            if(rank == "") {
+            if(rank == '{"":""}') {
                 showRankByApi(v);
             } else {
+                rank = JSON.parse(rank);
                 showRank(rank,v,'bdd');
                 showKdaByBdd(v);
             }
@@ -124,7 +125,10 @@ function showRankByApi(v) {
         url: "AJAX/getRankByApi.php", type: "POST",
         data: "pi="+pi+"&gi="+gi,
         success: function(rank) {
-            showRank(rank,v,'api');
+            var theRank = Object();
+            theRank.rank = rank;
+            theRank.nbViewed = "no view";
+            showRank(theRank,v,'api');
             showKdaByApi(v);
         }
     });
