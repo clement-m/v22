@@ -103,9 +103,7 @@ function showRankByBDD(v) {
         url: "AJAX/getRankByBdd.php", type: "POST",
         data: "pi="+pi+"&gi="+gi,
         success: function(rank) {
-            var theRank = JSON.parse(rank);
-            theRank = theRank.rank;
-            if(theRank == "") {
+            if(theRank == '{"":""}') {
                 showRankByApi(v);
             } else {
                 showRank(theRank,v);
