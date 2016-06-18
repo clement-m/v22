@@ -146,7 +146,7 @@ function showKdaByBdd(v){
         url: "AJAX/getKdaByBdd.php", type: "POST",
         data: "pi="+pi+"&gi="+gi+"&q="+q,
         success: function(kda) {
-            if(kda == "") {
+            if(kda == '') {
                 showKdaByApi(v);
             } else {
                 showKda(kda,v,'bdd');
