@@ -1,0 +1,11 @@
+<tr id="{{ data.taskForce }}">
+    <td class="player">{% if data.playerName == null %}Player profile hidden{% else %}{{ data.playerName }}{% endif %}</td>
+    <td class="god"><img class="godImage" src="SRC/IMG/gods_icons/{{ data.godName }}.jpg" alt="{{ data.godName }}" /></td>
+    <td class="account">{{ data.Account_Level }}</td>
+    <td class="rank">{{ data.mastery_Level }}</td>
+    <td class="godrank">{{ data.rank }}</td>
+    <td class="kda">{{ data.kda }}</td>
+    <td class="conquest leagueWrapper">{{ data.conquest }}</td>
+    <td class="joust leagueWrapper">{{ data.joust }}</td>
+    <td class="duel leagueWrapper">{{ data.league }}</td>
+</tr>

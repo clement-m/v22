@@ -20,7 +20,16 @@ while ($row = $q->fetch()) {
     else if($avgKill == 0 && $avgAssist == 0 && $avgDeath == 0) $PMI = 0;
     else $PMI = round(($avgKill + $avgAssist) / $avgDeath, 2);
 
-    echo $avgKill."/".$avgDeath."/".$avgAssist." pmi: ".$PMI;
+    $res = $avgKill."/".$avgDeath."/".$avgAssist." pmi: ".$PMI;
+    echo $res;
+
+    $q = $pdo->prepare("CALL updateKdaMatch(:pi,:gi,:kda,:q,:m);");
+    $q->bindParam('pi', $_POST['pi'], PDO::PARAM_INT);
+    $q->bindParam('gi', $_POST['gi'], PDO::PARAM_INT);
+    $q->bindParam('kda', $res, PDO::PARAM_STR);
+    $q->bindParam('q', $_POST['q'], PDO::PARAM_STR);
+    $q->bindParam('m', $_POST['m'], PDO::PARAM_INT);
+    $q->execute();
   } else {
     echo "";
   }

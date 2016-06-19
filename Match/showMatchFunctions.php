@@ -17,6 +17,22 @@ function createMatchPlayer($pi,$gi,$m) {
   if(!$req2) { var_dump($pdo->errorInfo()); }
 }
 
+/**
+ * insertPlayerInMatch
+ */
+function insertPlayerInMatch($pn,$gn,$tf,$acc,$ml,$m){
+  include('../LIB/smLib/co.php');
+  $req2 = $pdo->prepare("Call insertPlayerInMatch(:m,:pn,:gn,:acc,:ml,:tf);");
+  $req2->bindParam('m', $m, PDO::PARAM_INT);
+  $req2->bindParam('pn', $pn, PDO::PARAM_STR);
+  $req2->bindParam('gn', $gn, PDO::PARAM_STR);
+  $req2->bindParam('acc', $acc, PDO::PARAM_INT);
+  $req2->bindParam('ml', $ml, PDO::PARAM_INT);
+  $req2->bindParam('tf', $tf, PDO::PARAM_INT);
+  $req2->execute();
+  if(!$req2) { var_dump($pdo->errorInfo()); }
+}
+
 /*
  * showMatch
  */
@@ -28,6 +44,19 @@ function showMatch($t){
   $twig->addExtension(new Twig_Extension_Debug());
   $template = $twig->loadTemplate('player.html.twig');
   echo $template->render(array('data' => $t));
+}
+
+/*
+ * quickMatch
+ */
+function quickMatch($data){
+  require_once '../LIB/twig/lib/Twig/Autoloader.php';
+  Twig_Autoloader::register();
+  $loader = new Twig_Loader_Filesystem('../SRC/Views');
+  $twig = new Twig_Environment($loader, array('debug' => true, 'cache' => 'cache'));
+  $twig->addExtension(new Twig_Extension_Debug());
+  $template = $twig->loadTemplate('quickPlayer.html.twig');
+  echo $template->render(array('data' => $data));
 }
 
 /*
@@ -151,7 +180,7 @@ function getAPIKda($pi, $gi, $q) {
 /*
  * getApiLeague
  */
-function getApiLeague($pi) {
+function getApiLeague($pi,$m) {
   include_once('../LIB/smLib/API.php');
   $API = new API();
 
@@ -167,6 +196,14 @@ function getApiLeague($pi) {
   $q->bindParam('c', $ConqTier, PDO::PARAM_INT);
   $q->bindParam('j', $JoustTier, PDO::PARAM_INT);
   $q->bindParam('d', $DuelTier, PDO::PARAM_INT);
+  $q->execute();
+
+  $q = $pdo->prepare("CALL updateLeagueMatch(:pi,:c,:j,:j1c1,:m);");
+  $q->bindParam('pi', $_POST['pi'], PDO::PARAM_INT);
+  $q->bindParam('c', $ConqTier, PDO::PARAM_INT);
+  $q->bindParam('j', $JoustTier, PDO::PARAM_INT);
+  $q->bindParam('j1c1', $DuelTier, PDO::PARAM_INT);
+  $q->bindParam('m', $m, PDO::PARAM_INT);
   $q->execute();
 
   $res['conquest'] = leagueCode($ConqTier);

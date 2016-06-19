@@ -8,15 +8,10 @@ function createMatch(m,s) {
     $.ajax({ url: "AJAX/createMatch.php", type: "POST", data: "matchid="+m,
         success: function (json) {
             var response = JSON.parse(json);
-            if(response.readyToShow == 1) showQuickMatch(response.res);
-            else {
-                console.log('on attends et on affiche ou on crée');
-            }
-
-            switch (html) {
-                case "ready": console.log('on affiche le match chargé'); break;
-                case 1: showMatch(matchId,s); break;
-                case 0: console.log('faire attendre la fin de la créa et faire comme ready ou reconstruire'); break;
+            switch (response.response) {
+                case "create": showMatch(m,s); break;
+                case "ready": showQuickMatch(response.res); break;
+                case 2: console.log('on affiche le match chargé'); break;
             }
         }
     });
@@ -27,6 +22,11 @@ function createMatch(m,s) {
  */
 function showQuickMatch(dataMatch) {
     console.log('on affiche');
+    $.ajax({ url: "AJAX/quickMatch.php", type: "POST", data: "dataMatch="+dataMatch,
+        success: function (html) {
+            console.log(html);
+        }
+    });
 }
 
 /*
@@ -134,10 +134,11 @@ function showMatch(m,s) {
 function showRankByBDD(v) {
     var pi = $(v).children('.player').attr('data-playerId');
     var gi = $(v).children('.god').attr('data-godId');
+    var m = $(v).attr('data-matchId');
 
     $.ajax({
         url: "AJAX/getRankByBdd.php", type: "POST",
-        data: "pi="+pi+"&gi="+gi,
+        data: "pi="+pi+"&gi="+gi+"&m="+m,
         success: function(rank) {
             if(rank == '{"":""}') {
                 showRankByApi(v);
@@ -157,10 +158,11 @@ function showRankByBDD(v) {
 function showRankByApi(v) {
     var pi = $(v).children('.player').attr('data-playerId');
     var gi = $(v).children('.god').attr('data-godId');
+    var m = $(v).attr('data-matchId');
 
     $.ajax({
         url: "AJAX/getRankByApi.php", type: "POST",
-        data: "pi="+pi+"&gi="+gi,
+        data: "pi="+pi+"&gi="+gi+"&m="+m,
         success: function(rank) {
             showRank(rank,v);
             showKdaByApi(v);
@@ -174,11 +176,12 @@ function showRankByApi(v) {
 function showKdaByBdd(v){
     var pi = $(v).children('.player').attr('data-playerId');
     var gi = $(v).children('.god').attr('data-godId');
+    var m = $(v).attr('data-matchId');
     var q = $('#mod').attr('data-idMod');
 
     $.ajax({
         url: "AJAX/getKdaByBdd.php", type: "POST",
-        data: "pi="+pi+"&gi="+gi+"&q="+q,
+        data: "pi="+pi+"&gi="+gi+"&q="+q+"&m="+m,
         success: function(kda) {
             if(kda == '') {
                 showKdaByApi(v);
@@ -196,10 +199,12 @@ function showKdaByBdd(v){
 function showKdaByApi(v) {
     var pi = $(v).children('.player').attr('data-playerId');
     var gi = $(v).children('.god').attr('data-godId');
+    var m = $(v).attr('data-matchId');
     var q = $('#mod').attr('data-idMod');
+
     $.ajax({
         url: "AJAX/getKdaByAPI.php", type: "POST",
-        data: "pi="+pi+"&gi="+gi+"&q="+q,
+        data: "pi="+pi+"&gi="+gi+"&q="+q+"&m="+m,
         success: function(kda) {
             showKda(kda,v);
             showLeagueByApi(v);
@@ -212,11 +217,12 @@ function showKdaByApi(v) {
  */
 function showLeagueByBdd(v) {
     var pi = $(v).children('.player').attr('data-playerId');
+    var m = $(v).attr('data-matchId');
     var q = $('#mod').attr('data-idMod');
 
     $.ajax({
         url: "AJAX/getLeagueByBdd.php", type: "POST",
-        data: "pi="+pi+"&q="+q,
+        data: "pi="+pi+"&q="+q+"&m="+m,
         success: function(league) {
             showLeague(league,v);
         }
@@ -228,10 +234,11 @@ function showLeagueByBdd(v) {
  */
 function showLeagueByApi(v) {
     var pi = $(v).children('.player').attr('data-playerId');
+    var m = $(v).attr('data-matchId');
 
     $.ajax({
         url: "AJAX/getLeagueByAPI.php", type: "POST",
-        data: "pi="+pi,
+        data: "pi="+pi+"&m="+m,
         success: function(league) {
             showLeague(league,v);
         }

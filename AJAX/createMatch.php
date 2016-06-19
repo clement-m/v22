@@ -6,12 +6,15 @@ $req2->execute();
 
 $res = array();
 while ($row = $req2->fetch()) {
-  if(isset($row['ready'])) {
-    $res['res'] = $row;
-    $res['readyToShow'] = 1;
+  if(count($row) == 13) {
+    $res['res'][] = $row;
+    $res['response'] = "ready";
   }else{
-    $res['res'] = $row;
-    $res['readyToShow'] = 0;
+    if(isset($row[1]))
+      $res['response'] = "create";
+
+    if(isset($row[0]))
+      $res['response'] = "notfinish";
   }
 }
 
