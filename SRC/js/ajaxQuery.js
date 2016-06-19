@@ -106,6 +106,8 @@ function showRankByBDD(v) {
             if(rank == '{"":""}') {
                 showRankByApi(v);
             } else {
+                rank = JSON.parse(rank);
+                rank = rank.rank;
                 showRank(rank,v);
                 showKdaByBdd(v);
             }
