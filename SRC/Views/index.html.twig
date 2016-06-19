@@ -47,17 +47,7 @@
                 <div id="mod" class="panel-heading" data-idMod=""></div>
                 <div class="panel-body">
                     <table class="table">
-                        <thead>
-                            <th>Player Name</th>
-                            <th>God Name</th>
-                            <th>Account Level</th>
-                            <th>Mastery Levels</th>
-                            <th>God Rank</th>
-                            <th>Average KDA</th>
-                            <th>Conquest</th>
-                            <th>Joust</th>
-                            <th>Duel</th>
-                        </thead>
+                        {% include 'titleMatch.html.twig.html' %}
                         <tbody id="team1"></tbody>
                         <tbody id="team2"></tbody>
                     </table>
@@ -68,7 +58,7 @@
         <!-- FOOTER -->
         <footer class="panel-footer">
             <a href="http://www.hirezstudios.com/"><img src="SRC/IMG/hr2.png" /></a>
-            <div class="pull-right" id="copyright">Copyright &#169;  smite-pantheon.com - beta 0.9.9.2</div>
+            <div class="pull-right" id="copyright">Copyright &#169;  smite-pantheon.com - beta 0.9.9.4</div>
             <audio id="loadedaudio" src="loading.wav" autoload="auto"></audio>
         </footer>
     </div>

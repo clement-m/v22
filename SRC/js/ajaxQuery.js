@@ -4,11 +4,29 @@
 /*
  * Create match
  */
-function createMatch(m) {
-    $.ajax({
-        url: "AJAX/createMatch.php", type: "POST",
-        data: "matchid="+m
+function createMatch(m,s) {
+    $.ajax({ url: "AJAX/createMatch.php", type: "POST", data: "matchid="+m,
+        success: function (json) {
+            var response = JSON.parse(json);
+            if(response.readyToShow == 1) showQuickMatch(response.res);
+            else {
+                console.log('on attends et on affiche ou on crée');
+            }
+
+            switch (html) {
+                case "ready": console.log('on affiche le match chargé'); break;
+                case 1: showMatch(matchId,s); break;
+                case 0: console.log('faire attendre la fin de la créa et faire comme ready ou reconstruire'); break;
+            }
+        }
     });
+}
+
+/*
+ * showQuickMatch
+ */
+function showQuickMatch(dataMatch) {
+    console.log('on affiche');
 }
 
 /*
@@ -20,6 +38,25 @@ function showMatchProcedure(m, s, q, ml, al, tf, gn, pi, pn, gi) {
         data: "m="+m+"&s="+s+"&q="+q+"&ml="+ml+"&pn="+pn+"&al="+al+"&tf="+tf+"&gi=" + gi + "&gn=" + gn + "&pi=" + pi,
         success: function (html) { $('#team'+tf).append(html); }
     });
+}
+
+/*
+ * checkFinish
+ */
+function checkFinish() {
+    var m = $('#team1').children().attr('data-matchId');
+    var finish = true;
+
+    $('#team1').children('tr').each(function(e,v){
+        if($(v).attr('data-done') != "done"){ finish = false; }
+    });
+
+    if(finish)
+        $('#team2').children('tr').each(function(e,v){
+            if($(v).attr('data-done') != "done") { finish = false; }
+        });
+
+    if(finish) { $.ajax({ url: "AJAX/finishMatch.php", type: "POST", data: "m="+m }); }
 }
 
 /*
@@ -57,8 +94,7 @@ function getStatus(p,s) {
             emptyTableMatch();
             if(statusId == 3) {
                 clearBoard();
-                createMatch(matchId);
-                showMatch(matchId,s);
+                createMatch(matchId,s);
             }
         }
     });

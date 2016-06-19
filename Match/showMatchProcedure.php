@@ -6,6 +6,7 @@ $templateParams['taskForce'] = $_POST['tf'];
 $templateParams['Account_Level'] = $_POST['al'];
 $templateParams['playerName'] = $_POST['pn'];
 $templateParams['mastery_Level'] = $_POST['ml'];
+$templateParams['matchId'] = $_POST['m'];
 
 include('../Match/showMatchFunctions.php');
 

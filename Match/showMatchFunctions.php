@@ -2,6 +2,8 @@
 
 // showMatchFunctions.php
 
+
+
 /*
  * createMatchPlayer
  */
@@ -109,10 +111,12 @@ function getAPIKda($pi, $gi, $q) {
     $Wins = $akda->Wins;
     $rgi = $akda->GodId;
     $QueueName = $akda->Queue;
+
     $nbMatch = $Losses + $Wins;
     $avgKills = round($Kills / $nbMatch, 2);
     $avgDeaths = round($Deaths / $nbMatch, 2);
     $avgAssists = round($Assists / $nbMatch, 2);
+
     if($avgKills == 0 && $avgAssists == 0) $PMI = 0 - round($avgDeaths, 2);
     else if($avgDeaths == 0) $PMI = round(($avgKills + $avgAssists), 2);
     else if($avgKills == 0 && $avgAssists == 0 && $avgDeaths == 0) $PMI = 0;
@@ -138,9 +142,8 @@ function getAPIKda($pi, $gi, $q) {
     $req2->execute();
     if(!$req2) { var_dump($pdo->errorInfo()); }
 
-    if ($rgi == $gi && $qi == intval($q)) {
+    if ($rgi == $gi && $qi == intval($q))
       $res = $avgKills . "/" . $avgDeaths . "/" . $avgAssists . " pmi:" . $PMI;
-    }
   }
   return $res;
 }

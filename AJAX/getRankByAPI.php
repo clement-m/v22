@@ -3,5 +3,4 @@
 // getRankByAPI.php
 
 include_once('../Match/showMatchFunctions.php');
-$rank = getAPIRank($_POST['pi'], $_POST['gi']);
-echo $rank;
+echo getAPIRank($_POST['pi'], $_POST['gi']);

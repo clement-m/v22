@@ -93,6 +93,7 @@ function addHiddenPlayerInMatch(v) {
     $(v).children('.godrank').append('Player profile hidden');
     $(v).children('.kda').append('Player profile hidden');
     $(v).children('.leagueWrapper').append('Player profile hidden');
+    $(v).attr('data-done','done');
 }
 
 /*
@@ -137,6 +138,9 @@ function showLeague(league,v) {
         $(v).children('.duel').append(league.duel.name);
         $(v).children('.duel').append('<img src="SRC/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" />');
     }
+
+    $(v).attr('data-done','done');
+    checkFinish();
 }
 
 /*
