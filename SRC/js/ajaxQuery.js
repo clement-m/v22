@@ -11,7 +11,7 @@ function createMatch(m,s) {
             switch (response.response) {
                 case "create": showMatch(m,s); break;
                 case "ready": showQuickMatch(response.res); break;
-                case 2: console.log('on affiche le match chargé'); break;
+                case "notfinish": console.log('on affiche le match chargé'); break;
             }
         }
     });
@@ -21,10 +21,18 @@ function createMatch(m,s) {
  * showQuickMatch
  */
 function showQuickMatch(dataMatch) {
-    console.log('on affiche');
+    dataMatch = JSON.stringify(dataMatch);
+    $('#table').empty();
     $.ajax({ url: "AJAX/quickMatch.php", type: "POST", data: "dataMatch="+dataMatch,
         success: function (html) {
             console.log(html);
+            html = JSON.parse(html);
+            html.team1HTML.forEach(function(data){
+                $('#team1').append(data);
+            });
+            html.team2HTML.forEach(function(data){
+                $('#team2').append(data);
+            });
         }
     });
 }
@@ -51,10 +59,11 @@ function checkFinish() {
         if($(v).attr('data-done') != "done"){ finish = false; }
     });
 
-    if(finish)
+    if(finish) {
         $('#team2').children('tr').each(function(e,v){
             if($(v).attr('data-done') != "done") { finish = false; }
         });
+    }
 
     if(finish) { $.ajax({ url: "AJAX/finishMatch.php", type: "POST", data: "m="+m }); }
 }
@@ -141,8 +150,10 @@ function showRankByBDD(v) {
         data: "pi="+pi+"&gi="+gi+"&m="+m,
         success: function(rank) {
             if(rank == '{"":""}') {
+                showLeagueByBdd(v);
                 showRankByApi(v);
             } else {
+                showLeagueByBdd(v);
                 rank = JSON.parse(rank);
                 rank = rank.rank;
                 showRank(rank,v);
@@ -187,7 +198,6 @@ function showKdaByBdd(v){
                 showKdaByApi(v);
             } else {
                 showKda(kda,v);
-                showLeagueByBdd(v);
             }
         }
     });
@@ -207,7 +217,6 @@ function showKdaByApi(v) {
         data: "pi="+pi+"&gi="+gi+"&q="+q+"&m="+m,
         success: function(kda) {
             showKda(kda,v);
-            showLeagueByApi(v);
         }
     });
 }
@@ -224,7 +233,10 @@ function showLeagueByBdd(v) {
         url: "AJAX/getLeagueByBdd.php", type: "POST",
         data: "pi="+pi+"&q="+q+"&m="+m,
         success: function(league) {
-            showLeague(league,v);
+            if(league == '')
+                showLeagueByApi(v);
+            else
+                showLeague(league,v);
         }
     });
 }

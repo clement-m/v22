@@ -1,6 +1,6 @@
 function start(e) {
     e.preventDefault();
-
+    clearBoard();
     $('#team1').bind("DOMSubtreeModified", function() { changeTeamEvent(1); });
     $('#team2').bind("DOMSubtreeModified", function() { changeTeamEvent(2); });
     getConnection();

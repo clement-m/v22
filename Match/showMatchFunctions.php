@@ -50,13 +50,30 @@ function showMatch($t){
  * quickMatch
  */
 function quickMatch($data){
+
+  $data = json_decode($data);
+
   require_once '../LIB/twig/lib/Twig/Autoloader.php';
   Twig_Autoloader::register();
   $loader = new Twig_Loader_Filesystem('../SRC/Views');
   $twig = new Twig_Environment($loader);
   $twig->addExtension(new Twig_Extension_Debug());
   $template = $twig->loadTemplate('quickPlayer.html.twig');
-  echo $template->render(array('data' => $data));
+  $dataTeam2 = array();
+  $res = array();
+  foreach($data as $k => $vData) {
+    $vData->conquest = leagueCode($vData->conquest);
+    $vData->joust = leagueCode($vData->joust);
+    $vData->duel = leagueCode($vData->j1c1);
+    if($vData->taskForce == 2) $dataTeam2[] = $vData;
+    else $res['team1HTML'][] = $template->render(array('data' => $vData));
+  }
+
+  foreach($dataTeam2 as $k => $vData) {
+    $res['team2HTML'][] = $template->render(array('data' => $vData));
+  }
+
+  echo json_encode($res);
 }
 
 /*

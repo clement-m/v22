@@ -2,6 +2,10 @@ body{
     padding-top: 30px;
 }
 
+td {
+    height: 80px;
+}
+
 .loading {
     width: 80px;
     height: 80px;
