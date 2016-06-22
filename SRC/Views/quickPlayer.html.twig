@@ -1,10 +1,10 @@
 <tr>
-    <td class="player">{% if data.playerName == null %}Player profile hidden{% else %}{{ data.playerName }}{% endif %}</td>
-    <td class="god"><img class="godImage" src="SRC/IMG/gods_icons/{{ data.godName }}.jpg" alt="{{ data.godName }}" /></td>
+    <td class="player">{% if data.namePlayer == null %}Player profile hidden{% else %}{{ data.namePlayer }}{% endif %}</td>
+    <td class="god"><img class="godImage" src="SRC/IMG/gods_icons/{{ data.nameGod }}.jpg" alt="{{ data.nameGod }}" /></td>
     <td class="account">{{ data.accountLevel }}</td>
     <td class="rank">{{ data.masteryLevel }}</td>
-    <td class="godrank">{% if data.playerName == null %}Player profile hidden{% else %}<img class="masteryLevel" src="SRC/IMG/masteryLvl/m{{ data.rank }}.jpg" alt="level {{ data.rank }}" />{% endif %}</td>
-    <td class="kda">{% if data.playerName == null %}Player profile hidden{% else %}{{ data.kda }}{% endif %}</td>
+    <td class="godrank">{% if data.namePlayer == null %}Player profile hidden{% else %}<img class="masteryLevel" src="SRC/IMG/masteryLvl/m{{ data.rank }}.jpg" alt="level {{ data.rank }}" />{% endif %}</td>
+    <td class="kda">{% if data.namePlayer == null %}Player profile hidden{% else %}{{ data.kda }}{% endif %}</td>
     <td class="conquest leagueWrapper">{{ data.conquest.name }}<img src="SRC/IMG/masteryLvl/m{{ data.conquest.num }}.jpg" alt="{{ data.conquest.num }}" /></td>
     <td class="joust leagueWrapper">{{ data.joust.name }}<img src="SRC/IMG/masteryLvl/m{{ data.joust.num }}.jpg" alt="{{ data.joust.num }}" /></td>
     <td class="duel leagueWrapper">{{ data.j1c1.name }}<img src="SRC/IMG/masteryLvl/m{{ data.j1c1.num }}.jpg" alt="{{ data.j1c1.num }}" /></td>

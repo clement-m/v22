@@ -6,7 +6,7 @@ $req2->execute();
 
 $res = array();
 while ($row = $req2->fetch()) {
-  if(count($row) == 13) {
+  if(count($row) == 10) {
     $res['res'][] = $row;
     $res['response'] = "ready";
   }else{

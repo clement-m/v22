@@ -122,17 +122,17 @@ function showLeague(league,v) {
     $(v).children('.duel').empty();
 
     if(league.conquest.name == "unranked")
-        $(v).children('.conquest').append("unranked");
+        $(v).children('.conquest').append('<img src="SRC/IMG/masteryLvl/m.jpg" alt="0" />');
     else
         $(v).children('.conquest').append(league.conquest.name + '<img src="SRC/IMG/masteryLvl/m' + league.conquest.num + '.jpg" alt="' + league.conquest.num + '" />');
 
     if(league.joust.name == "unranked")
-        $(v).children('.joust').append("unranked");
+        $(v).children('.joust').append('<img src="SRC/IMG/masteryLvl/m.jpg" alt="0" />');
     else
         $(v).children('.joust').append(league.joust.name + '<img src="SRC/IMG/masteryLvl/m' + league.joust.num + '.jpg" alt="' + league.joust.num + '" />');
 
     if(league.duel.name == "unranked")
-        $(v).children('.duel').append("unranked");
+        $(v).children('.duel').append('<img src="SRC/IMG/masteryLvl/m.jpg" alt="0" />');
     else
         $(v).children('.duel').append(league.duel.name + '<img src="SRC/IMG/masteryLvl/m' + league.duel.num + '.jpg" alt="' + league.duel.num + '" />');
 
