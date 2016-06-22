@@ -4,10 +4,11 @@ ehthumbs.db
 
 
 # sm
-LIB/smLib/co.php
-cache
-index.php
-Match/twigPlayer.php
+/LIB/smLib/co.php
+/cache
+/index.php
+/Match/twigPlayer.php
+/Match/cache
 .idea
 
 # Folder config file
