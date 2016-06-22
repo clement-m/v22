@@ -13,6 +13,6 @@ include('../Match/showMatchFunctions.php');
 updatePlayer($_POST['pi'],$_POST['pn']);
 updateGod($_POST['gi'],$_POST['gn']);
 
-insertPlayerInMatch($_POST['pn'],$_POST['gn'],$_POST['tf'],$_POST['al'],$_POST['ml'],$_POST['m']);
+insertPlayerInMatch($_POST['pi'],$_POST['gi'],$_POST['tf'],$_POST['al'],$_POST['ml'],$_POST['m']);
 
 showMatch($templateParams);

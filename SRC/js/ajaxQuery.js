@@ -11,7 +11,21 @@ function createMatch(m,s) {
             switch (response.response) {
                 case "create": showMatch(m,s); break;
                 case "ready": showQuickMatch(response.res); break;
-                case "notfinish": console.log('on affiche le match chargé'); break;
+                case "notfinish": sleepMatch(m); break;
+            }
+        }
+    });
+}
+
+function sleepMatch(m) {
+    var matchState;
+
+    $.ajax({ url: "AJAX/checkReady.php", type: "POST", data: "matchId="+m,
+        success: function (json) {
+            json = JSON.parse(json);
+            console.log(json);
+            while(json == "notready") {
+
             }
         }
     });
@@ -21,7 +35,7 @@ function createMatch(m,s) {
  * showQuickMatch
  */
 function showQuickMatch(dataMatch) {
-    dataMatch = JSON.stringify(dataMatch);
+    var dataMatch = JSON.stringify(dataMatch);
     $('#table').empty();
     $.ajax({ url: "AJAX/quickMatch.php", type: "POST", data: "dataMatch="+dataMatch,
         success: function (html) {
@@ -139,6 +153,7 @@ function showMatch(m,s) {
 
 /*
  * show rank with BDD
+ * ==> Called avec event htmlChange /!\
  */
 function showRankByBDD(v) {
     var pi = $(v).children('.player').attr('data-playerId');

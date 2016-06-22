@@ -62,7 +62,7 @@ function changeTeamEvent($team) {
     var Players1Height = 90;
     var Players2Height = 190;
     var Players3Height = 288;
-    var Players4Height = 390;
+    var Players4Height = 385;
     var Players5Height = 480;
 
     if((mod == 'Ranked: Duel' && height > Players2Height)
@@ -118,25 +118,23 @@ function showLeague(league,v) {
     league = JSON.parse(league);
 
     $(v).children('.conquest').empty();
-    if(league.conquest.name == "unranked") $(v).children('.conquest').append(league.conquest.name);
-    else {
-        $(v).children('.conquest').append(league.conquest.name);
-        $(v).children('.conquest').append('<img src="SRC/IMG/masteryLvl/m'+league.conquest.num+'.jpg" alt="'+league.conquest.num+'" />');
-    }
-
     $(v).children('.joust').empty();
-    if(league.joust.name == "unranked") $(v).children('.joust').append(league.joust.name);
-    else {
-        $(v).children('.joust').append(league.joust.name);
-        $(v).children('.joust').append('<img src="SRC/IMG/masteryLvl/m'+league.joust.num+'.jpg" alt="'+league.joust.num+'" />');
-    }
-
     $(v).children('.duel').empty();
-    if(league.duel.name == "unranked") $(v).children('.duel').append(league.duel.name);
-    else {
-        $(v).children('.duel').append(league.duel.name);
-        $(v).children('.duel').append('<img src="SRC/IMG/masteryLvl/m'+league.duel.num+'.jpg" alt="'+league.duel.num+'" />');
-    }
+
+    if(league.conquest.name == "unranked")
+        $(v).children('.conquest').append("unranked");
+    else
+        $(v).children('.conquest').append(league.conquest.name + '<img src="SRC/IMG/masteryLvl/m' + league.conquest.num + '.jpg" alt="' + league.conquest.num + '" />');
+
+    if(league.joust.name == "unranked")
+        $(v).children('.joust').append("unranked");
+    else
+        $(v).children('.joust').append(league.joust.name + '<img src="SRC/IMG/masteryLvl/m' + league.joust.num + '.jpg" alt="' + league.joust.num + '" />');
+
+    if(league.duel.name == "unranked")
+        $(v).children('.duel').append("unranked");
+    else
+        $(v).children('.duel').append(league.duel.name + '<img src="SRC/IMG/masteryLvl/m' + league.duel.num + '.jpg" alt="' + league.duel.num + '" />');
 
     $(v).attr('data-done','done');
     checkFinish();
@@ -148,7 +146,7 @@ function showLeague(league,v) {
  */
 function leagueCode(num) {
     var res = Array();
-    if(num == "0"){
+    if(num == "0") {
         res["name"] = "unranked";
         res["num"] = "";
     } else {

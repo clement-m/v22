@@ -20,12 +20,12 @@ function createMatchPlayer($pi,$gi,$m) {
 /**
  * insertPlayerInMatch
  */
-function insertPlayerInMatch($pn,$gn,$tf,$acc,$ml,$m){
+function insertPlayerInMatch($pi,$gi,$tf,$acc,$ml,$m){
   include('../LIB/smLib/co.php');
-  $req2 = $pdo->prepare("Call insertPlayerInMatch(:m,:pn,:gn,:acc,:ml,:tf);");
+  $req2 = $pdo->prepare("Call insertPlayerInMatch(:m,:pi,:gi,:acc,:ml,:tf);");
   $req2->bindParam('m', $m, PDO::PARAM_INT);
-  $req2->bindParam('pn', $pn, PDO::PARAM_STR);
-  $req2->bindParam('gn', $gn, PDO::PARAM_STR);
+  $req2->bindParam('pi', $pi, PDO::PARAM_INT);
+  $req2->bindParam('gi', $gi, PDO::PARAM_INT);
   $req2->bindParam('acc', $acc, PDO::PARAM_INT);
   $req2->bindParam('ml', $ml, PDO::PARAM_INT);
   $req2->bindParam('tf', $tf, PDO::PARAM_INT);
