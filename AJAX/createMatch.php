@@ -10,11 +10,8 @@ while ($row = $req2->fetch()) {
     $res['res'][] = $row;
     $res['response'] = "ready";
   }else{
-    if(isset($row[1]))
-      $res['response'] = "create";
-
-    if(isset($row[0]))
-      $res['response'] = "notfinish";
+    if(isset($row[1])) $res['response'] = "create";
+    if(isset($row[0])) $res['response'] = "notfinish";
   }
 }
 

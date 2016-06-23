@@ -1,8 +1,10 @@
 
 // ajaxQuery.js
 
-/*
- * Create match
+/**
+ * createMatch
+ * @param m
+ * @param s
  */
 function createMatch(m,s) {
     $.ajax({ url: "AJAX/createMatch.php", type: "POST", data: "matchid="+m,
@@ -11,28 +13,19 @@ function createMatch(m,s) {
             switch (response.response) {
                 case "create": showMatch(m,s); break;
                 case "ready": showQuickMatch(response.res); break;
-                case "notfinish": sleepMatch(m); break;
+                case "notfinish":
+                    setTimeout(function(){
+                        createMatch(m,s);
+                    }, 4000);
+                    break;
             }
         }
     });
 }
 
-function sleepMatch(m) {
-    var matchState;
-
-    $.ajax({ url: "AJAX/checkReady.php", type: "POST", data: "matchId="+m,
-        success: function (json) {
-            json = JSON.parse(json);
-            console.log(json);
-            while(json == "notready") {
-
-            }
-        }
-    });
-}
-
-/*
+/**
  * showQuickMatch
+ * @param dataMatch
  */
 function showQuickMatch(dataMatch) {
     var dataMatch = JSON.stringify(dataMatch);
@@ -40,19 +33,29 @@ function showQuickMatch(dataMatch) {
     $.ajax({ url: "AJAX/quickMatch.php", type: "POST", data: "dataMatch="+dataMatch,
         success: function (html) {
             console.log(html);
-            html = JSON.parse(html);
-            html.team1HTML.forEach(function(data){
+            var response = JSON.parse(html);
+            response.team1HTML.forEach(function(data){
                 $('#team1').append(data);
             });
-            html.team2HTML.forEach(function(data){
+            response.team2HTML.forEach(function(data){
                 $('#team2').append(data);
             });
         }
     });
 }
 
-/*
+/**
  * appel la routine de mise à jours des nouveaux dieux
+ * @param m match
+ * @param s session
+ * @param q queue
+ * @param ml masteryLevel
+ * @param al account level
+ * @param tf taskforce
+ * @param gn godname
+ * @param pi playerId
+ * @param pn playerName
+ * @param gi godId
  */
 function showMatchProcedure(m, s, q, ml, al, tf, gn, pi, pn, gi) {
     $.ajax({
@@ -62,7 +65,7 @@ function showMatchProcedure(m, s, q, ml, al, tf, gn, pi, pn, gi) {
     });
 }
 
-/*
+/**
  * checkFinish
  */
 function checkFinish() {
@@ -98,8 +101,10 @@ function getConnection() {
     });
 }
 
-/*
+/**
  * getStatus
+ * @param p
+ * @param s
  */
 function getStatus(p,s) {
     $.ajax({
@@ -123,8 +128,10 @@ function getStatus(p,s) {
     });
 }
 
-/*
+/**
  * showMatch
+ * @param m
+ * @param s
  */
 function showMatch(m,s) {
     $.ajax({

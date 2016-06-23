@@ -2,8 +2,6 @@
 
 // showMatchFunctions.php
 
-
-
 /*
  * createMatchPlayer
  */
@@ -49,10 +47,36 @@ function showMatch($t){
 /*
  * quickMatch
  */
+function quickQuickShameMatch($data){
+  var_dump($data);
+  require_once '../LIB/twig/lib/Twig/Autoloader.php';
+  Twig_Autoloader::register();
+  $loader = new Twig_Loader_Filesystem('../SRC/Views');
+  $twig = new Twig_Environment($loader);
+  $twig->addExtension(new Twig_Extension_Debug());
+  $template = $twig->loadTemplate('quickPlayer.html.twig');
+  $dataTeam2 = array();
+  $res = array();
+  foreach($data as $k => $vData) {
+    if(isset($vData->conquest)) $vData->conquest = leagueCode($vData->conquest);
+    if(isset($vData->joust)) $vData->joust = leagueCode($vData->joust);
+    if(isset($vData->j1c1)) $vData->j1c1 = leagueCode($vData->j1c1);
+    if($vData->taskForce == 2) $dataTeam2[] = $vData;
+    else $res['team1HTML'][] = $template->render(array('data' => $vData));
+  }
+
+  foreach($dataTeam2 as $k => $vData) {
+    $res['team2HTML'][] = $template->render(array('data' => $vData));
+  }
+
+  echo json_encode($res);
+}
+
+/*
+ * quickMatch
+ */
 function quickMatch($data){
-
   $data = json_decode($data);
-
   require_once '../LIB/twig/lib/Twig/Autoloader.php';
   Twig_Autoloader::register();
   $loader = new Twig_Loader_Filesystem('../SRC/Views');
@@ -64,7 +88,7 @@ function quickMatch($data){
   foreach($data as $k => $vData) {
     $vData->conquest = leagueCode($vData->conquest);
     $vData->joust = leagueCode($vData->joust);
-    $vData->duel = leagueCode($vData->j1c1);
+    $vData->j1c1 = leagueCode($vData->j1c1);
     if($vData->taskForce == 2) $dataTeam2[] = $vData;
     else $res['team1HTML'][] = $template->render(array('data' => $vData));
   }
@@ -200,8 +224,8 @@ function getAPIKda($pi, $gi, $q) {
 function getApiLeague($pi,$m) {
   include_once('../LIB/smLib/API.php');
   $API = new API();
-
   $r = $API->getLeague($pi);
+
   $league = $r[0];
   $ConqTier = $league->RankedConquest->Tier;
   $JoustTier = $league->RankedJoust->Tier;
@@ -236,16 +260,16 @@ function getApiLeague($pi,$m) {
  */
 function leagueCode($num) {
   $res = Array();
-  if($num == "0"){
+  if($num == "0") {
     $res["name"] = "unranked";
-        $res["num"] = "";
-    } else {
+    $res["num"] = "";
+  } else {
     $mod = $num % 5;
     $div = round($num / 5);
     if($div == 5) {
       $res["name"] = "master";
-            $res["num"] = 1;
-        }else{
+      $res["num"] = 1;
+    }else{
       switch ($mod) {
         case 0: $res["num"] = 1; break;
         case 1: $res["num"] = 5; break;
@@ -254,7 +278,9 @@ function leagueCode($num) {
         case 4: $res["num"] = 2; break;
       }
     }
+
     if($mod == 0) $div -= 1;
+
     switch ($div) {
       case 0: $res["name"] = "bronze"; break;
       case 1: $res["name"] = "silver"; break;
