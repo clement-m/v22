@@ -29,6 +29,7 @@ function createMatch(m,s) {
  */
 function showQuickMatch(dataMatch) {
     var dataMatch = JSON.stringify(dataMatch);
+
     $('#table').empty();
     $.ajax({ url: "AJAX/quickMatch.php", type: "POST", data: "dataMatch="+dataMatch,
         success: function (html) {

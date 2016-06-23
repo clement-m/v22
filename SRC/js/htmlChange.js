@@ -39,12 +39,12 @@ function setMod(Q) {
         case "466": $text = 'Normal: Clash'; break;
         case "445": $text = 'Normal: Assault'; break;
         case "459": $text = 'Normal: Siege'; break;
-        //case "434": $text = 'Normal: MOTD'; break;
+
         case "440": $text = 'Ranked: Duel'; break;
         case "450": $text = 'Ranked: Joust'; break;
         case "451": $text = 'Ranked: Conquest'; break;
-
-        case "438": $text = 'Custom: Arena'; break;
+        //case "434": $text = 'Normal: MOTD'; break;
+        //case "438": $text = 'Custom: Arena'; break;
     }
     if($text == Q) $text = "mod not done for smite-pantheon";
     $('#mod').text($text);
@@ -59,13 +59,12 @@ function changeTeamEvent($team) {
 
     var height = $('#team'+$team).height();
 
-    var Players1Height = 90;
     var Players2Height = 190;
     var Players3Height = 288;
     var Players4Height = 385;
     var Players5Height = 480;
 
-    if((mod == 'Ranked: Duel' && height > Players2Height)
+    if ((mod == 'Ranked: Duel' && height > Players2Height)
     || ((mod == 'Normal: Joust' || mod == 'Ranked: Joust') && height > Players3Height)
     || (mod == 'Normal: Siege' && height > Players4Height)
     || ((mod == 'Ranked: Conquest' || mod == 'Normal: Clash' || mod == 'Normal: Arena' || mod == 'Normal: Assault' || mod ==  "Normal: Conquest") && height > Players5Height)

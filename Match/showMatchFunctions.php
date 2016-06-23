@@ -18,10 +18,11 @@ function createMatchPlayer($pi,$gi,$m) {
 /**
  * insertPlayerInMatch
  */
-function insertPlayerInMatch($pi,$gi,$tf,$acc,$ml,$m){
+function insertPlayerInMatch($q,$pi,$gi,$tf,$acc,$ml,$m){
   include('../LIB/smLib/co.php');
-  $req2 = $pdo->prepare("Call insertPlayerInMatch(:m,:pi,:gi,:acc,:ml,:tf);");
+  $req2 = $pdo->prepare("Call insertPlayerInMatch(:m,:q,:pi,:gi,:acc,:ml,:tf);");
   $req2->bindParam('m', $m, PDO::PARAM_INT);
+  $req2->bindParam('q', $q, PDO::PARAM_INT);
   $req2->bindParam('pi', $pi, PDO::PARAM_INT);
   $req2->bindParam('gi', $gi, PDO::PARAM_INT);
   $req2->bindParam('acc', $acc, PDO::PARAM_INT);
@@ -83,16 +84,28 @@ function quickMatch($data){
   $twig = new Twig_Environment($loader);
   $twig->addExtension(new Twig_Extension_Debug());
   $template = $twig->loadTemplate('quickPlayer.html.twig');
+
   $dataTeam2 = array();
   $res = array();
+  //$i = 0;
   foreach($data as $k => $vData) {
+    //$i++;
+    //if($i==1) $queue = $vData['queue'];
     $vData->conquest = leagueCode($vData->conquest);
     $vData->joust = leagueCode($vData->joust);
     $vData->j1c1 = leagueCode($vData->j1c1);
     if($vData->taskForce == 2) $dataTeam2[] = $vData;
     else $res['team1HTML'][] = $template->render(array('data' => $vData));
   }
-
+/*
+  if (($queue == "440" && $i < 2)
+  || (($queue == "450" || $queue == "448") && $i < 3)
+  || (($queue == "459") && $i < 4)
+  || (($queue == "435" || $queue == "426" || $queue == "466" || $queue == "445" || $queue == "451") && $i < 5)) {
+    $newData = array();
+    $newData['']
+  }
+*/
   foreach($dataTeam2 as $k => $vData) {
     $res['team2HTML'][] = $template->render(array('data' => $vData));
   }
