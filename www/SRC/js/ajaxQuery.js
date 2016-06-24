@@ -8,7 +8,7 @@
  */
 function createMatch(m,s,t) {
     t++;
-    $.ajax({ url: "../AJAX/createMatch.php", type: "POST", data: "matchid="+m,
+    $.ajax({ url: "../../AJAX/createMatch.php", type: "POST", data: "matchid="+m,
         success: function (json) {
             var response = JSON.parse(json);
             switch (response.response) {
@@ -33,7 +33,7 @@ function createMatch(m,s,t) {
  * @param m
  */
 function recreateMatchError(m,s) {
-    $.ajax({ url: "../AJAX/recreateMatch.php", type: "POST", data: "matchid="+m });
+    $.ajax({ url: "../../AJAX/recreateMatch.php", type: "POST", data: "matchid="+m });
     showMatch(m,s);
 }
 
@@ -45,7 +45,7 @@ function showQuickMatch(dataMatch) {
     var dataMatch = JSON.stringify(dataMatch);
 
     $('#table').empty();
-    $.ajax({ url: "../AJAX/quickMatch.php", type: "POST", data: "dataMatch="+dataMatch,
+    $.ajax({ url: "../../AJAX/quickMatch.php", type: "POST", data: "dataMatch="+dataMatch,
         success: function (html) {
             var response = JSON.parse(html);
             response.team1HTML.forEach(function(data){
@@ -75,7 +75,7 @@ function showQuickMatch(dataMatch) {
  */
 function showMatchProcedure(m, s, q, ml, al, tf, gn, pi, pn, gi) {
     $.ajax({
-        url: "../Match/showMatchProcedure.php", type: "POST",
+        url: "../../Match/showMatchProcedure.php", type: "POST",
         data: "m="+m+"&s="+s+"&q="+q+"&ml="+ml+"&pn="+pn+"&al="+al+"&tf="+tf+"&gi=" + gi + "&gn=" + gn + "&pi=" + pi,
         success: function (html) {
             $('#team'+tf).append(html);
@@ -112,7 +112,7 @@ function checkFinish() {
  */
 function getConnection() {
     $.ajax({
-        url: "../AJAX/connection.php", type: "POST",
+        url: "../../AJAX/connection.php", type: "POST",
         success: function(r) {
             var r = JSON.parse(r);
             var response = r.ret_msg;
@@ -130,7 +130,7 @@ function getConnection() {
  */
 function getStatus(p,s) {
     $.ajax({
-        url: "../AJAX/getStatus.php", type: "POST",
+        url: "../../AJAX/getStatus.php", type: "POST",
         data: "player="+p+"&session="+s,
         success: function(json) {
             var r = JSON.parse(json);
@@ -159,7 +159,7 @@ function getStatus(p,s) {
  */
 function showMatch(m,s) {
     $.ajax({
-        url: "../AJAX/getPlayers.php", type: "POST",
+        url: "../../AJAX/getPlayers.php", type: "POST",
         data: "matchid="+m,
         success: function(json) {
             var players = JSON.parse(json);
@@ -192,7 +192,7 @@ function showRankByBDD(v) {
     var m = $(v).attr('data-matchId');
 
     $.ajax({
-        url: "../AJAX/getRankByBdd.php", type: "POST",
+        url: "../../AJAX/getRankByBdd.php", type: "POST",
         data: "pi="+pi+"&gi="+gi+"&m="+m,
         success: function(rank) {
             if(rank == '{"":""}') {
@@ -217,7 +217,7 @@ function showRankByApi(v) {
     var m = $(v).attr('data-matchId');
 
     $.ajax({
-        url: "../AJAX/getRankByApi.php", type: "POST",
+        url: "../../AJAX/getRankByApi.php", type: "POST",
         data: "pi="+pi+"&gi="+gi+"&m="+m,
         success: function(rank) {
             showRank(rank,v);
@@ -236,7 +236,7 @@ function showKdaByBdd(v){
     var q = $('#mod').attr('data-idMod');
 
     $.ajax({
-        url: "../AJAX/getKdaByBdd.php", type: "POST",
+        url: "../../AJAX/getKdaByBdd.php", type: "POST",
         data: "pi="+pi+"&gi="+gi+"&q="+q+"&m="+m,
         success: function(kda) {
             if(kda == '') {
@@ -258,7 +258,7 @@ function showKdaByApi(v) {
     var q = $('#mod').attr('data-idMod');
 
     $.ajax({
-        url: "../AJAX/getKdaByAPI.php", type: "POST",
+        url: "../../AJAX/getKdaByAPI.php", type: "POST",
         data: "pi="+pi+"&gi="+gi+"&q="+q+"&m="+m,
         success: function(kda) {
             showKda(kda,v);
@@ -275,7 +275,7 @@ function showLeagueByBdd(v) {
     var q = $('#mod').attr('data-idMod');
 
     $.ajax({
-        url: "../AJAX/getLeagueByBdd.php", type: "POST",
+        url: "../../AJAX/getLeagueByBdd.php", type: "POST",
         data: "pi="+pi+"&q="+q+"&m="+m,
         success: function(league) {
             if(league == '')
@@ -294,7 +294,7 @@ function showLeagueByApi(v) {
     var m = $(v).attr('data-matchId');
 
     $.ajax({
-        url: "../AJAX/getLeagueByAPI.php", type: "POST",
+        url: "../../AJAX/getLeagueByAPI.php", type: "POST",
         data: "pi="+pi+"&m="+m,
         success: function(league) {
             showLeague(league,v);
