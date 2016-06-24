@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="356c65ea-172b-4026-90b6-2d6f14e3a85c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/js/ajaxQuery.js" afterPath="$PROJECT_DIR$/www/SRC/js/ajaxQuery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/AJAX/getRankByApi.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AJAX/getRankByAPI.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AJAX/checkReady.php" afterPath="$PROJECT_DIR$/www/AJAX/checkReady.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AJAX/connection.php" afterPath="$PROJECT_DIR$/www/AJAX/connection.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AJAX/createMatch.php" afterPath="$PROJECT_DIR$/www/AJAX/createMatch.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AJAX/finishMatch.php" afterPath="$PROJECT_DIR$/www/AJAX/finishMatch.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AJAX/getKdaByAPI.php" afterPath="$PROJECT_DIR$/www/AJAX/getKdaByAPI.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AJAX/getKdaByBdd.php" afterPath="$PROJECT_DIR$/www/AJAX/getKdaByBdd.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AJAX/getLeagueByAPI.php" afterPath="$PROJECT_DIR$/www/AJAX/getLeagueByAPI.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AJAX/getLeagueByBdd.php" afterPath="$PROJECT_DIR$/www/AJAX/getLeagueByBdd.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AJAX/getPlayers.php" afterPath="$PROJECT_DIR$/www/AJAX/getPlayers.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AJAX/getRankByBdd.php" afterPath="$PROJECT_DIR$/www/AJAX/getRankByBdd.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AJAX/getStatus.php" afterPath="$PROJECT_DIR$/www/AJAX/getStatus.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AJAX/quickMatch.php" afterPath="$PROJECT_DIR$/www/AJAX/quickMatch.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AJAX/recreateMatch.php" afterPath="$PROJECT_DIR$/www/AJAX/recreateMatch.php" />
     </list>
     <ignored path="V22.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,21 +39,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ajaxQuery.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ajaxQuery.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/SRC/js/ajaxQuery.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7861142">
-              <caret line="149" column="13" selection-start-line="149" selection-start-column="13" selection-end-line="149" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="145" column="29" selection-start-line="145" selection-start-column="29" selection-end-line="145" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/SRC/Views/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.25">
-              <caret line="65" column="87" selection-start-line="65" selection-start-column="87" selection-end-line="65" selection-end-column="87" />
+            <state vertical-scroll-proportion="0.69311553">
+              <caret line="64" column="91" selection-start-line="64" selection-start-column="91" selection-end-line="64" selection-end-column="91" />
               <folding />
             </state>
           </provider>
@@ -85,7 +100,7 @@
         </entry>
       </file>
       <file leaf-file-name="getKdaByBdd.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AJAX/getKdaByBdd.php">
+        <entry file="file://$PROJECT_DIR$/www/AJAX/getKdaByBdd.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-21.75">
               <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
@@ -235,6 +250,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V22" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V22" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -247,10 +276,10 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\V22\www" />
       <recent name="D:\V22\www\SRC\sound" />
       <recent name="D:\V22" />
       <recent name="D:\V22\www\SRC\js" />
-      <recent name="D:\V22\www" />
       <recent name="D:\V22\SRC\IMG" />
     </key>
   </component>
@@ -435,14 +464,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/connection.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/connection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/createMatch.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/createMatch.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -487,7 +516,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/getStatus.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/getStatus.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.5">
           <caret line="2" column="27" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="27" />
@@ -508,35 +537,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/getKdaByAPI.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/getKdaByAPI.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39059675">
           <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/finishMatch.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/finishMatch.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.0">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/getLeagueByAPI.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/getLeagueByAPI.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11573237">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/getRankByBdd.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/getRankByBdd.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.75">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/getLeagueByBdd.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/getLeagueByBdd.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.861111">
           <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
@@ -562,21 +591,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/checkReady.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/checkReady.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.0">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/connection.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/connection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03150525">
           <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/getPlayers.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/getPlayers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28354725">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
@@ -590,7 +619,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/getRankByApi.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/getRankByApi.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.5">
           <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
@@ -605,7 +634,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/quickMatch.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/quickMatch.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.75">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="48" />
@@ -625,14 +654,14 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/createMatch.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/createMatch.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24412297">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/recreateMatch.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/recreateMatch.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14647378">
           <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
@@ -647,7 +676,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AJAX/getKdaByBdd.php">
+    <entry file="file://$PROJECT_DIR$/www/AJAX/getKdaByBdd.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-21.75">
           <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
@@ -711,18 +740,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/Views/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/www/SRC/js/ajaxQuery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.25">
-          <caret line="65" column="87" selection-start-line="65" selection-start-column="87" selection-end-line="65" selection-end-column="87" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="145" column="29" selection-start-line="145" selection-start-column="29" selection-end-line="145" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/js/ajaxQuery.js">
+    <entry file="file://$PROJECT_DIR$/www/SRC/Views/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7861142">
-          <caret line="149" column="13" selection-start-line="149" selection-start-column="13" selection-end-line="149" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.69311553">
+          <caret line="64" column="91" selection-start-line="64" selection-start-column="91" selection-end-line="64" selection-end-column="91" />
           <folding />
         </state>
       </provider>
