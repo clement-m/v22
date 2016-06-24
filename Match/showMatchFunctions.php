@@ -36,7 +36,7 @@ function insertPlayerInMatch($q,$pi,$gi,$tf,$acc,$ml,$m){
  * showMatch
  */
 function showMatch($t){
-  require_once '../www/LIB/twig/lib/Twig/Autoloader.php';
+  require_once '../LIB/twig/lib/Twig/Autoloader.php';
   Twig_Autoloader::register();
   $loader = new Twig_Loader_Filesystem('../www/SRC/Views');
   $twig = new Twig_Environment($loader);
@@ -50,7 +50,7 @@ function showMatch($t){
  */
 function quickMatch($data){
   $data = json_decode($data);
-  require_once '../www/LIB/twig/lib/Twig/Autoloader.php';
+  require_once '../LIB/twig/lib/Twig/Autoloader.php';
   Twig_Autoloader::register();
   $loader = new Twig_Loader_Filesystem('../www/SRC/Views');
   $twig = new Twig_Environment($loader);

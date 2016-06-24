@@ -1,27 +1,55 @@
-body{
+/**
+ * html
+ */
+html {
+
+}
+
+/**
+ * body
+ */
+body {
     padding-top: 30px;
 }
 
+/**
+ * td
+ */
 td {
     height: 80px;
 }
 
+/**
+ * #team1
+ */
+#team1 {
+    border-top: #0000FF solid;
+}
+
+/**
+ * #team2
+ */
+#team2 {
+    border-top: #FF0000 solid;
+}
+
+/**
+ * #smHeader
+ */
 #smHeader{
     padding-bottom: 60px;
 }
 
-#logo{
+/**
+ * #logo
+ */
+#smlogo{
     margin-right: 32px;
     float: left;
 }
 
 #smDescription{
     padding-top: 22px;
-}
-
-.loading {
-    width: 80px;
-    height: 80px;
 }
 
 #playerStatus {
@@ -37,16 +65,10 @@ td {
     margin-top: 6px;
 }
 
-/* Player */
-#team1 {
-    border-top: #0000FF solid;
-}
-#team2 {
-    border-top: #FF0000 solid;
-}
 
-.godImage{
-    height: 75px;
+
+#godImage{
+    width: 32px;
 }
 
 .player {
