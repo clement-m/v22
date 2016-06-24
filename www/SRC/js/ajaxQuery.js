@@ -55,8 +55,7 @@ function showQuickMatch(dataMatch) {
                 $('#team2').append(data);
             });
 
-            $('#startInput').bind("keypress",function(e){ if (e.which == 13) start(e); });
-            $('#startBtn').bind("click",function(e){ start(e); });
+            searchEventBind();
         }
     });
 }
@@ -103,8 +102,8 @@ function checkFinish() {
 
     if(finish) {
         $.ajax({ url: "../AJAX/finishMatch.php", type: "POST", data: "m="+m });
-        $('#startInput').bind("keypress",function(e){ if (e.which == 13) start(e); });
-        $('#startBtn').bind("click",function(e){ start(e); });
+
+        searchEventBind();
     }
 }
 
@@ -146,6 +145,8 @@ function getStatus(p,s) {
             if(statusId == 3) {
                 clearBoard();
                 createMatch(matchId,s,0);
+            } else {
+                searchEventBind();
             }
         }
     });

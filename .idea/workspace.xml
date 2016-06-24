@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="356c65ea-172b-4026-90b6-2d6f14e3a85c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Match/showMatchFunctions.php" afterPath="$PROJECT_DIR$/Match/showMatchFunctions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/Views/index.html.twig" afterPath="$PROJECT_DIR$/www/SRC/Views/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/Views/player.html.twig" afterPath="$PROJECT_DIR$/www/SRC/Views/player.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" afterPath="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/css/style.css" afterPath="$PROJECT_DIR$/www/SRC/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/js/htmlChange.js" afterPath="$PROJECT_DIR$/www/SRC/js/htmlChange.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/js/ajaxQuery.js" afterPath="$PROJECT_DIR$/www/SRC/js/ajaxQuery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/js/event.js" afterPath="$PROJECT_DIR$/www/SRC/js/event.js" />
     </list>
     <ignored path="V22.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,11 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="htmlChange.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ajaxQuery.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/SRC/js/ajaxQuery.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.84658456">
+              <caret line="148" column="34" selection-start-line="148" selection-start-column="34" selection-end-line="148" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="htmlChange.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/SRC/js/htmlChange.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34826428">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -44,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/www/SRC/js/event.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="48" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="48" />
+              <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -87,7 +92,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SRC/js/procedures.js" />
         <option value="$PROJECT_DIR$/SRC/js/pureAjax.js" />
         <option value="$PROJECT_DIR$/SRC/js/reaction.js" />
         <option value="$PROJECT_DIR$/SRC/sql/getIdPlayerByName" />
@@ -131,13 +135,14 @@
         <option value="$PROJECT_DIR$/SRC/Views/index.html.twig" />
         <option value="$PROJECT_DIR$/SRC/js/ajaxQuery.js" />
         <option value="$PROJECT_DIR$/www/index.php" />
-        <option value="$PROJECT_DIR$/www/SRC/js/ajaxQuery.js" />
         <option value="$PROJECT_DIR$/Match/showMatchFunctions.php" />
         <option value="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" />
         <option value="$PROJECT_DIR$/www/SRC/Views/player.html.twig" />
         <option value="$PROJECT_DIR$/www/SRC/js/htmlChange.js" />
         <option value="$PROJECT_DIR$/www/SRC/css/style.css" />
         <option value="$PROJECT_DIR$/www/SRC/Views/index.html.twig" />
+        <option value="$PROJECT_DIR$/www/SRC/js/event.js" />
+        <option value="$PROJECT_DIR$/www/SRC/js/ajaxQuery.js" />
       </list>
     </option>
   </component>
@@ -748,14 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/js/event.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="48" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18903151">
@@ -780,14 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/js/ajaxQuery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93729">
-          <caret line="295" column="17" selection-start-line="295" selection-start-column="17" selection-end-line="295" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/SRC/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0945158">
@@ -796,10 +785,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/SRC/js/event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/SRC/js/htmlChange.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34826428">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/SRC/js/ajaxQuery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84658456">
+          <caret line="148" column="34" selection-start-line="148" selection-start-column="34" selection-end-line="148" selection-end-column="34" />
           <folding />
         </state>
       </provider>
