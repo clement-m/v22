@@ -6,7 +6,8 @@
  * @param m
  * @param s
  */
-function createMatch(m,s) {
+function createMatch(m,s,t) {
+    t++;
     $.ajax({ url: "AJAX/createMatch.php", type: "POST", data: "matchid="+m,
         success: function (json) {
             var response = JSON.parse(json);
@@ -14,13 +15,25 @@ function createMatch(m,s) {
                 case "create": showMatch(m,s); break;
                 case "ready": showQuickMatch(response.res); break;
                 case "notfinish":
-                    setTimeout(function(){
-                        createMatch(m,s);
-                    }, 4000);
+                    if(t == 6) {
+                        recreateMatchError(m);
+                    }else{
+                        setTimeout(function(){
+                            createMatch(m,s,t);
+                        }, 4000);
+                    }
                     break;
             }
         }
     });
+}
+
+/**
+ * recreateMatchError
+ * @param m
+ */
+function recreateMatchError(m) {
+    $.ajax({ url: "AJAX/recreateMatch.php", type: "POST", data: "matchid="+m });
 }
 
 /**
@@ -131,7 +144,7 @@ function getStatus(p,s) {
             emptyTableMatch();
             if(statusId == 3) {
                 clearBoard();
-                createMatch(matchId,s);
+                createMatch(matchId,s,0);
             }
         }
     });
