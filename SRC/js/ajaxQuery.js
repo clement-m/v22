@@ -181,15 +181,14 @@ function showRankByBDD(v) {
         data: "pi="+pi+"&gi="+gi+"&m="+m,
         success: function(rank) {
             if(rank == '{"":""}') {
-                showLeagueByBdd(v);
                 showRankByApi(v);
             } else {
-                showLeagueByBdd(v);
                 rank = JSON.parse(rank);
                 rank = rank.rank;
                 showRank(rank,v);
-                showKdaByBdd(v);
             }
+            showKdaByBdd(v);
+            showLeagueByBdd(v);
         }
     });
 }
@@ -207,7 +206,6 @@ function showRankByApi(v) {
         data: "pi="+pi+"&gi="+gi+"&m="+m,
         success: function(rank) {
             showRank(rank,v);
-            showKdaByApi(v);
         }
     });
 }
