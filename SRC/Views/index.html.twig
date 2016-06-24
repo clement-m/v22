@@ -9,6 +9,7 @@
     <link type="image/png" rel="icon" href="favicon.png" />
 
     <link type="text/css" media="screen" rel="stylesheet" href="SRC/css/style.css" />
+    <link type="text/css" media="screen" rel="stylesheet" href="SRC/css/styleUsage.css" />
     <link type="text/css" media="screen" rel="stylesheet" href="SRC/css/jquery.css" />
     <link type="text/css" media="screen" rel="stylesheet" href="LIB/css/bootstrap.min.css" />
     <link type="text/css" media="screen" rel="stylesheet" href="LIB/css/bootstrap-theme.min.css" />
@@ -24,11 +25,14 @@
     <input id="allAPICalled" type="hidden" />
     <div id="wrapper" class="container well">
         <!-- HEADER -->
-        <header class="panel-heading">
-            <img src="SRC/IMG/smite.png" class="img-responsive" width="20%" alt="Smite Pantheon" />
-            <h2>Know scores and counter your ennemies in smite matches</h2>
+        <header id="smHeader" class="panel-heading">
+            <div>
+                <img id="logo" src="SRC/IMG/smite.png" class="img-responsive" width="20%" alt="Smite Pantheon" />
+                <h2 id="smDescription">Know scores and counter your ennemies in smite matches</h2>
+            </div>
         </header>
 
+        <div class="clear"></div>
         <!-- CONTENT -->
         <div class="panel-body">
             <div class="panel">
@@ -58,7 +62,7 @@
         <!-- FOOTER -->
         <footer class="panel-footer">
             <a href="http://www.hirezstudios.com/"><img src="SRC/IMG/hr2.png" /></a>
-            <div class="pull-right" id="copyright">Copyright &#169;  smite-pantheon.com - beta 0.9.9.3.5</div>
+            <div class="pull-right" id="copyright">Copyright &#169;  smite-pantheon.com - beta 0.9.9.5</div>
             <audio id="loadedaudio" src="loading.wav" autoload="auto"></audio>
         </footer>
     </div>
