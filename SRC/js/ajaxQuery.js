@@ -40,6 +40,9 @@ function showQuickMatch(dataMatch) {
             response.team2HTML.forEach(function(data){
                 $('#team2').append(data);
             });
+
+            $('#startInput').bind("keypress",function(e){ if (e.which == 13) start(e); });
+            $('#startBtn').bind("click",function(e){ start(e); });
         }
     });
 }
@@ -84,7 +87,11 @@ function checkFinish() {
         });
     }
 
-    if(finish) { $.ajax({ url: "AJAX/finishMatch.php", type: "POST", data: "m="+m }); }
+    if(finish) {
+        $.ajax({ url: "AJAX/finishMatch.php", type: "POST", data: "m="+m });
+        $('#startInput').bind("keypress",function(e){ if (e.which == 13) start(e); });
+        $('#startBtn').bind("click",function(e){ start(e); });
+    }
 }
 
 /*
