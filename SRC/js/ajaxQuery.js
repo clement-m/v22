@@ -62,7 +62,9 @@ function showMatchProcedure(m, s, q, ml, al, tf, gn, pi, pn, gi) {
     $.ajax({
         url: "Match/showMatchProcedure.php", type: "POST",
         data: "m="+m+"&s="+s+"&q="+q+"&ml="+ml+"&pn="+pn+"&al="+al+"&tf="+tf+"&gi=" + gi + "&gn=" + gn + "&pi=" + pi,
-        success: function (html) { $('#team'+tf).append(html); }
+        success: function (html) {
+            $('#team'+tf).append(html);
+        }
     });
 }
 
