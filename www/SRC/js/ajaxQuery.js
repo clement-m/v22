@@ -144,10 +144,10 @@ function getStatus(p,s) {
             emptyTableMatch();
             if(statusId == 3) {
                 clearBoard();
-                createMatch(matchId,s,0);
-      else {
+                createMatch(matchId, s, 0);
+            }else {
                 searchEventBind();
-            }       }
+            }
         }
     });
 }
