@@ -33,7 +33,6 @@ function showQuickMatch(dataMatch) {
     $('#table').empty();
     $.ajax({ url: "AJAX/quickMatch.php", type: "POST", data: "dataMatch="+dataMatch,
         success: function (html) {
-            console.log(html);
             var response = JSON.parse(html);
             response.team1HTML.forEach(function(data){
                 $('#team1').append(data);
