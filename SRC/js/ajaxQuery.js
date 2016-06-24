@@ -187,6 +187,8 @@ function showRankByBDD(v) {
                 rank = rank.rank;
                 showRank(rank,v);
             }
+            showLeagueByBdd(v);
+            showKdaByBdd(v);
         }
     });
 }
@@ -204,6 +206,7 @@ function showRankByApi(v) {
         data: "pi="+pi+"&gi="+gi+"&m="+m,
         success: function(rank) {
             showRank(rank,v);
+            showKdaByApi(v);
         }
     });
 }
@@ -264,8 +267,6 @@ function showLeagueByBdd(v) {
                 showLeagueByApi(v);
             else
                 showLeague(league,v);
-            showKdaByBdd(v);
-            showRankByBDD(v);
         }
     });
 }
