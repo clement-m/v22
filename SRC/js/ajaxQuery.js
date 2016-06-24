@@ -187,8 +187,6 @@ function showRankByBDD(v) {
                 rank = rank.rank;
                 showRank(rank,v);
             }
-            showKdaByBdd(v);
-            showLeagueByBdd(v);
         }
     });
 }
@@ -266,6 +264,8 @@ function showLeagueByBdd(v) {
                 showLeagueByApi(v);
             else
                 showLeague(league,v);
+            showKdaByBdd(v);
+            showRankByBDD(v);
         }
     });
 }

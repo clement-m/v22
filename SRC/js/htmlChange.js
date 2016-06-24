@@ -73,7 +73,7 @@ function changeTeamEvent($team) {
 
         $('#team'+$team+' tr').each(function(k,v) {
             var playerName = $(v).children('.player').text();
-            if(playerName != 'Player profile hidden') showRankByBDD(v);
+            if(playerName != 'Player profile hidden') showLeagueByBdd(v);
             else addHiddenPlayerInMatch(v);
         });
     }
