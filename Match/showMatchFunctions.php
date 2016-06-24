@@ -19,7 +19,7 @@ function createMatchPlayer($pi,$gi,$m) {
  * insertPlayerInMatch
  */
 function insertPlayerInMatch($q,$pi,$gi,$tf,$acc,$ml,$m){
-  include_once('../LIB/smLib/co.php');
+  include('../LIB/smLib/co.php');
   $req2 = $pdo->prepare("Call insertPlayerInMatch(:m,:q,:pi,:gi,:acc,:ml,:tf);");
   $req2->bindParam('m', $m, PDO::PARAM_INT);
   $req2->bindParam('q', $q, PDO::PARAM_INT);
@@ -39,7 +39,7 @@ function showMatch($t){
   require_once '../LIB/twig/lib/Twig/Autoloader.php';
   Twig_Autoloader::register();
   $loader = new Twig_Loader_Filesystem('../SRC/Views');
-  $twig = new Twig_Environment($loader);
+  $twig = new Twig_Environment($loader, array('cache' => './cache'));
   $twig->addExtension(new Twig_Extension_Debug());
   $template = $twig->loadTemplate('player.html.twig');
   echo $template->render(array('data' => $t));
@@ -53,7 +53,7 @@ function quickMatch($data){
   require_once '../LIB/twig/lib/Twig/Autoloader.php';
   Twig_Autoloader::register();
   $loader = new Twig_Loader_Filesystem('../SRC/Views');
-  $twig = new Twig_Environment($loader);
+  $twig = new Twig_Environment($loader, array('cache' => './cache'));
   $twig->addExtension(new Twig_Extension_Debug());
   $template = $twig->loadTemplate('quickPlayer.html.twig');
 
