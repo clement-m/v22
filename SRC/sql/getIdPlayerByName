@@ -1,3 +1,0 @@
-SELECT `player`.`playerId`
-FROM `player`
-WHERE `playerName` = pn

@@ -1,8 +1,0 @@
-IN m INT 11
-
-IF((SELECT COUNT(*)
-   FROM `match`
-   WHERE `matchId` = m) = 0)
-THEN
-	INSERT INTO `match` VALUES (null,m,0,0,0);
-END IF
