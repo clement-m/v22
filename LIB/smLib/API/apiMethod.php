@@ -38,7 +38,7 @@ function getAPIRank($pi,$gi) {
 /*
  * getApiKda
  */
-function getAPIKda($pi, $gi, $q) {
+function getAPIKda($pi, $gi, $q, $m) {
   $res = 0;
 
   include_once('API.php');
@@ -47,6 +47,7 @@ function getAPIKda($pi, $gi, $q) {
 
   include('../base/co.php');
   $req2 = $pdo->prepare("Call recKda(:pi,:gi,:q,:k,:d,:a,:w,:nb);");
+  $queryUpdateKdaMatch = $pdo->prepare("CALL updateKdaMatch(:pi,:gi,:kda,:q,:m);");
 
   foreach($r as $akda) {
     $Assists = $akda->Assists;
@@ -87,8 +88,19 @@ function getAPIKda($pi, $gi, $q) {
     $req2->execute();
     if(!$req2) { var_dump($pdo->errorInfo()); }
 
-    if ($ggi == $gi && $qi == intval($q))
-      $res = $avgKills . "/" . $avgDeaths . "/" . $avgAssists . " pmi:" . $PMI;
+    $kda = $avgKills . "/" . $avgDeaths . "/" . $avgAssists . " pmi:" . $PMI;
+
+    if ($ggi == intval($gi)) {
+      echo $kda;
+
+      $queryUpdateKdaMatch->bindParam('pi', $ppi, PDO::PARAM_INT);
+      $queryUpdateKdaMatch->bindParam('gi', $ggi, PDO::PARAM_INT);
+      $queryUpdateKdaMatch->bindParam('kda', $kda, PDO::PARAM_STR);
+      $queryUpdateKdaMatch->bindParam('q', $qi, PDO::PARAM_INT);
+      $queryUpdateKdaMatch->bindParam('m', $m, PDO::PARAM_INT);
+      $queryUpdateKdaMatch->execute();
+      if(!$queryUpdateKdaMatch) { var_dump($pdo->errorInfo()); }
+    }
   }
   return $res;
 }
@@ -184,7 +196,7 @@ function queueNameToId($Q) {
   if($Q == "Normal: Conquest") {
     $Q = 426;
   }
-  if($Q == "Normal: clash") {
+  if($Q == "Normal: Clash") {
     $Q = 466;
   }
   if($Q == "450") {

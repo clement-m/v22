@@ -12,7 +12,12 @@ function createMatch(m,s,t) {
             var response = JSON.parse(json);
             switch (response.response) {
                 case "create": showMatch(m,s); break;
-                case "ready": showQuickMatch(response.res); break;
+                case "ready":
+                    $('#team1').unbind("DOMSubtreeModified");
+                    $('#team2').unbind("DOMSubtreeModified");
+
+                    showQuickMatch(response.res);
+                    break;
                 case "notfinish":
                     if(t == 6) {
                         recreateMatchError(m,s);

@@ -1,25 +1,76 @@
 {% if data.playerId != 0 %}
     <tr>
         <td class="player">{{ data.namePlayer }}</td>
-        <td class="god"><img class="masteryLevel img-responsive" src="SRC/IMG/gods_icons/{{ data.nameGod }}.jpg" alt="{{ data.nameGod }}" /></td>
+        <td class="god">
+            <img class="masteryLevel img-responsive" src="SRC/IMG/gods_icons/{{ data.nameGod }}.jpg" alt="{{ data.nameGod }}" />
+        </td>
         <td class="account">{{ data.accountLevel }}</td>
         <td class="rank">{{ data.masteryLevel }}</td>
-        <td class="godrank"><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.rank }}.jpg" alt="level {{ data.rank }}" /></td>
+        <td class="godrank">
+            <img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.rank }}.jpg" alt="level {{ data.rank }}" />
+        </td>
         <td class="kda">{{ data.kda }}</td>
-        <td class="conquest leagueWrapper"><div>{{ data.conquest.name }}</div><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.conquest.num }}.jpg" alt="{{ data.conquest.num }}" /></td>
-        <td class="joust leagueWrapper"><div>{{ data.joust.name }}</div><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.joust.num }}.jpg" alt="{{ data.joust.num }}" /></td>
-        <td class="duel leagueWrapper"><div>{{ data.j1c1.name }}</div><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.j1c1.num }}.jpg" alt="{{ data.j1c1.num }}" /></td>
+        {% if data.conquest.num == "" %}
+            <td class="conquest leagueWrapper">
+                <div class="leagueName"></div>
+                <img class="masteryLevel img-responsive" src="SRC/IMG/ranks_icons/unranked.jpg" alt="unranked" />
+            </td>
+        {% else %}
+            <td class="conquest leagueWrapper">
+                <div class="leagueName"></div>
+                <img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.conquest.num }}.jpg" alt="{{ data.conquest.num }}" />
+            </td>
+        {% endif %}
+        {% if data.joust.num == "" %}
+            <td class="joust leagueWrapper">
+                <div class="leagueName"></div>
+                <img class="masteryLevel img-responsive" src="SRC/IMG/ranks_icons/unranked.jpg" alt="unranked" />
+            </td>
+        {% else %}
+            <td class="joust leagueWrapper">
+                <div class="leagueName"></div>
+                <img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.joust.num }}.jpg" alt="{{ data.joust.num }}" />
+            </td>
+        {% endif %}
+        {% if data.j1c1.num == "" %}
+            <td class="duel leagueWrapper">
+                <div class="leagueName"></div>
+                <img class="masteryLevel img-responsive" src="SRC/IMG/ranks_icons/unranked.jpg" alt="unranked" />
+            </td>
+        {% else %}
+            <td class="duel leagueWrapper">
+                <div class="leagueName"></div>
+                <img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.j1c1.num }}.jpg" alt="{{ data.j1c1.num }}" />
+            </td>
+        {% endif %}
     </tr>
 {% else %}
     <tr>
-        <td class="player"><img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" /></td>
-        <td class="god"><img class="masteryLevel img-responsive" src="SRC/IMG/gods_icons/{{ data.nameGod }}.jpg" alt="{{ data.nameGod }}" /></td>
+        <td class="player">
+            <img class="masteryLevel img-responsive newLeague" src="SRC/IMG/hidden.jpg" />
+        </td>
+        <td class="god">
+            <img class="masteryLevel img-responsive " src="SRC/IMG/gods_icons/{{ data.nameGod }}.jpg" alt="{{ data.nameGod }}" />
+        </td>
         <td class="account">{{ data.accountLevel }}</td>
         <td class="rank">{{ data.masteryLevel }}</td>
-        <td class="godrank">Player profile hidden</td>
-        <td class="kda">Player profile hidden</td>
-        <td class="conquest leagueWrapper"><img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" /></td>
-        <td class="joust leagueWrapper"><img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" /></td>
-        <td class="duel leagueWrapper"><img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" /></td>
+        <td class="godrank">
+            <img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" />
+        </td>
+        <td class="kda">
+            <img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" />
+        </td>
+        <td class="conquest leagueWrapper">
+            <div class="leagueName"></div>
+            <img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" />
+        </td>
+        <td class="joust leagueWrapper">
+            <div class="leagueName"></div>
+            <img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" />
+        </td>
+        <td class="duel leagueWrapper">
+            <div class="leagueName"></div>
+            <img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" />
+        </td>
     </tr>
 {% endif %}

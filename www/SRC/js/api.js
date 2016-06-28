@@ -36,8 +36,6 @@ function getStatus(p,s) {
             if(statusId == 3) {
                 clearBoard();
                 createMatch(matchId, s, 0);
-            }else {
-                searchEventBind();
             }
         }
     });

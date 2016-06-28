@@ -8,6 +8,8 @@ $q->bindParam('pi', $_POST['pi'], PDO::PARAM_INT);
 $q->bindParam('gi', $_POST['gi'], PDO::PARAM_INT);
 $q->bindParam('q', $_POST['q'], PDO::PARAM_INT);
 $q->execute();
+if(!$q) { var_dump($pdo->errorInfo()); }
+
 while ($row = $q->fetch()) {
   if(isset($row['kills'])) {
     $avgKill = $row['kills'] / $row['nbMatch'];
@@ -30,6 +32,7 @@ while ($row = $q->fetch()) {
     $q->bindParam('q', $_POST['q'], PDO::PARAM_STR);
     $q->bindParam('m', $_POST['m'], PDO::PARAM_INT);
     $q->execute();
+    if(!$q) { var_dump($pdo->errorInfo()); }
   } else {
     echo "";
   }
