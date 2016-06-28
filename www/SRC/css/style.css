@@ -16,7 +16,7 @@ body {
  * td
  */
 td {
-    height: 80px;
+
 }
 
 /**
@@ -71,6 +71,10 @@ td {
     width: 32px;
 }
 
+.newLeague{
+    margin-left: 24px;
+}
+
 .player {
     width: 120px;
 }
@@ -95,8 +99,7 @@ td {
 }
 
 .leagueWrapper {
-    height: 90px;
-    width: 180px;
+
 }
 
 

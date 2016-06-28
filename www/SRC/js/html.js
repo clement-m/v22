@@ -6,7 +6,7 @@ function showQuickMatch(dataMatch) {
     var dataMatch = JSON.stringify(dataMatch);
 
     $('#table').empty();
-    $.ajax({ url: "../LIB/html/quickMatch.php", type: "POST", data: "dataMatch="+dataMatch,
+    $.ajax({ url: "../LIB/smLib/html/quickMatch.php", type: "POST", data: "dataMatch="+dataMatch,
         success: function (html) {
             var response = JSON.parse(html);
             response.team1HTML.forEach(function(data){
@@ -15,8 +15,6 @@ function showQuickMatch(dataMatch) {
             response.team2HTML.forEach(function(data){
                 $('#team2').append(data);
             });
-
-            searchEventBind();
         }
     });
 }
@@ -134,17 +132,17 @@ function showLeague(league,v) {
     $(v).children('.duel').empty();
 
     if(league.conquest.name == "unranked")
-        $(v).children('.conquest').append('<img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m.jpg" alt="0" />');
+        $(v).children('.conquest').append('<img class="masteryLevel img-responsive newLeague" src="SRC/IMG/masteryLvl/m.jpg" alt="0" />');
     else
         $(v).children('.conquest').append('<div class="leagueName">' + league.conquest.name + '</div><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m' + league.conquest.num + '.jpg" alt="' + league.conquest.num + '" />');
 
     if(league.joust.name == "unranked")
-        $(v).children('.joust').append('<img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m.jpg" alt="0" />');
+        $(v).children('.joust').append('<img class="masteryLevel img-responsive newLeague" src="SRC/IMG/masteryLvl/m.jpg" alt="0" />');
     else
         $(v).children('.joust').append('<div class="leagueName">' + league.joust.name + '</div><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m' + league.joust.num + '.jpg" alt="' + league.joust.num + '" />');
 
     if(league.duel.name == "unranked")
-        $(v).children('.duel').append('<img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m.jpg" alt="0" />');
+        $(v).children('.duel').append('<img class="masteryLevel img-responsive newLeague" src="SRC/IMG/masteryLvl/m.jpg" alt="0" />');
     else
         $(v).children('.duel').append('<div class="leagueName">' + league.duel.name + '</div><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m' + league.duel.num + '.jpg" alt="' + league.duel.num + '" />');
 

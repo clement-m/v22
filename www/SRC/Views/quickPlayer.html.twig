@@ -6,14 +6,14 @@
         <td class="rank">{{ data.masteryLevel }}</td>
         <td class="godrank"><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.rank }}.jpg" alt="level {{ data.rank }}" /></td>
         <td class="kda">{{ data.kda }}</td>
-        <td class="conquest leagueWrapper"><div>{{ data.conquest.name }}</div><img class="img-responsive" src="SRC/IMG/masteryLvl/m{{ data.conquest.num }}.jpg" alt="{{ data.conquest.num }}" /></td>
-        <td class="joust leagueWrapper"><div>{{ data.joust.name }}</div><img class="img-responsive" src="SRC/IMG/masteryLvl/m{{ data.joust.num }}.jpg" alt="{{ data.joust.num }}" /></td>
-        <td class="duel leagueWrapper"><div>{{ data.j1c1.name }}</div><img class="img-responsive" src="SRC/IMG/masteryLvl/m{{ data.j1c1.num }}.jpg" alt="{{ data.j1c1.num }}" /></td>
+        <td class="conquest leagueWrapper"><div>{{ data.conquest.name }}</div><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.conquest.num }}.jpg" alt="{{ data.conquest.num }}" /></td>
+        <td class="joust leagueWrapper"><div>{{ data.joust.name }}</div><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.joust.num }}.jpg" alt="{{ data.joust.num }}" /></td>
+        <td class="duel leagueWrapper"><div>{{ data.j1c1.name }}</div><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.j1c1.num }}.jpg" alt="{{ data.j1c1.num }}" /></td>
     </tr>
 {% else %}
     <tr>
         <td class="player">Player profile hidden</td>
-        <td class="god"><img class="godImage img-responsive" src="SRC/IMG/gods_icons/{{ data.nameGod }}.jpg" alt="{{ data.nameGod }}" /></td>
+        <td class="god"><img class="masteryLevel img-responsive" src="SRC/IMG/gods_icons/{{ data.nameGod }}.jpg" alt="{{ data.nameGod }}" /></td>
         <td class="account">{{ data.accountLevel }}</td>
         <td class="rank">{{ data.masteryLevel }}</td>
         <td class="godrank">Player profile hidden</td>

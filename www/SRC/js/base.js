@@ -44,19 +44,17 @@ function checkFinish() {
     var finish = true;
 
     $('#team1').children('tr').each(function(e,v){
-        if($(v).attr('data-done') != "done"){ finish = false; }
+        finish = $(v).attr('data-done') == "done";
     });
 
     if(finish) {
         $('#team2').children('tr').each(function(e,v){
-            if($(v).attr('data-done') != "done") { finish = false; }
+            finish = $(v).attr('data-done') == "done";
         });
     }
 
     if(finish) {
         $.ajax({ url: "../LIB/smLib/base/finishMatch.php", type: "POST", data: "m="+m });
-
-        searchEventBind();
     }
 }
 

@@ -6,16 +6,6 @@ function start(e) {
     getConnection();
 }
 
-function searchEventUnbind() {
-    $('#startInput').unbind("keypress");
-    $('#startBtn').unbind("click");
-}
-
-function searchEventBind() {
-    $('#startInput').bind("keypress",function(e){ if (e.which == 13) start(e); });
-    $('#startBtn').bind("click",function(e){ start(e); });
-}
-
 $(document).ready(function() {
     $('#startInput').focus();
     $('#startInput').keypress(function (e) { if (e.which == 13) start(e); });
