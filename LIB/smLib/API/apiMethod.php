@@ -44,7 +44,7 @@ function getAPIKda($pi, $gi, $q) {
   include_once('API.php');
   $API = new API();
   $r = $API->getKDA($pi, $q);
-
+  
   include('../base/co.php');
   $req2 = $pdo->prepare("Call recKda(:pi,:gi,:q,:k,:d,:a,:w,:nb);");
 
@@ -68,7 +68,7 @@ function getAPIKda($pi, $gi, $q) {
     else $PMI = round(($avgKills + $avgAssists) / $avgDeaths, 2);
 
     $ppi = intval($pi);
-    $ggi = intval($gi);
+    $ggi = intval($rgi);
     $qi = queueNameToId($QueueName);
     $kk = intval($Kills);
     $dd = intval($Deaths);
@@ -87,7 +87,7 @@ function getAPIKda($pi, $gi, $q) {
     $req2->execute();
     if(!$req2) { var_dump($pdo->errorInfo()); }
 
-    if ($rgi == $gi && $qi == intval($q))
+    if ($ggi == $gi && $qi == intval($q))
       $res = $avgKills . "/" . $avgDeaths . "/" . $avgAssists . " pmi:" . $PMI;
   }
   return $res;
