@@ -1,104 +1,5 @@
 <?php
 
-// showMatchFunctions.php
-
-/*
- * createMatchPlayer
- */
-function createMatchPlayer($pi,$gi,$m) {
-  include('../LIB/smLib/co.php');
-  $req2 = $pdo->prepare("Call createMatchPlayer(:pi,:gi,:m);");
-  $req2->bindParam('pi', $pi, PDO::PARAM_INT);
-  $req2->bindParam('gi', $gi, PDO::PARAM_INT);
-  $req2->bindParam('m', $m, PDO::PARAM_INT);
-  $req2->execute();
-  if(!$req2) { var_dump($pdo->errorInfo()); }
-}
-
-/**
- * insertPlayerInMatch
- */
-function insertPlayerInMatch($q,$pi,$gi,$tf,$acc,$ml,$m){
-  include('../LIB/smLib/co.php');
-  $req2 = $pdo->prepare("Call insertPlayerInMatch(:m,:q,:pi,:gi,:acc,:ml,:tf);");
-  $req2->bindParam('m', $m, PDO::PARAM_INT);
-  $req2->bindParam('q', $q, PDO::PARAM_INT);
-  $req2->bindParam('pi', $pi, PDO::PARAM_INT);
-  $req2->bindParam('gi', $gi, PDO::PARAM_INT);
-  $req2->bindParam('acc', $acc, PDO::PARAM_INT);
-  $req2->bindParam('ml', $ml, PDO::PARAM_INT);
-  $req2->bindParam('tf', $tf, PDO::PARAM_INT);
-  $req2->execute();
-  if(!$req2) { var_dump($pdo->errorInfo()); }
-}
-
-/*
- * showMatch
- */
-function showMatch($t){
-  require_once '../LIB/twig/lib/Twig/Autoloader.php';
-  Twig_Autoloader::register();
-  $loader = new Twig_Loader_Filesystem('../www/SRC/Views');
-  $twig = new Twig_Environment($loader, array('cache' => '../www/cache'));
-  $twig->addExtension(new Twig_Extension_Debug());
-  $template = $twig->loadTemplate('player.html.twig');
-  echo $template->render(array('data' => $t));
-}
-
-/*
- * quickMatch
- */
-function quickMatch($data){
-  $data = json_decode($data);
-  require_once '../LIB/twig/lib/Twig/Autoloader.php';
-  Twig_Autoloader::register();
-  $loader = new Twig_Loader_Filesystem('../www/SRC/Views');
-  $twig = new Twig_Environment($loader, array('cache' => '../www/cache'));
-  $twig->addExtension(new Twig_Extension_Debug());
-  $template = $twig->loadTemplate('quickPlayer.html.twig');
-
-  $dataTeam2 = array();
-  $res = array();
-  foreach($data as $k => $vData) {
-    $vData->conquest = leagueCode($vData->conquest);
-    $vData->joust = leagueCode($vData->joust);
-    $vData->j1c1 = leagueCode($vData->j1c1);
-    if($vData->taskForce == 2) $dataTeam2[] = $vData;
-    else $res['team1HTML'][] = $template->render(array('data' => $vData));
-  }
-
-  foreach($dataTeam2 as $k => $vData) {
-    $res['team2HTML'][] = $template->render(array('data' => $vData));
-  }
-
-  echo json_encode($res);
-}
-
-/*
- * updatePlayer
- */
-function updatePlayer($pi,$pn) {
-  if($pn != null) {
-    include('../LIB/smLib/co.php');
-    $req2 = $pdo->prepare("Call updatePlayer(:pi,:pn);");
-    $req2->bindParam('pi', $pi, PDO::PARAM_INT);
-    $req2->bindParam('pn', $pn, PDO::PARAM_STR);
-    $req2->execute();
-    if(!$req2) { var_dump($pdo->errorInfo()); }
-  }
-}
-
-/*
- * updateGod
- */
-function updateGod($gi,$gn) {
-  include('../LIB/smLib/co.php');
-  $req2 = $pdo->prepare("Call updateGod(:gi,:gn);");
-  $req2->bindParam('gi', $gi, PDO::PARAM_INT);
-  $req2->bindParam('gn', $gn, PDO::PARAM_STR);
-  $req2->execute();
-  if(!$req2) { var_dump($pdo->errorInfo()); }
-}
 
 /*
  * getAPIRank
@@ -107,11 +8,11 @@ function getAPIRank($pi,$gi) {
   $res = 0;
 
   session_start();
-  include_once('../LIB/smLib/API.php');
+  include_once('API.php');
   $API = new API();
   $rank = $API->getRank($pi, $_SESSION['session']);
 
-  include_once('../LIB/smLib/co.php');
+  include_once('../base/co.php');
   $req2 = $pdo->prepare("Call recRank(:pi,:gi,:r);");
 
   foreach($rank as $aRank) {
@@ -140,11 +41,11 @@ function getAPIRank($pi,$gi) {
 function getAPIKda($pi, $gi, $q) {
   $res = 0;
 
-  include_once('../LIB/smLib/API.php');
+  include_once('API.php');
   $API = new API();
   $r = $API->getKDA($pi, $q);
 
-  include('../LIB/smLib/co.php');
+  include('../base/co.php');
   $req2 = $pdo->prepare("Call recKda(:pi,:gi,:q,:k,:d,:a,:w,:nb);");
 
   foreach($r as $akda) {
@@ -196,7 +97,7 @@ function getAPIKda($pi, $gi, $q) {
  * getApiLeague
  */
 function getApiLeague($pi,$m) {
-  include_once('../LIB/smLib/API.php');
+  include_once('API.php');
   $API = new API();
   $r = $API->getLeague($pi);
 
@@ -205,7 +106,7 @@ function getApiLeague($pi,$m) {
   $JoustTier = $league->RankedJoust->Tier;
   $DuelTier = $league->RankedDuel->Tier;
 
-  include('../LIB/smLib/co.php');
+  include('../base/co.php');
   $q = $pdo->prepare("CALL recLeague(:pi,:c,:j,:d);");
   $q->bindParam('pi', $pi, PDO::PARAM_INT);
   $q->bindParam('c', $ConqTier, PDO::PARAM_INT);

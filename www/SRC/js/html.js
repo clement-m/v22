@@ -1,5 +1,25 @@
+/**
+ * showQuickMatch
+ * @param dataMatch
+ */
+function showQuickMatch(dataMatch) {
+    var dataMatch = JSON.stringify(dataMatch);
 
-// htmlChange.js
+    $('#table').empty();
+    $.ajax({ url: "../LIB/html/quickMatch.php", type: "POST", data: "dataMatch="+dataMatch,
+        success: function (html) {
+            var response = JSON.parse(html);
+            response.team1HTML.forEach(function(data){
+                $('#team1').append(data);
+            });
+            response.team2HTML.forEach(function(data){
+                $('#team2').append(data);
+            });
+
+            searchEventBind();
+        }
+    });
+}
 
 /*
  * clearBoard
@@ -58,9 +78,9 @@ function changeTeamEvent($team) {
     var len = $('#team'+$team+' tr').length;
 
     if ((mod == 'Ranked: Duel' && len > 1)
-    || ((mod == 'Normal: Joust' || mod == 'Ranked: Joust') && len > 2)
-    || (mod == 'Normal: Siege' && len > 3)
-    || ((mod == 'Ranked: Conquest' || mod == 'Normal: Clash' || mod == 'Normal: Arena' || mod == 'Normal: Assault' || mod ==  "Normal: Conquest") && len > 4)
+        || ((mod == 'Normal: Joust' || mod == 'Ranked: Joust') && len > 2)
+        || (mod == 'Normal: Siege' && len > 3)
+        || ((mod == 'Ranked: Conquest' || mod == 'Normal: Clash' || mod == 'Normal: Arena' || mod == 'Normal: Assault' || mod ==  "Normal: Conquest") && len > 4)
     ) {
         $('#team'+$team).unbind("DOMSubtreeModified");
 

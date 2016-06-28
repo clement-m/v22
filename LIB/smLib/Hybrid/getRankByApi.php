@@ -2,12 +2,12 @@
 
 // getRankByAPI.php
 
-include_once('../Match/showMatchFunctions.php');
+include_once('../API/apiMethod.php');
 $rank = getAPIRank($_POST['pi'], $_POST['gi']);
 
 echo $rank;
 
-include('../LIB/smLib/co.php');
+include('../base/co.php');
 $q = $pdo->prepare("CALL updateRankMatch(:pi,:gi,:r,:m);");
 $q->bindParam('pi', $_POST['pi'], PDO::PARAM_INT);
 $q->bindParam('gi', $_POST['gi'], PDO::PARAM_INT);

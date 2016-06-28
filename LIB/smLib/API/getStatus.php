@@ -6,7 +6,7 @@ session_start();
 $_SESSION['session'] = $s;
 $_SESSION['player'] = $p;
 
-include_once('../LIB/smLib/API.php');
+include_once('API.php');
 $M = new API();
 $r = $M->getPlayerStatus($p);
 $r = json_decode($r);

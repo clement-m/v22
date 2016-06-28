@@ -1,6 +1,6 @@
 <?php
 
-include_once('../LIB/smLib/co.php');
+include_once('co.php');
 $q = $pdo->prepare("CALL getLeagueByBdd(:pi,:q);");
 $q->bindParam('pi', $_POST['pi'], PDO::PARAM_INT);
 $q->bindParam('q', $_POST['q'], PDO::PARAM_INT);
@@ -8,7 +8,7 @@ $q->execute();
 $res = null;
 while ($row = $q->fetch()) { $res = $row; }
 
-include_once('../Match/showMatchFunctions.php');
+include_once('baseMethod.php');
 if(isset($res['conquest'])) {
   $Lconq = leagueCode($res['conquest']);
   $Ljoust = leagueCode($res['joust']);

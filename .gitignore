@@ -4,7 +4,9 @@ ehthumbs.db
 
 
 # sm
-/LIB/smLib/co.php
+/LIB/smLib/base/co.php
+/www/index.php
+/www/cache/*
 
 .idea
 

@@ -2,7 +2,7 @@
 
 // getKdaByBdd
 
-include_once('../LIB/smLib/co.php');
+include_once('co.php');
 $q = $pdo->prepare("CALL getKdaByBdd(:pi,:gi,:q);");
 $q->bindParam('pi', $_POST['pi'], PDO::PARAM_INT);
 $q->bindParam('gi', $_POST['gi'], PDO::PARAM_INT);
