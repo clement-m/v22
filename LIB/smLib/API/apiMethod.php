@@ -44,7 +44,7 @@ function getAPIKda($pi, $gi, $q) {
   include_once('API.php');
   $API = new API();
   $r = $API->getKDA($pi, $q);
-  
+
   include('../base/co.php');
   $req2 = $pdo->prepare("Call recKda(:pi,:gi,:q,:k,:d,:a,:w,:nb);");
 
