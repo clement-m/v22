@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="356c65ea-172b-4026-90b6-2d6f14e3a85c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/SRC/IMG/hidden.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LIB/smLib/html/htmlMethod.php" afterPath="$PROJECT_DIR$/LIB/smLib/html/htmlMethod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/Views/index.html.twig" afterPath="$PROJECT_DIR$/www/SRC/Views/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" afterPath="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/css/style.css" afterPath="$PROJECT_DIR$/www/SRC/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/js/base.js" afterPath="$PROJECT_DIR$/www/SRC/js/base.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/js/event.js" afterPath="$PROJECT_DIR$/www/SRC/js/event.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/js/html.js" afterPath="$PROJECT_DIR$/www/SRC/js/html.js" />
     </list>
     <ignored path="V22.iws" />
@@ -51,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="html.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="html.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/SRC/js/html.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="33" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.45840406">
+              <caret line="103" column="112" selection-start-line="103" selection-start-column="112" selection-end-line="103" selection-end-column="112" />
               <folding />
             </state>
           </provider>
@@ -71,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="quickPlayer.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="quickPlayer.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5858951">
-              <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+            <state vertical-scroll-proportion="-12.0">
+              <caret line="22" column="107" selection-start-line="22" selection-start-column="107" selection-end-line="22" selection-end-column="107" />
               <folding />
             </state>
           </provider>
@@ -84,8 +80,8 @@
       <file leaf-file-name="player.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/SRC/Views/player.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.25">
-              <caret line="7" column="64" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="64" />
+            <state vertical-scroll-proportion="-3.0">
+              <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -166,9 +162,9 @@
         <option value="$PROJECT_DIR$/LIB/smLib/API/apiMethod.php" />
         <option value="$PROJECT_DIR$/LIB/smLib/html/htmlMethod.php" />
         <option value="$PROJECT_DIR$/www/SRC/js/base.js" />
-        <option value="$PROJECT_DIR$/www/SRC/js/html.js" />
         <option value="$PROJECT_DIR$/www/SRC/js/event.js" />
         <option value="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" />
+        <option value="$PROJECT_DIR$/www/SRC/js/html.js" />
       </list>
     </option>
   </component>
@@ -325,6 +321,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="IMG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V22" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V22" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SRC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -440,11 +458,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\V22\www\SRC\IMG" />
       <recent name="D:\V22\www\SRC\css\bootstrap" />
       <recent name="D:\V22\LIB\smLib\API" />
       <recent name="D:\V22\LIB\smLib\Hybrid" />
       <recent name="D:\V22\LIB\smLib\base" />
-      <recent name="D:\V22\LIB\smLib\html" />
     </key>
   </component>
   <component name="RunManager">
@@ -491,7 +509,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1928" height="1044" extended-state="0" />
+    <frame x="-4" y="-4" width="1928" height="1044" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -833,14 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LIB/smLib/base/createMatch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LIB/smLib/html/quickMatch.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14647378">
@@ -857,14 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/js/html.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LIB/smLib/html/htmlMethod.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.0">
@@ -873,18 +875,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/Views/player.html.twig">
+    <entry file="file://$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.25">
-          <caret line="7" column="64" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="64" />
+        <state vertical-scroll-proportion="-12.0">
+          <caret line="22" column="107" selection-start-line="22" selection-start-column="107" selection-end-line="22" selection-end-column="107" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig">
+    <entry file="file://$PROJECT_DIR$/www/SRC/Views/player.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5858951">
-          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+        <state vertical-scroll-proportion="-3.0">
+          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LIB/smLib/base/createMatch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.5">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/SRC/js/html.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45840406">
+          <caret line="103" column="112" selection-start-line="103" selection-start-column="112" selection-end-line="103" selection-end-column="112" />
           <folding />
         </state>
       </provider>

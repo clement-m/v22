@@ -99,9 +99,9 @@ function addHiddenPlayerInMatch(v) {
     $(v).children('.kda').empty();
     $(v).children('.leagueWrapper').empty();
 
-    $(v).children('.godrank').append('Player profile hidden');
-    $(v).children('.kda').append('Player profile hidden');
-    $(v).children('.leagueWrapper').append('Player profile hidden');
+    $(v).children('.godrank').append('<img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" />');
+    $(v).children('.kda').append('<img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" />');
+    $(v).children('.leagueWrapper').append('<img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" />');
     $(v).attr('data-done','done');
 }
 
