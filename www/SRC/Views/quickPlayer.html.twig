@@ -1,5 +1,5 @@
-{% if data.playerId != 0 %}
-    <tr>
+<tr>
+    {% if data.playerId != 0 %}
         <td class="player">{{ data.namePlayer }}</td>
         <td class="god">
             <img class="masteryLevel img-responsive" src="SRC/IMG/gods_icons/{{ data.nameGod }}.jpg" alt="{{ data.nameGod }}" />
@@ -10,42 +10,31 @@
             <img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.rank }}.jpg" alt="level {{ data.rank }}" />
         </td>
         <td class="kda">{{ data.kda }}</td>
-        {% if data.conquest.num == "" %}
-            <td class="conquest leagueWrapper">
-                <div class="leagueName"></div>
+        <td class="conquest leagueWrapper">
+            {% if data.conquest.num == "" %}
                 <img class="masteryLevel img-responsive" src="SRC/IMG/ranks_icons/unranked.jpg" alt="unranked" />
-            </td>
-        {% else %}
-            <td class="conquest leagueWrapper">
-                <div class="leagueName"></div>
+            {% else %}
+                <img class="masteryLevel img-responsive leftFloat" src="SRC/IMG/ranks_icons/{{ data.conquest.name }}.jpg" alt="{{ data.conquest.name }}" />
                 <img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.conquest.num }}.jpg" alt="{{ data.conquest.num }}" />
-            </td>
-        {% endif %}
-        {% if data.joust.num == "" %}
-            <td class="joust leagueWrapper">
-                <div class="leagueName"></div>
+            {% endif %}
+        </td>
+        <td class="joust leagueWrapper">
+            {% if data.joust.num == "" %}
                 <img class="masteryLevel img-responsive" src="SRC/IMG/ranks_icons/unranked.jpg" alt="unranked" />
-            </td>
-        {% else %}
-            <td class="joust leagueWrapper">
-                <div class="leagueName"></div>
+            {% else %}
+                <img class="masteryLevel img-responsive leftFloat" src="SRC/IMG/ranks_icons/{{ data.joust.name }}.jpg" alt="{{ data.joust.name }}" />
                 <img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.joust.num }}.jpg" alt="{{ data.joust.num }}" />
-            </td>
-        {% endif %}
-        {% if data.j1c1.num == "" %}
-            <td class="duel leagueWrapper">
-                <div class="leagueName"></div>
+            {% endif %}
+        </td>
+        <td class="duel leagueWrapper">
+            {% if data.j1c1.num == "" %}
                 <img class="masteryLevel img-responsive" src="SRC/IMG/ranks_icons/unranked.jpg" alt="unranked" />
-            </td>
-        {% else %}
-            <td class="duel leagueWrapper">
-                <div class="leagueName"></div>
+            {% else %}
+                <img class="masteryLevel img-responsive leftFloat" src="SRC/IMG/ranks_icons/{{ data.j1c1.name }}.jpg" alt="{{ data.j1c1.name }}" />
                 <img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.j1c1.num }}.jpg" alt="{{ data.j1c1.num }}" />
-            </td>
-        {% endif %}
-    </tr>
-{% else %}
-    <tr>
+            {% endif %}
+        </td>
+    {% else %}
         <td class="player">
             <img class="masteryLevel img-responsive newLeague" src="SRC/IMG/hidden.jpg" />
         </td>
@@ -58,19 +47,16 @@
             <img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" />
         </td>
         <td class="kda">
-            <img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" />
+            <img class="masteryLevel img-responsive newLeague" src="SRC/IMG/hidden.jpg" />
         </td>
         <td class="conquest leagueWrapper">
-            <div class="leagueName"></div>
             <img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" />
         </td>
         <td class="joust leagueWrapper">
-            <div class="leagueName"></div>
             <img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" />
         </td>
         <td class="duel leagueWrapper">
-            <div class="leagueName"></div>
             <img class="masteryLevel img-responsive" src="SRC/IMG/hidden.jpg" />
         </td>
-    </tr>
-{% endif %}
+    {% endif %}
+</tr>

@@ -3,10 +3,13 @@
  * @param dataMatch
  */
 function showQuickMatch(dataMatch) {
-    var dataMatch = JSON.stringify(dataMatch);
-
     $('#table').empty();
-    $.ajax({ url: "../LIB/smLib/html/quickMatch.php", type: "POST", data: "dataMatch="+dataMatch,
+
+    dataMatch.forEach(function(e){
+        e.kda = kdaToString(e.kills,e.deaths,e.assists,e.nbMatch);
+    });
+
+    $.ajax({ url: "../LIB/smLib/html/quickMatch.php", type: "POST", data: "dataMatch="+JSON.stringify(dataMatch),
         success: function (html) {
             var response = JSON.parse(html);
             response.team1HTML.forEach(function(data){
@@ -17,6 +20,32 @@ function showQuickMatch(dataMatch) {
             });
         }
     });
+}
+
+function kdaToString(k,d,a,nb) {
+    var KDA;
+
+    if(nb == 0) KDA = '<img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m.jpg" alt="new" />';
+    else {
+        var K;
+        var D;
+        var A;
+        var PMI;
+
+        K = (k == 0) ? 0 : k / nb;
+        D = (d == 0) ? 0 : d / nb;
+        A = (a == 0) ? 0 : a / nb;
+
+        K = parseFloat(K.toFixed(2));
+        D = parseFloat(D.toFixed(2));
+        A = parseFloat(A.toFixed(2));
+
+        PMI = (K + A) / D;
+        PMI = parseFloat(PMI.toFixed(2));
+
+        KDA = K + "/" + D + "/" + A + " pmi: " + PMI;
+    }
+    return KDA;
 }
 
 /*
@@ -75,10 +104,9 @@ function changeTeamEvent($team) {
     var mod = $('#mod').text();
     var len = 0;
 
-    if(mod == 'Ranked: Duel')
-        len = $('.table'+' tr').length;
-    else
-        len = $('#team'+$team+' tr').length;
+    len = (mod == 'Ranked: Duel')
+        ? $('.table'+' tr').length
+        : $('#team'+$team+' tr').length;
 
     if ((mod == 'Ranked: Duel' && len > 1)
         || ((mod == 'Normal: Joust' || mod == 'Ranked: Joust') && len > 2)
@@ -123,7 +151,29 @@ function showRank(rank,v) {
  */
 function showKda(kda,v) {
     $(v).children('.kda').empty();
-    $(v).children('.kda').append(kda);
+    $(v).children('.kda').append((kda == "0") ? '<img class="masteryLevel img-responsive newLeague" src="SRC/IMG/masteryLvl/m.jpg" alt="new" />': kda);
+}
+
+/**
+ * leagueNameToImg
+ */
+function leagueNameToImg(name){
+    $res = "";
+    switch (name) {
+        case "unranked": return ''; break;
+        case "bronze": return '<img class="masteryLevel img-responsive leftFloat" src="SRC/IMG/ranks_icons/bronze.jpg" alt="bronze" />'; break;
+        case "silver": return '<img class="masteryLevel img-responsive leftFloat" src="SRC/IMG/ranks_icons/silver.jpg" alt="silver" />'; break;
+        case "gold": return '<img class="masteryLevel img-responsive leftFloat" src="SRC/IMG/ranks_icons/gold.jpg" alt="gold" />'; break;
+        case "platine": return '<img class="masteryLevel img-responsive leftFloat" src="SRC/IMG/ranks_icons/platinium.jpg" alt="platinium" />'; break;
+        case "platinium": return '<img class="masteryLevel img-responsive leftFloat" src="SRC/IMG/ranks_icons/platinium.jpg" alt="platinium" />'; break;
+        case "diamond": return '<img class="masteryLevel img-responsive leftFloat" src="SRC/IMG/ranks_icons/diamond.jpg" alt="diamond" />'; break;
+    }
+}
+
+function leagueNumToImg(num) {
+    return (num == 0)
+        ? '<img class="masteryLevel img-responsive" src="SRC/IMG/ranks_icons/unranked.jpg" alt="unranked" />'
+        : '<img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m' + num + '.jpg" alt="' + num + '" />';
 }
 
 /*
@@ -136,20 +186,9 @@ function showLeague(league,v) {
     $(v).children('.joust').empty();
     $(v).children('.duel').empty();
 
-    if(league.conquest.name == "unranked")
-        $(v).children('.conquest').append('<div class="leagueName"></div><img class="masteryLevel img-responsive newLeague" src="SRC/IMG/ranks_icons/unranked.jpg" alt="0" />');
-    else
-        $(v).children('.conquest').append('<div class="leagueName">' + league.conquest.name + '</div><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m' + league.conquest.num + '.jpg" alt="' + league.conquest.num + '" />');
-
-    if(league.joust.name == "unranked")
-        $(v).children('.joust').append('<div class="leagueName"></div><img class="masteryLevel img-responsive newLeague" src="SRC/IMG/ranks_icons/unranked.jpg" alt="0" />');
-    else
-        $(v).children('.joust').append('<div class="leagueName">' + league.joust.name + '</div><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m' + league.joust.num + '.jpg" alt="' + league.joust.num + '" />');
-
-    if(league.duel.name == "unranked")
-        $(v).children('.duel').append('<div class="leagueName"></div><img class="masteryLevel img-responsive newLeague" src="SRC/IMG/ranks_icons/unranked.jpg" alt="0" />');
-    else
-        $(v).children('.duel').append('<div class="leagueName">' + league.duel.name + '</div><img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m' + league.duel.num + '.jpg" alt="' + league.duel.num + '" />');
+    $(v).children('.conquest').append(leagueNameToImg(league.conquest.name) + leagueNumToImg(league.conquest.num));
+    $(v).children('.joust').append(leagueNameToImg(league.joust.name) + leagueNumToImg(league.joust.num));
+    $(v).children('.duel').append(leagueNameToImg(league.duel.name) + leagueNumToImg(league.duel.num));
 
     $(v).attr('data-done','done');
     checkFinish();

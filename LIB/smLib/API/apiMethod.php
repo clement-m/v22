@@ -38,17 +38,15 @@ function getAPIRank($pi,$gi) {
 /*
  * getApiKda
  */
-function getAPIKda($pi, $gi, $q, $m) {
+function getAPIKda($pi, $gi, $q) {
   $res = 0;
+
+  include('../base/co.php');
+  $req2 = $pdo->prepare("Call recKda(:pi,:gi,:q,:k,:d,:a,:w,:nb);");
 
   include_once('API.php');
   $API = new API();
   $r = $API->getKDA($pi, $q);
-
-  include('../base/co.php');
-  $req2 = $pdo->prepare("Call recKda(:pi,:gi,:q,:k,:d,:a,:w,:nb);");
-  $queryUpdateKdaMatch = $pdo->prepare("CALL updateKdaMatch(:pi,:gi,:kda,:q,:m);");
-
   foreach($r as $akda) {
     $Assists = $akda->Assists;
     $Deaths = $akda->Deaths;
@@ -88,18 +86,8 @@ function getAPIKda($pi, $gi, $q, $m) {
     $req2->execute();
     if(!$req2) { var_dump($pdo->errorInfo()); }
 
-    $kda = $avgKills . "/" . $avgDeaths . "/" . $avgAssists . " pmi:" . $PMI;
-
     if ($ggi == intval($gi)) {
-      echo $kda;
-
-      $queryUpdateKdaMatch->bindParam('pi', $ppi, PDO::PARAM_INT);
-      $queryUpdateKdaMatch->bindParam('gi', $ggi, PDO::PARAM_INT);
-      $queryUpdateKdaMatch->bindParam('kda', $kda, PDO::PARAM_STR);
-      $queryUpdateKdaMatch->bindParam('q', $qi, PDO::PARAM_INT);
-      $queryUpdateKdaMatch->bindParam('m', $m, PDO::PARAM_INT);
-      $queryUpdateKdaMatch->execute();
-      if(!$queryUpdateKdaMatch) { var_dump($pdo->errorInfo()); }
+      echo $avgKills . "/" . $avgDeaths . "/" . $avgAssists . " pmi:" . $PMI;
     }
   }
   return $res;
@@ -108,7 +96,7 @@ function getAPIKda($pi, $gi, $q, $m) {
 /*
  * getApiLeague
  */
-function getApiLeague($pi,$m) {
+function getApiLeague($pi) {
   include_once('API.php');
   $API = new API();
   $r = $API->getLeague($pi);
@@ -124,14 +112,6 @@ function getApiLeague($pi,$m) {
   $q->bindParam('c', $ConqTier, PDO::PARAM_INT);
   $q->bindParam('j', $JoustTier, PDO::PARAM_INT);
   $q->bindParam('d', $DuelTier, PDO::PARAM_INT);
-  $q->execute();
-
-  $q = $pdo->prepare("CALL updateLeagueMatch(:pi,:c,:j,:j1c1,:m);");
-  $q->bindParam('pi', $_POST['pi'], PDO::PARAM_INT);
-  $q->bindParam('c', $ConqTier, PDO::PARAM_INT);
-  $q->bindParam('j', $JoustTier, PDO::PARAM_INT);
-  $q->bindParam('j1c1', $DuelTier, PDO::PARAM_INT);
-  $q->bindParam('m', $m, PDO::PARAM_INT);
   $q->execute();
 
   $res['conquest'] = leagueCode($ConqTier);
