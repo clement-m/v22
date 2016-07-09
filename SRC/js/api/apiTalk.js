@@ -4,13 +4,13 @@
  */
 function getConnection(s) {
     $.ajax({
-        url: "../LIB/smLib/API/apiTalk/testSession.php", type: "POST",
+        url: "LIB/smLib/API/apiTalk/testSession.php", type: "POST",
         data: "session="+s,
         success: function(r) {
             if(r.substr(1,8) == "This was") getStatus($('input[name="player"]').val(),s);
             else
                 $.ajax({
-                    url: "../LIB/smLib/API/apiTalk/connection.php", type: "POST",
+                    url: "LIB/smLib/API/apiTalk/connection.php", type: "POST",
                     success: function(r) {
                         var r = JSON.parse(r);
                         var response = r.ret_msg;
@@ -36,7 +36,7 @@ function getConnection(s) {
  */
 function getStatus(p,s) {
     $.ajax({
-        url: "../LIB/smLib/API/apiTalk/getStatus.php", type: "POST",
+        url: "LIB/smLib/API/apiTalk/getStatus.php", type: "POST",
         data: "player="+p+"&session="+s,
         success: function(json) {
             var r = JSON.parse(json);

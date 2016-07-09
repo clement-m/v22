@@ -34,7 +34,7 @@ function setNbMatchReach(q){
  */
 function showMatch(m,s) {
     $.ajax({
-        url: "../LIB/smLib/API/players/getPlayers.php", type: "POST",
+        url: "LIB/smLib/API/players/getPlayers.php", type: "POST",
         data: "matchid="+m,
         success: function(json) {
             var players = JSON.parse(json);
@@ -178,7 +178,7 @@ function incPlayerReady() {
 function checkFinish(m) {
     if($('#nbTotalReached').val() == $('#nbTotalReach').val()) {
         bindStartButton();
-        $.ajax({ url: "../LIB/smLib/base/match/finishMatch.php", type: "POST", data: "m="+m });
+        $.ajax({ url: "LIB/smLib/base/match/finishMatch.php", type: "POST", data: "m="+m });
     }
 }
 

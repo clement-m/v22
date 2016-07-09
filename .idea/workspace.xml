@@ -2,7 +2,156 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="356c65ea-172b-4026-90b6-2d6f14e3a85c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" afterPath="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LIB/smLib/base/co.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LIB/smLib/html/htmlMethod.php" afterPath="$PROJECT_DIR$/LIB/smLib/html/htmlMethod.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/GIFLOAD/loader.gif" afterPath="$PROJECT_DIR$/SRC/IMG/GIFLOAD/loader.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/GIFLOAD/loading.gif" afterPath="$PROJECT_DIR$/SRC/IMG/GIFLOAD/loading.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/accountlevel.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/accountlevel.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/bakasuraLD.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/helpbox/IMG/bakasuraLD.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Agni.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Agni.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Ah_Muzen_Cab.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Ah_Muzen_Cab.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Ah_Puch.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Ah_Puch.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Amaterasu.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Amaterasu.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Anhur.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Anhur.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Anubis.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Anubis.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Ao_Kuang.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Ao_Kuang.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Aphrodite.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Aphrodite.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Apollo.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Apollo.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Arachne.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Arachne.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Ares.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Ares.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Artemis.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Artemis.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Athena.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Athena.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Awilix.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Awilix.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Bacchus.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Bacchus.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Bakasura.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Bakasura.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Bastet.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Bastet.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Bellona.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Bellona.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Cabrakan.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Cabrakan.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Chaac.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Chaac.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/ChangE.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/ChangE.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Chiron.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Chiron.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Chronos.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Chronos.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Cupid.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Cupid.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Erlang_Shen.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Erlang_Shen.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Fafnir.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Fafnir.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Fenrir.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Fenrir.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Freya.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Freya.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Geb.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Geb.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Guan_Yu.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Guan_Yu.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Hades.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Hades.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/He_Bo.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/He_Bo.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Hel.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Hel.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Hercules.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Hercules.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Hou_Yi.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Hou_Yi.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Hun_Batz.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Hun_Batz.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Isis.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Isis.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Janus.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Janus.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Jing_Wei.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Jing_Wei.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Kali.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Kali.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Khepri.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Khepri.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Kukulkan.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Kukulkan.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Kumbhakarna.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Kumbhakarna.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Loki.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Loki.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Medusa.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Medusa.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Mercury.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Mercury.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Ne_Zha.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Ne_Zha.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Neith.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Neith.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Nemesis.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Nemesis.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Nox.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Nox.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Nu_Wa.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Nu_Wa.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Odin.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Odin.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Osiris.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Osiris.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Poseidon.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Poseidon.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Ra.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Ra.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Raijin.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Raijin.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Rama.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Rama.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Ratatoskr.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Ratatoskr.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Ravana.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Ravana.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Scylla.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Scylla.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Serqet.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Serqet.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Skadi.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Skadi.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Sobek.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Sobek.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Sol.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Sol.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Sun_Wukong.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Sun_Wukong.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Susano.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Susano.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Sylvanus.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Sylvanus.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Thanatos.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Thanatos.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Thor.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Thor.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Tyr.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Tyr.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Ullr.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Ullr.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Vamana.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Vamana.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Vulcan.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Vulcan.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Xbalanque.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Xbalanque.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Xing_Tian.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Xing_Tian.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Ymir.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Ymir.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Zeus.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Zeus.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Zhong_Kui.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/gods_icons/Zhong_Kui.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/header.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/header.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/helpbox/IMG/bakasuraLD.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/bakasuraLD.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/helpbox/helpbox.css" afterPath="$PROJECT_DIR$/SRC/IMG/helpbox/helpbox.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/hidden.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/hidden.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/hr.png" afterPath="$PROJECT_DIR$/SRC/IMG/hr.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/hr2.png" afterPath="$PROJECT_DIR$/SRC/IMG/hr2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/loading.gif" afterPath="$PROJECT_DIR$/SRC/IMG/loading.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/logos/HiRez FULL Logo FINAL 2014.png" afterPath="$PROJECT_DIR$/SRC/IMG/logos/HiRez FULL Logo FINAL 2014.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/logos/Hirez Logo No text.png" afterPath="$PROJECT_DIR$/SRC/IMG/logos/Hirez Logo No text.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/logos/SMITE Logo 96dpi 2000w.png" afterPath="$PROJECT_DIR$/SRC/IMG/logos/SMITE Logo 96dpi 2000w.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/logos/Season2_logo-curse.png" afterPath="$PROJECT_DIR$/SRC/IMG/logos/Season2_logo-curse.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/masteryLvl/m.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m0.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/masteryLvl/m0.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m1.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/masteryLvl/m1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m10.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/masteryLvl/m10.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m2.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/masteryLvl/m2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m3.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/masteryLvl/m3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m4.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/masteryLvl/m4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m5.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/masteryLvl/m5.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m6.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/masteryLvl/m6.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m7.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/masteryLvl/m7.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m8.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/masteryLvl/m8.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m9.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/masteryLvl/m9.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/masterylevel.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/masterylevel.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/menu.gif" afterPath="$PROJECT_DIR$/SRC/IMG/menu.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/menu_beta.0.3.png" afterPath="$PROJECT_DIR$/SRC/IMG/menu_beta.0.3.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/modNoKda/arena.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/modNoKda/arena.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/modNoKda/assault.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/modNoKda/assault.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/modNoKda/clash.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/modNoKda/clash.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/modNoKda/conquest.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/modNoKda/conquest.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/modNoKda/joust.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/modNoKda/joust.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/modNoKda/siege.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/modNoKda/siege.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/ranks_icons/bronze.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/ranks_icons/bronze.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/ranks_icons/diamond.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/ranks_icons/diamond.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/ranks_icons/gold.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/ranks_icons/gold.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/ranks_icons/master.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/ranks_icons/master.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/ranks_icons/platine.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/ranks_icons/platine.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/ranks_icons/platinium.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/ranks_icons/platinium.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/ranks_icons/silver.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/ranks_icons/silver.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/ranks_icons/unranked.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/ranks_icons/unranked.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/smite.png" afterPath="$PROJECT_DIR$/SRC/IMG/smite.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/tableau_font.gif" afterPath="$PROJECT_DIR$/SRC/IMG/tableau_font.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/IMG/tutorial.jpg" afterPath="$PROJECT_DIR$/SRC/IMG/tutorial.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/Views/index.html.twig" afterPath="$PROJECT_DIR$/SRC/Views/index.html.twig" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/Views/player.html.twig" afterPath="$PROJECT_DIR$/SRC/Views/player.html.twig" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" afterPath="$PROJECT_DIR$/SRC/Views/quickPlayer.html.twig" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/Views/titleMatch.html.twig" afterPath="$PROJECT_DIR$/SRC/Views/titleMatch.html.twig" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/css/bootstrap/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/SRC/css/bootstrap/bootstrap-theme.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/css/bootstrap/bootstrap-theme.min.css.map" afterPath="$PROJECT_DIR$/SRC/css/bootstrap/bootstrap-theme.min.css.map" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/css/bootstrap/bootstrap.css.map" afterPath="$PROJECT_DIR$/SRC/css/bootstrap/bootstrap.css.map" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/css/bootstrap/bootstrap.min.css" afterPath="$PROJECT_DIR$/SRC/css/bootstrap/bootstrap.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/css/jquery.css" afterPath="$PROJECT_DIR$/SRC/css/jquery.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/css/style.css" afterPath="$PROJECT_DIR$/SRC/css/style.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/css/styleUsage.css" afterPath="$PROJECT_DIR$/SRC/css/styleUsage.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/js/api/api.js" afterPath="$PROJECT_DIR$/SRC/js/api/api.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/js/api/apiTalk.js" afterPath="$PROJECT_DIR$/SRC/js/api/apiTalk.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/js/api/showMatchProcedure.js" afterPath="$PROJECT_DIR$/SRC/js/api/showMatchProcedure.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/js/base/base.js" afterPath="$PROJECT_DIR$/SRC/js/base/base.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/js/html/event.js" afterPath="$PROJECT_DIR$/SRC/js/html/event.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/js/html/html.js" afterPath="$PROJECT_DIR$/SRC/js/html/html.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/js/jquery-1.11.3.min.js" afterPath="$PROJECT_DIR$/SRC/js/jquery-1.11.3.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/favicon.png" afterPath="$PROJECT_DIR$/favicon.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/robots.txt" afterPath="$PROJECT_DIR$/robots.txt" />
     </list>
     <ignored path="V22.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,22 +172,42 @@
     <favorites_list name="V22" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/SRC/Views/index.html.twig">
+    <leaf>
+      <file leaf-file-name="html.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SRC/js/html/html.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.0">
-              <caret line="71" column="94" selection-start-line="71" selection-start-column="94" selection-end-line="71" selection-end-column="94" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="quickPlayer.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig">
+      <file leaf-file-name="showMatchProcedure.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LIB/smLib/API/players/showMatchProcedure.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34072345">
-              <caret line="13" column="65" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+            <state vertical-scroll-proportion="-10.166667">
+              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="htmlMethod.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LIB/smLib/html/htmlMethod.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5355893">
+              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.25">
+              <caret line="7" column="60" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -61,12 +230,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/www/SRC/js/apiMethod.js" />
-        <option value="$PROJECT_DIR$/www/SRC/js/htmlChange.js" />
-        <option value="$PROJECT_DIR$/www/SRC/js/hybride.js" />
-        <option value="$PROJECT_DIR$/LIB/smLib/API/getRankByApi.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/LIB/smLib/API/getLeagueByAPI.php" />
         <option value="$PROJECT_DIR$/LIB/smLib/API/getKdaByAPI.php" />
         <option value="$PROJECT_DIR$/LIB/smLib/base/finishMatch.php" />
         <option value="$PROJECT_DIR$/LIB/smLib/base/getKdaByBdd.php" />
@@ -98,7 +261,6 @@
         <option value="$PROJECT_DIR$/LIB/smLib/base/rank/getRankByBdd.php" />
         <option value="$PROJECT_DIR$/LIB/smLib/API/rank/getRankByApi.php" />
         <option value="$PROJECT_DIR$/LIB/smLib/base/match/quickMatch.php" />
-        <option value="$PROJECT_DIR$/LIB/smLib/html/htmlMethod.php" />
         <option value="$PROJECT_DIR$/LIB/smLib/base/match/putFinish.php" />
         <option value="$PROJECT_DIR$/LIB/smLib/base/match/checkFinish.php" />
         <option value="$PROJECT_DIR$/www/SRC/js/api/api.js" />
@@ -112,6 +274,13 @@
         <option value="$PROJECT_DIR$/www/SRC/js/base/base.js" />
         <option value="$PROJECT_DIR$/www/SRC/Views/index.html.twig" />
         <option value="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" />
+        <option value="$PROJECT_DIR$/SRC/js/api/apiTalk.js" />
+        <option value="$PROJECT_DIR$/SRC/js/base/base.js" />
+        <option value="$PROJECT_DIR$/SRC/js/api/api.js" />
+        <option value="$PROJECT_DIR$/SRC/js/api/showMatchProcedure.js" />
+        <option value="$PROJECT_DIR$/SRC/js/html/html.js" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/LIB/smLib/html/htmlMethod.php" />
       </list>
     </option>
   </component>
@@ -183,68 +352,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="V22" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="V22" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SRC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="V22" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="V22" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SRC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="V22" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="V22" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="SRC" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -280,11 +387,81 @@
               <option name="myItemId" value="smLib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V22" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V22" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LIB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="smLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V22" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V22" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LIB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="smLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="API" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V22" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V22" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LIB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="smLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="API" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="players" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -294,15 +471,15 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\V22\www\SRC\IMG\ranks_icons" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\V22" />
+      <recent name="D:\V22\www" />
       <recent name="D:\V22\www\SRC\IMG\gods_icons" />
       <recent name="D:\V22\www\SRC\IMG" />
       <recent name="D:\V22\LIB\smLib\base\match" />
-      <recent name="D:\V22\www\SRC\js\api" />
-      <recent name="D:\V22\www\SRC\js\html" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\V22\www\SRC\IMG\ranks_icons" />
     </key>
   </component>
   <component name="RunManager">
@@ -363,11 +540,10 @@
     <editor active="false" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32158118" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -378,6 +554,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -420,73 +597,47 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/ranks_icons/diamond.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/ranks_icons/diamond.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/ranks_icons/gold.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/ranks_icons/gold.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/ranks_icons/platine.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/ranks_icons/platine.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/ranks_icons/silver.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/ranks_icons/silver.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/ranks_icons/master.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/ranks_icons/master.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m0.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/masteryLvl/m0.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/Views/titleMatch.html.twig">
+    <entry file="file://$PROJECT_DIR$/SRC/Views/titleMatch.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22053675">
           <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/Views/player.html.twig">
+    <entry file="file://$PROJECT_DIR$/SRC/Views/player.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15752625">
           <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.094515756">
-          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LIB/smLib/API/apiTalk/connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.75">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LIB/smLib/API/players/getPlayers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.25">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -494,7 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.0">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -502,7 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.25">
           <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -510,7 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.75">
           <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -518,7 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.5">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -526,23 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.75">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="18" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LIB/smLib/API/apiTalk/testSession.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LIB/smLib/API/apiTalk/getStatus.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.75">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="13" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -550,51 +680,50 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.75">
           <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/masteryLvl/m.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/masteryLvl/m.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/masterylevel.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/masterylevel.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/hr2.png">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/hr2.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/hr.png">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/hr.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/header.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/header.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/accountlevel.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/accountlevel.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/ranks_icons/unranked.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/ranks_icons/unranked.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/bakasuraLD.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/bakasuraLD.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/helpbox/IMG/bakasuraLD.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/helpbox/IMG/bakasuraLD.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -603,15 +732,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0630105">
           <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LIB/smLib/html/htmlMethod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47257876">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -619,7 +739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.126021">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -627,7 +746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03150525">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -635,7 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03150525">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -643,11 +760,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.504084">
           <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/IMG/tutorial.jpg">
+    <entry file="file://$PROJECT_DIR$/SRC/IMG/tutorial.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -656,7 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03150525">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -664,7 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22053675">
           <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -672,7 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0630105">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -680,86 +793,131 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.126021">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SRC/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8333335">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SRC/Views/quickPlayer.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34072345">
+          <caret line="13" column="65" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SRC/Views/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.236873">
+          <caret line="71" column="94" selection-start-line="71" selection-start-column="94" selection-end-line="71" selection-end-column="94" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/css/style.css">
+    <entry file="file://$PROJECT_DIR$/SRC/js/base/base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8333335">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.060470324">
+          <caret line="128" column="14" selection-start-line="128" selection-start-column="14" selection-end-line="128" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SRC/js/api/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SRC/js/api/apiTalk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SRC/js/api/showMatchProcedure.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SRC/js/html/event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LIB/smLib/API/apiTalk/connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03150525">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LIB/smLib/API/apiTalk/getStatus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03150525">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="13" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LIB/smLib/API/apiTalk/testSession.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03150525">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LIB/smLib/API/players/getPlayers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.094515756">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SRC/js/html/html.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LIB/smLib/API/players/showMatchProcedure.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40956825">
+        <state vertical-scroll-proportion="-10.166667">
           <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/js/api/showMatchProcedure.js">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51399773">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        <state vertical-scroll-proportion="-5.25">
+          <caret line="7" column="60" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/js/api/apiTalk.js">
+    <entry file="file://$PROJECT_DIR$/LIB/smLib/html/htmlMethod.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69540876">
-          <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/js/api/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36282194">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/js/html/event.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18141097">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/js/base/base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/js/html/html.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="261" column="21" selection-start-line="261" selection-start-column="9" selection-end-line="261" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/Views/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.0">
-          <caret line="71" column="94" selection-start-line="71" selection-start-column="94" selection-end-line="71" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34072345">
-          <caret line="13" column="65" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.5355893">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
           <folding />
         </state>
       </provider>

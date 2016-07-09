@@ -7,7 +7,7 @@
  */
 function createMatch(m,s,t) {
     t++;
-    $.ajax({ url: "../LIB/smLib/base/match/createMatch.php", type: "POST", data: "matchid="+m,
+    $.ajax({ url: "LIB/smLib/base/match/createMatch.php", type: "POST", data: "matchid="+m,
         success: function (json) {
             var response = JSON.parse(json);
             switch (response.response) {
@@ -42,7 +42,7 @@ function showQuickMatch(dataMatch) {
         e.queueId = kdaToImgName(e.queueId);
     });
 
-    $.ajax({ url: "../LIB/smLib/base/match/quickMatch.php", type: "POST", data: "dataMatch="+JSON.stringify(dataMatch),
+    $.ajax({ url: "LIB/smLib/base/match/quickMatch.php", type: "POST", data: "dataMatch="+JSON.stringify(dataMatch),
         success: function (html) {
             var response = JSON.parse(html);
             response.team1HTML.forEach(function(data){
@@ -62,7 +62,7 @@ function showQuickMatch(dataMatch) {
  * @param m
  */
 function recreateMatchError(m,s) {
-    $.ajax({ url: "../LIB/smLib/base/match/recreateMatch.php", type: "POST", data: "matchid="+m });
+    $.ajax({ url: "LIB/smLib/base/match/recreateMatch.php", type: "POST", data: "matchid="+m });
     showMatch(m,s);
 }
 
@@ -78,7 +78,7 @@ function showRankByBDD(v) {
     var m = $(v).attr('data-matchId');
 
     $.ajax({
-        url: "../LIB/smLib/base/rank/getRankByBdd.php", type: "POST",
+        url: "LIB/smLib/base/rank/getRankByBdd.php", type: "POST",
         data: "pi="+pi+"&gi="+gi+"&m="+m,
         success: function(rank) {
             if(rank == '{"":""}') {
@@ -104,7 +104,7 @@ function showKdaByBdd(v){
     var q = $('#mod').attr('data-idMod');
 
     $.ajax({
-        url: "../LIB/smLib/base/kda/getKdaByBdd.php", type: "POST",
+        url: "LIB/smLib/base/kda/getKdaByBdd.php", type: "POST",
         data: "pi="+pi+"&gi="+gi+"&q="+q+"&m="+m,
         success: function(kda) {
             if(kda == '') {
@@ -126,7 +126,7 @@ function showLeagueByBdd(v) {
     var q = $('#mod').attr('data-idMod');
 
     $.ajax({
-        url: "../LIB/smLib/base/league/getLeagueByBdd.php", type: "POST",
+        url: "LIB/smLib/base/league/getLeagueByBdd.php", type: "POST",
         data: "pi="+pi+"&q="+q+"&m="+m,
         success: function(league) {
             if(league == '')

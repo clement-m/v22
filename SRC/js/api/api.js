@@ -10,7 +10,7 @@ function showRankByApi(v) {
     var m = $(v).attr('data-matchId');
 
     $.ajax({
-        url: "../LIB/smLib/API/rank/getRankByApi.php", type: "POST",
+        url: "LIB/smLib/API/rank/getRankByApi.php", type: "POST",
         data: "pi="+pi+"&gi="+gi+"&m="+m,
         success: function(rank) {
             showRank(rank,v,"");
@@ -30,7 +30,7 @@ function showKdaByApi(v) {
     var q = $('#mod').attr('data-idMod');
 
     $.ajax({
-        url: "../LIB/smLib/API/kda/getKdaByAPI.php", type: "POST",
+        url: "LIB/smLib/API/kda/getKdaByAPI.php", type: "POST",
         data: "pi="+pi+"&gi="+gi+"&q="+q+"&m="+m,
         success: function(kda) {
             showKda(kda,v,q,"");
@@ -46,7 +46,7 @@ function showLeagueByApi(v) {
     var m = $(v).attr('data-matchId');
 
     $.ajax({
-        url: "../LIB/smLib/API/league/getLeagueByAPI.php", type: "POST",
+        url: "LIB/smLib/API/league/getLeagueByAPI.php", type: "POST",
         data: "pi="+pi+"&m="+m,
         success: function(league) {
             showLeague(league,v,m,"");
