@@ -2,51 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="356c65ea-172b-4026-90b6-2d6f14e3a85c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/SRC/IMG/gods_icons/Erlang_Shen.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/SRC/IMG/tutorial.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LIB/smLib/API/apiTalk/testSession.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LIB/smLib/base/match/finishMatch.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/SRC/js/api/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/SRC/js/api/apiTalk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/SRC/js/html/html.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LIB/smLib/base/finishMatch.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/SRC/IMG/HR.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/SRC/IMG/battleground.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/SRC/IMG/button_match.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/SRC/IMG/button_match.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/SRC/IMG/button_match_hover.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/SRC/IMG/button_match_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/SRC/IMG/fond_border.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/SRC/js/api.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/SRC/js/html.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/SRC/sound/loading.wav" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LIB/smLib/API/API.php" afterPath="$PROJECT_DIR$/LIB/smLib/API/API.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LIB/smLib/API/apiMethod.php" afterPath="$PROJECT_DIR$/LIB/smLib/API/apiMethod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LIB/smLib/html/htmlMethod.php" afterPath="$PROJECT_DIR$/LIB/smLib/html/htmlMethod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/Views/index.html.twig" afterPath="$PROJECT_DIR$/www/SRC/Views/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" afterPath="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/Views/titleMatch.html.twig" afterPath="$PROJECT_DIR$/www/SRC/Views/titleMatch.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/SRC/css/style.css" afterPath="$PROJECT_DIR$/www/SRC/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.php" afterPath="$PROJECT_DIR$/www/index.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/API/connection.php" afterPath="$PROJECT_DIR$/LIB/smLib/API/apiTalk/connection.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/API/getKdaByAPI.php" afterPath="$PROJECT_DIR$/LIB/smLib/API/kda/getKdaByAPI.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/API/getLeagueByAPI.php" afterPath="$PROJECT_DIR$/LIB/smLib/API/league/getLeagueByAPI.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/API/getPlayers.php" afterPath="$PROJECT_DIR$/LIB/smLib/API/players/getPlayers.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/API/getStatus.php" afterPath="$PROJECT_DIR$/LIB/smLib/API/apiTalk/getStatus.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/Hybrid/getRankByApi.php" afterPath="$PROJECT_DIR$/LIB/smLib/API/rank/getRankByApi.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/Hybrid/showMatchProcedure.php" afterPath="$PROJECT_DIR$/LIB/smLib/API/players/showMatchProcedure.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/base/checkReady.php" afterPath="$PROJECT_DIR$/LIB/smLib/base/match/checkReady.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/base/createMatch.php" afterPath="$PROJECT_DIR$/LIB/smLib/base/match/createMatch.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/base/getKdaByBdd.php" afterPath="$PROJECT_DIR$/LIB/smLib/base/kda/getKdaByBdd.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/base/getLeagueByBdd.php" afterPath="$PROJECT_DIR$/LIB/smLib/base/league/getLeagueByBdd.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/base/getRankByBdd.php" afterPath="$PROJECT_DIR$/LIB/smLib/base/rank/getRankByBdd.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/base/recreateMatch.php" afterPath="$PROJECT_DIR$/LIB/smLib/base/match/recreateMatch.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LIB/smLib/html/quickMatch.php" afterPath="$PROJECT_DIR$/LIB/smLib/base/match/quickMatch.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/favicon.png" afterPath="$PROJECT_DIR$/www/favicon.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/js/base.js" afterPath="$PROJECT_DIR$/www/SRC/js/base/base.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/js/event.js" afterPath="$PROJECT_DIR$/www/SRC/js/html/event.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/SRC/js/hybride.js" afterPath="$PROJECT_DIR$/www/SRC/js/api/showMatchProcedure.js" />
     </list>
     <ignored path="V22.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,11 +24,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/SRC/Views/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.630105">
+            <state vertical-scroll-proportion="-15.0">
               <caret line="71" column="94" selection-start-line="71" selection-start-column="94" selection-end-line="71" selection-end-column="94" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="quickPlayer.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.34072345">
+              <caret line="13" column="65" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -144,8 +110,8 @@
         <option value="$PROJECT_DIR$/www/SRC/js/html/event.js" />
         <option value="$PROJECT_DIR$/www/SRC/js/html/html.js" />
         <option value="$PROJECT_DIR$/www/SRC/js/base/base.js" />
-        <option value="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" />
         <option value="$PROJECT_DIR$/www/SRC/Views/index.html.twig" />
+        <option value="$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig" />
       </list>
     </option>
   </component>
@@ -238,6 +204,10 @@
               <option name="myItemId" value="SRC" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -258,6 +228,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V22" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V22" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SRC" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -760,18 +748,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig">
+    <entry file="file://$PROJECT_DIR$/www/SRC/Views/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32672113">
-          <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
+        <state vertical-scroll-proportion="-15.0">
+          <caret line="71" column="94" selection-start-line="71" selection-start-column="94" selection-end-line="71" selection-end-column="94" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/SRC/Views/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/www/SRC/Views/quickPlayer.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.630105">
-          <caret line="71" column="94" selection-start-line="71" selection-start-column="94" selection-end-line="71" selection-end-column="94" />
+        <state vertical-scroll-proportion="0.34072345">
+          <caret line="13" column="65" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
           <folding />
         </state>
       </provider>
