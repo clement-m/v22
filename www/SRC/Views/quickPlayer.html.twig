@@ -9,7 +9,13 @@
         <td class="godrank">
             <img class="masteryLevel img-responsive" src="SRC/IMG/masteryLvl/m{{ data.rank }}.jpg" alt="level {{ data.rank }}" />
         </td>
-        <td class="kda">{{ data.kda }}</td>
+        <td class="kda">
+            {% if data.kda == "NaN/NaN/NaN pmi: NaN" %}
+                <img class="masteryLevel img-responsive" src="SRC/IMG/modNoKda/{{ data.queueId }}.jpg" alt="no match yet" />
+            {% else %}
+                {{ data.kda }}
+            {% endif %}
+        </td>
         <td class="conquest leagueWrapper">
             {% if data.conquest.num == "" %}
                 <img class="masteryLevel img-responsive" src="SRC/IMG/ranks_icons/unranked.jpg" alt="unranked" />

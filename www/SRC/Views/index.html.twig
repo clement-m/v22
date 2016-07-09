@@ -6,7 +6,7 @@
 
     <title>Smite Pantheon</title>
 
-    <link type="image/png" rel="icon" href="../../../favicon.png" />
+    <link type="image/png" rel="icon" href="favicon.png" />
 
     <link type="text/css" media="screen" rel="stylesheet" href="SRC/css/style.css" />
     <link type="text/css" media="screen" rel="stylesheet" href="SRC/css/styleUsage.css" />
@@ -15,15 +15,21 @@
     <link type="text/css" media="screen" rel="stylesheet" href="SRC/css/bootstrap/bootstrap-theme.min.css" />
 
     <script type="text/javascript" src="SRC/js/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="SRC/js/event.js"></script>
-    <script type="text/javascript" src="SRC/js/html.js"></script>
-    <script type="text/javascript" src="SRC/js/base.js"></script>
-    <script type="text/javascript" src="SRC/js/hybride.js"></script>
-    <script type="text/javascript" src="SRC/js/api.js"></script>
+    <script type="text/javascript" src="SRC/js/html/event.js"></script>
+    <script type="text/javascript" src="SRC/js/html/html.js"></script>
+    <script type="text/javascript" src="SRC/js/api/showMatchProcedure.js"></script>
+    <script type="text/javascript" src="SRC/js/api/api.js"></script>
+    <script type="text/javascript" src="SRC/js/api/apiTalk.js"></script>
+    <script type="text/javascript" src="SRC/js/base/base.js"></script>
 </head>
 
 <!-- BODY -->
 <body>
+    <input id="nbTotalReach" type="hidden" value="" />
+    <input id="nbTotalReached" type="hidden" value="0" />
+    <input id="session" type="hidden" value="{{ session }}">
+    <div id="tutorial"><img class="img-responsive" src="SRC/IMG/tutorial.jpg" alt="tutorial" /></div>
+    <div id="helpBox"><img class="img-responsive" src="SRC/IMG/bakasuraLD.jpg" alt="helpbox" /></div>
     <div id="wrapper" class="container well">
         <!-- HEADER -->
         <header id="smHeader" class="panel-heading">
@@ -48,7 +54,7 @@
                     <div id="playerStatus"></div>
                 </div>
             </div>
-            <div class="panel">
+            <div id="panelMatch" class="panel">
                 <div id="mod" class="panel-heading" data-idMod=""></div>
                 <div class="panel-body">
                     <table class="table">
@@ -63,7 +69,7 @@
         <!-- FOOTER -->
         <footer class="panel-footer">
             <a href="http://www.hirezstudios.com/"><img src="SRC/IMG/hr2.png" /></a>
-            <div class="pull-right" id="copyright">Copyright &#169;  smite-pantheon.com - v9.9.6</div>
+            <div class="pull-right" id="copyright">Copyright &#169;  smite-pantheon.com - v1.0</div>
             <!-- <audio id="loadedaudio" src="loading.wav" autoload="auto"></audio> -->
         </footer>
     </div>

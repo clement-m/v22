@@ -1,20 +1,23 @@
 <?php
 
+// LIB/smLib/API/apiMethod.php
 
-/*
+/**
  * getAPIRank
+ * @param $pi
+ * @param $gi
+ * @return int
  */
 function getAPIRank($pi,$gi) {
   $res = 0;
+
+  include_once('../../base/co.php');
+  $req2 = $pdo->prepare("Call recRank(:pi,:gi,:r);");
 
   session_start();
   include_once('API.php');
   $API = new API();
   $rank = $API->getRank($pi, $_SESSION['session']);
-
-  include_once('../base/co.php');
-  $req2 = $pdo->prepare("Call recRank(:pi,:gi,:r);");
-
   foreach($rank as $aRank) {
     $rRank = $aRank->Rank;
     $rgod_id = $aRank->god_id;
@@ -37,11 +40,12 @@ function getAPIRank($pi,$gi) {
 
 /*
  * getApiKda
+ * @param $pi
+ * @param $gi
+ * @param $q
  */
 function getAPIKda($pi, $gi, $q) {
-  $res = 0;
-
-  include('../base/co.php');
+  include('../../base/co.php');
   $req2 = $pdo->prepare("Call recKda(:pi,:gi,:q,:k,:d,:a,:w,:nb);");
 
   include_once('API.php');
@@ -61,10 +65,10 @@ function getAPIKda($pi, $gi, $q) {
     $avgDeaths = round($Deaths / $nbMatch, 2);
     $avgAssists = round($Assists / $nbMatch, 2);
 
-    if($avgKills == 0 && $avgAssists == 0) $PMI = 0 - round($avgDeaths, 2);
+    if($avgKills == 0 && $avgAssists == 0) $PMI = $avgDeaths;
     else if($avgDeaths == 0) $PMI = round(($avgKills + $avgAssists), 2);
     else if($avgKills == 0 && $avgAssists == 0 && $avgDeaths == 0) $PMI = 0;
-    else $PMI = round(($avgKills + $avgAssists) / $avgDeaths, 2);
+    else $PMI = round(($avgKills + $avgAssists / $avgDeaths), 2);
 
     $ppi = intval($pi);
     $ggi = intval($rgi);
@@ -90,11 +94,12 @@ function getAPIKda($pi, $gi, $q) {
       echo $avgKills . "/" . $avgDeaths . "/" . $avgAssists . " pmi:" . $PMI;
     }
   }
-  return $res;
 }
 
-/*
+/**
  * getApiLeague
+ * @param $pi
+ * @return mixed
  */
 function getApiLeague($pi) {
   include_once('API.php');
@@ -106,7 +111,7 @@ function getApiLeague($pi) {
   $JoustTier = $league->RankedJoust->Tier;
   $DuelTier = $league->RankedDuel->Tier;
 
-  include('../base/co.php');
+  include('../../base/co.php');
   $q = $pdo->prepare("CALL recLeague(:pi,:c,:j,:d);");
   $q->bindParam('pi', $pi, PDO::PARAM_INT);
   $q->bindParam('c', $ConqTier, PDO::PARAM_INT);
@@ -121,9 +126,11 @@ function getApiLeague($pi) {
   return $res;
 }
 
-/*
+/**
  * leagueCode
  * getLeagueCode
+ * @param $num
+ * @return array
  */
 function leagueCode($num) {
   $res = Array();
@@ -159,8 +166,10 @@ function leagueCode($num) {
   return $res;
 }
 
-/*
+/**
  * queueNameToId
+ * @param $Q
+ * @return int|string
  */
 function queueNameToId($Q) {
   // DOIT RETOURNER L4ID PAS LE PUTAIN DE NOM
